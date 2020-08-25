@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <module>stønadsstatistikk</module>
+        <module>stonadsstatistikk</module>
     </modules>
 
     <dependencies>
