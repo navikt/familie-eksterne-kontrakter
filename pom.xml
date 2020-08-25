@@ -95,7 +95,7 @@
         <repository>
             <id>github</id>
             <name>GitHub navikt Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/navikt/familie-kontrakter</url>
+            <url>https://maven.pkg.github.com/navikt/familie-eksterne-kontrakter</url>
         </repository>
     </distributionManagement>
 
