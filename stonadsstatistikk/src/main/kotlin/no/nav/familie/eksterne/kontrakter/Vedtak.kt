@@ -1,5 +1,7 @@
 package no.nav.familie.eksterne.kontrakter
 
+import java.time.LocalDate
+
 data class Vedtak(val fagsakId: String,
                   val behandlingsId: String,
                   val tidspunktVedtak: LocalDate,
