@@ -9,13 +9,16 @@ data class Vedtak(val fagsakId: String,
                   val ensligForsørger: Boolean,
                   val utbetalingsperioder: List<Utbetalingsperiode>)
 
-data class Utbetalingsperiode(val klassekode: String,
-                              val hjemmel: String,
-                              val beløp: Int,
-                              val utbetalingsfrekvens: String,
+data class Utbetalingsperiode(val hjemmel: String,
+                              val utbetaltPerMnd: Int,
                               val stønadFom: LocalDate,
                               val stønadTom: LocalDate,
-                              val personer: List<Person>)
+                              val utbetalingsDetaljer: List<UtbetalingsDetaljer>)
+
+data class UtbetalingsDetaljer(val person: Person,
+                                val klassekode: List<String>,
+                                 val utbetaltPrMnd: Int)
+
 
 data class Person(val personIdent: String,
                   val rolle: String,
