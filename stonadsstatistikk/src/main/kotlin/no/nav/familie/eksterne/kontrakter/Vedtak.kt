@@ -16,7 +16,7 @@ data class Utbetalingsperiode(val hjemmel: String,
                               val utbetalingsDetaljer: List<UtbetalingsDetalj>)
 
 data class UtbetalingsDetalj(val person: Person,
-                             val klassekode: List<String>,
+                             val klassekode: String,
                              val utbetaltPrMnd: Int)
 
 
