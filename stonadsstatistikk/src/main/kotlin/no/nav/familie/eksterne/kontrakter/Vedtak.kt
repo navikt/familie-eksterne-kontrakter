@@ -13,16 +13,16 @@ data class Utbetalingsperiode(val hjemmel: String,
                               val utbetaltPerMnd: Int,
                               val stønadFom: LocalDate,
                               val stønadTom: LocalDate,
-                              val utbetalingsDetaljer: List<UtbetalingsDetaljer>)
+                              val utbetalingsDetaljer: List<UtbetalingsDetalj>)
 
-data class UtbetalingsDetaljer(val person: Person,
-                                val klassekode: List<String>,
-                                 val utbetaltPrMnd: Int)
+data class UtbetalingsDetalj(val person: Person,
+                             val klassekode: List<String>,
+                             val utbetaltPrMnd: Int)
 
 
 data class Person(val personIdent: String,
                   val rolle: String,
-                  val statsborgerskap: String,
+                  val statsborgerskap: List<String>,
                   val bostedsland: String,
                   val primærland: String,
                   val sekundærland: String,
