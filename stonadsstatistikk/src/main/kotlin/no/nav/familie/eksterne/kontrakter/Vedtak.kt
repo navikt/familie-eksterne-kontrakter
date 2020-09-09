@@ -21,7 +21,8 @@ data class UtbetalingsperiodeDVH(val hjemmel: String,
 
 data class UtbetalingsDetaljDVH(val person: PersonDVH,
                                 val klassekode: String,
-                                val utbetaltPrMnd: Int)
+                                val utbetaltPrMnd: Int,
+                                val delytelseId: String)
 
 
 data class PersonDVH(val personIdent: String,
