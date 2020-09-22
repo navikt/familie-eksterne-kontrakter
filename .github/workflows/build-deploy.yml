@@ -56,11 +56,11 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn --settings .github/maven-settings.xml -pl .,saksstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+        run: mvn --settings .github/maven-settings.xml -pl saksstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
 
       - name: Deploy stonadsstatistikk ved endring
         if: env.STONADSSTATISTIKK == github.sha && github.base_ref == 'master'
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn --settings .github/maven-settings.xml -pl .,stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+        run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
