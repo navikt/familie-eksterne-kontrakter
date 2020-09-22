@@ -19,9 +19,6 @@ jobs:
         with:
           java-version: 1.11
 
-      - name: Resolve/Update Dependencies
-        run: mvn package dependency:resolve-plugins dependency:go-offline
-
       - name: Cache Maven dependencies
         uses: actions/cache@preview
         id: cache
@@ -31,9 +28,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      - name: Resolve/Update Dependencies
+        run: mvn package dependency:resolve-plugins dependency:go-offline
+
       - name: Build (and run tests)
         if: steps.cache.outputs.cache-hit != 'true'
         run: mvn clean install
+
+      - name: Ta vare på siste sha for saksstatistikk
+        run: echo ::set-env name=SAKSSTATISTIKK::$(git rev-list -1 HEAD -- "saksstatistikk")
+
+      - name: Ta vare på siste sha for stonadsstatistikk
+        run: echo ::set-env name=STONADSSTATISTIKK::$( git rev-list -1 HEAD -- "stonadsstatistikk")
 
       - name: Setting version
         if: github.base_ref == 'master'
@@ -45,9 +51,16 @@ jobs:
           mvn versions:set -DnewVersion="$VERSION"
           mvn versions:commit
 
-      - name: Deploy to Github Package
-        if: github.base_ref == 'master'
+      - name: Deploy saksstatistikk ved endring
+        if: env.SAKSSTATISTIKK == github.sha && github.base_ref == 'master'
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+        run: mvn --settings .github/maven-settings.xml -pl .,saksstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+
+      - name: Deploy stonadsstatistikk ved endring
+        if: env.STONADSSTATISTIKK == github.sha && github.base_ref == 'master'
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn --settings .github/maven-settings.xml -pl .,stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
