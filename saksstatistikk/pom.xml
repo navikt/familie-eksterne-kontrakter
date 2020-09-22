@@ -4,7 +4,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    
     <parent>
         <groupId>no.nav.familie.eksterne.kontrakter</groupId>
         <artifactId>eksterne-kontrakter-bom</artifactId>
