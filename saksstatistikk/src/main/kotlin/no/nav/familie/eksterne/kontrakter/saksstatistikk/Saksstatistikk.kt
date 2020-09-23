@@ -6,8 +6,8 @@ import java.time.ZonedDateTime
 data class BehandlingDVH(
         val funksjonellTid: ZonedDateTime,
         val tekniskTid: ZonedDateTime,
-        val mottattDato: LocalDate,
-        val registrertDato: LocalDate,
+        val mottattDato: ZonedDateTime,
+        val registrertDato: ZonedDateTime,
         val vedtaksDato: LocalDate? = null,
         val behandlingId: String,
         val relatertBehandlingId: String? = null,

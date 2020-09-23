@@ -34,12 +34,12 @@
     },
     "mottattDato": {
       "type": "string",
-      "format": "date",
+      "format": "date-time",
       "description": "Denne datoen forteller fra hvilken dato behandlingen først ble initiert. Datoen brukes i beregning av saksbehandlingstid og skal samsvare med brukerens opplevelse av at saksbehandlingen har startet."
     },
     "registrertDato": {
       "type": "string",
-      "format": "date",
+      "format": "date-time",
       "description": "Tidspunkt for når behandlingen ble registrert i saksbehandlingssystemet. Denne kan avvike fra mottattDato hvis det tar tid fra postmottak til registrering i system, eller hvis en oppgave om å opprette behandling ligger på vent et sted i NAV. Ved automatisk registrering av saker er denne samme som mottattDato."
     },
     "vedtaksDato": {
