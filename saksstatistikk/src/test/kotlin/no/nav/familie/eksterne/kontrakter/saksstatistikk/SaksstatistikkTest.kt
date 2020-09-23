@@ -42,8 +42,8 @@ class SaksstatistikkTest {
     fun `kun required satt, skal validere mot behandling schema`() {
         val behandlingDVH = BehandlingDVH(funksjonellTid = ZonedDateTime.now(),
                                           tekniskTid = ZonedDateTime.now(),
-                                          mottattDato = LocalDate.now(),
-                                          registrertDato = LocalDate.now(),
+                                          mottattDato = ZonedDateTime.now(),
+                                          registrertDato = ZonedDateTime.now(),
                                           behandlingId = "behandlingId",
                                           sakId = "sakId",
                                           behandlingType = "behandlingType",
@@ -66,8 +66,8 @@ class SaksstatistikkTest {
     fun `alle parametere satt, skal validere mot behandling schema`() {
         val behandlingDVH = BehandlingDVH(funksjonellTid = ZonedDateTime.now(),
                                           tekniskTid = ZonedDateTime.now(),
-                                          mottattDato = LocalDate.now(),
-                                          registrertDato = LocalDate.now(),
+                                          mottattDato = ZonedDateTime.now(),
+                                          registrertDato = ZonedDateTime.now(),
                                           behandlingId = "behandlingId",
                                           sakId = "sakId",
                                           behandlingType = "behandlingType",
