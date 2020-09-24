@@ -55,7 +55,7 @@ class SaksstatistikkTest {
                                           behandlendeEnhetType = "behandlendeEnhetType",
                                           totrinnsbehandling = true,
                                           avsender = "avsender",
-                                          versjon = 2)
+                                          versjon = "2")
 
         val validatedParser = api.decorateJsonParser(behandlingSchemaValidator,
                                                      jsonFactory.createParser(objectMapper.writeValueAsBytes(behandlingDVH)))
@@ -79,7 +79,7 @@ class SaksstatistikkTest {
                                           behandlendeEnhetType = "behandlendeEnhetType",
                                           totrinnsbehandling = true,
                                           avsender = "avsender",
-                                          versjon = 2,
+                                          versjon = "2",
                                           vedtaksDato = LocalDate.now(),
                                           relatertBehandlingId = "relatertBehandlingId",
                                           vedtakId = "vedtakId",
@@ -103,23 +103,23 @@ class SaksstatistikkTest {
 
     @Test
     fun `skal validere mot sak schema`() {
-        val behandlingDVH = SakDVH(funksjonellTid = ZonedDateTime.now(),
-                                   tekniskTid = ZonedDateTime.now(),
-                                   opprettetDato = LocalDate.now(),
-                                   sakId = "sakId",
-                                   aktorId = 123,
-                                   aktorer = listOf(AktørDVH(1, "rolle", "beskrivelse")),
-                                   ytelseType = "ytelseType",
-                                   underType = "undertype",
-                                   sakStatus = "sakStatus",
-                                   ytelseTypeBeskrivelse = "ytelseTypeBeskrivels",
-                                   underTypeBeskrivelse = "underTypeBeskrivelse",
-                                   sakStatusBeskrivelse = "sakStatusBeskrivelse",
-                                   avsender = "avsender",
-                                   versjon = 2)
+        val sakDVH = SakDVH(funksjonellTid = ZonedDateTime.now(),
+                            tekniskTid = ZonedDateTime.now(),
+                            opprettetDato = LocalDate.now(),
+                            sakId = "sakId",
+                            aktorId = 123,
+                            aktorer = listOf(AktørDVH(1, "rolle", "beskrivelse")),
+                            ytelseType = "ytelseType",
+                            underType = "undertype",
+                            sakStatus = "sakStatus",
+                            ytelseTypeBeskrivelse = "ytelseTypeBeskrivels",
+                            underTypeBeskrivelse = "underTypeBeskrivelse",
+                            sakStatusBeskrivelse = "sakStatusBeskrivelse",
+                            avsender = "avsender",
+                            versjon = "2")
 
         val validatedParser = api.decorateJsonParser(sakSchemaValidator,
-                                                     jsonFactory.createParser(objectMapper.writeValueAsBytes(behandlingDVH)))
+                                                     jsonFactory.createParser(objectMapper.writeValueAsBytes(sakDVH)))
         api.parseAll(validatedParser)
     }
 }
