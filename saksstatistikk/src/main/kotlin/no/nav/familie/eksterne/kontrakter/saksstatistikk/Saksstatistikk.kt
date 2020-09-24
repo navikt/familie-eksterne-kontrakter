@@ -34,7 +34,7 @@ data class BehandlingDVH(
         val behandlendeEnhetType: String,
         val totrinnsbehandling: Boolean,
         val avsender: String,
-        val versjon: Long
+        val versjon: String
 )
 
 data class SakDVH(
@@ -51,7 +51,7 @@ data class SakDVH(
         val underTypeBeskrivelse: String? = null,
         val sakStatusBeskrivelse: String? = null,
         val avsender: String,
-        val versjon: Long
+        val versjon: String
 )
 
 data class AktørDVH(
