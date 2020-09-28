@@ -87,7 +87,7 @@ class SaksstatistikkTest {
                                           resultatBegrunnelse = "resultatBegrunnelse",
                                           behandlingTypeBeskrivelse = "behandlingTypeBeskrivelse",
                                           behandlingStatusBeskrivelse = "behandlingStatusBeskrivelse",
-                                          resultatBegrunnelseBeskrivelse = "resultatBegrunnelseBeskrivelse",
+                                          resultatBegrunnelseBeskrivelse = listOf("resultatBegrunnelseBeskrivelse"),
                                           utenlandstilsnittBeskrivelse = "relatertButenlandstilsnittBeskrivelseehandlingId",
                                           beslutter = "beslutter",
                                           saksbehandler = "saksbehandler",

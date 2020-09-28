@@ -21,7 +21,7 @@ data class BehandlingDVH(
         val behandlingTypeBeskrivelse: String? = null,
         val behandlingStatusBeskrivelse: String? = null,
         val resultatBeskrivelse: String? = null,
-        val resultatBegrunnelseBeskrivelse: String? = null,
+        val resultatBegrunnelseBeskrivelse: List<String> = emptyList(),
         val utenlandstilsnittBeskrivelse: String? = null,
         val beslutter: String? = null,
         val saksbehandler: String? = null,

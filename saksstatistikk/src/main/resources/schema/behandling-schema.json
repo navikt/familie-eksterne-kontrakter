@@ -108,7 +108,7 @@
       "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
     },
     "resultatBegrunnelseBeskrivelse": {
-      "type": "string",
+      "type": "array",
       "maxLength": 1000 ,
       "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
     },
