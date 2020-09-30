@@ -8,7 +8,6 @@
     "opprettetDato",
     "sakId",
     "aktorId",
-    "ytelseType",
     "sakStatus",
     "avsender",
     "versjon"
@@ -60,30 +59,10 @@
         }
       }
     },
-    "ytelseType": {
-      "type": "string",
-      "maxLength": 100,
-      "description": "Stønaden eller ytelsen det er saken omhandler. Hva gjelder saken?"
-    },
-    "underType": {
-      "type": "string",
-      "maxLength": 100,
-      "description":"Noen kildesystemer vil ha en under-type som gir finere oppløsning på hva saken omhandler. For eksempel vil foreldrepenger være en ytelseType, i FPSAK, mens underType vil da angi hva slags type foreldrepenge-sak det er snakk, som Adopsjon, Fødsel o.l. Dette er sakens underType. Hvis dette ikke finnes eller allerede er bakt inn i ytelseType kan denne være tom."
-    },
     "sakStatus": {
       "type": "string",
       "maxLength":100,
       "description": "Kode som angir sakens status, slik som påbegynt, under utbetaling, avsluttet o.l."
-    },
-    "ytelseTypeBeskrivelse": {
-      "type": "string",
-      "maxLength":1000 ,
-      "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
-    },
-    "underTypeBeskrivelse": {
-      "type": "string",
-      "maxLength":1000,
-      "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
     },
     "sakStatusBeskrivelse": {
       "type": "string",

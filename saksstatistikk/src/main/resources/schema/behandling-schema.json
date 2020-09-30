@@ -11,6 +11,8 @@
     "sakId",
     "behandlingType",
     "behandlingStatus",
+    "behandlingKategori",
+    "behandlingUnderkategori",
     "utenlandstilsnitt",
     "ansvarligEnhetKode",
     "ansvarligEnhetType",
@@ -77,15 +79,20 @@
       "maxLength": 100 ,
       "description": "Kode som angir den aktuelle behandlingens tilstand på gjeldende tidspunkt. Ha med alle mulige statuser som er naturlig for det enkelte system/ytelse. Som minimum, angi om saken har følgende status: Registrert, Klar for behandling, Venter på bruker, venter på ekstern (arbeidsgiver, lege etc.), venter på utland, Avsluttet.Her bør det også angis at saken er behandlet av beslutter, men sendt i retur for ny behandling."
     },
+    "behandlingKategori": {
+      "type": "string",
+      "maxLength": 100 ,
+      "description": "Kode som angir den aktuelle behandlingens kategori på gjeldende tidspunkt. Aktuelle koder er EØS eller NASJONAL."
+    },
+    "behandlingUnderkategori": {
+      "type": "string",
+      "maxLength": 100 ,
+      "description": "Kode som angir den aktuelle behandlingens underkategori på gjeldende tidspunkt. Aktuelle koder er ORDINÆR eller UTVIDET barnetrygd."
+    },
     "resultat": {
       "type": "string",
       "maxLength": 100 ,
       "description":"Kode som angir resultat av behandling på innværende tidspunkt. Mulige verdier: innvilget (delvis innvilget), avslått, omgjort, feilregistrert, henlagt, trukket, avvist etc."
-    },
-    "resultatBegrunnelse": {
-      "type": "string",
-      "maxLength": 100 ,
-      "description": "Denne må inneholde en årsaksbeskrivelse knyttet til et hvert mulig resultat av behandlingen. Den kan enten være underordnet resultat eller stå for seg selv. Eks. årsak til avslag, årsak til delvis innvilgelse."
     },
     "utenlandstilsnitt": {
       "type": "string",
@@ -102,13 +109,31 @@
       "maxLength": 1000 ,
       "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
     },
+    "resultatBegrunnelser": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "resultatBegrunnelse": {
+              "type": "string",
+              "maxLength": 100 ,
+              "description": "Denne må inneholde en årsaksbeskrivelse knyttet til et hvert mulig resultat av behandlingen. Den kan enten være underordnet resultat eller stå for seg selv. Eks. årsak til avslag, årsak til delvis innvilgelse."
+            },
+            "resultatBegrunnelseBeskrivelse": {
+              "type": "string",
+              "maxLength": 1000 ,
+              "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
+            }
+          },
+          "required": [
+            "resultatBegrunnelse"
+          ]
+        }
+      ]
+    },
     "resultatBeskrivelse": {
       "type": "string",
-      "maxLength": 1000 ,
-      "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
-    },
-    "resultatBegrunnelseBeskrivelse": {
-      "type": "array",
       "maxLength": 1000 ,
       "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
     },
