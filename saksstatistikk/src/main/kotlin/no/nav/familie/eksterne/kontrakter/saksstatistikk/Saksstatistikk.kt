@@ -15,13 +15,14 @@ data class BehandlingDVH(
         val vedtakId: String? = null,
         val behandlingType: String,
         val behandlingStatus: String,
+        val behandlingKategori: String,
+        val behandlingUnderkategori: String,
         val resultat: String? = null,
-        val resultatBegrunnelse: String? = null,
         val utenlandstilsnitt: String,
         val behandlingTypeBeskrivelse: String? = null,
         val behandlingStatusBeskrivelse: String? = null,
         val resultatBeskrivelse: String? = null,
-        val resultatBegrunnelseBeskrivelse: List<String> = emptyList(),
+        val resultatBegrunnelser: List<ResultatBegrunnelseDVH> = emptyList(),
         val utenlandstilsnittBeskrivelse: String? = null,
         val beslutter: String? = null,
         val saksbehandler: String? = null,
@@ -36,6 +37,9 @@ data class BehandlingDVH(
         val avsender: String,
         val versjon: String
 )
+
+data class ResultatBegrunnelseDVH(val resultatBegrunnelse: String,
+                                  val resultatBegrunnelseBeskrivelse: String? = null)
 
 data class SakDVH(
         val funksjonellTid: ZonedDateTime,
