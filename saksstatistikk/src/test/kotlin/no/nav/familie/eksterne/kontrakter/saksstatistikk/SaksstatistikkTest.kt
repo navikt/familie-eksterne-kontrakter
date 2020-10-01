@@ -112,12 +112,7 @@ class SaksstatistikkTest {
                             sakId = "sakId",
                             aktorId = 123,
                             aktorer = listOf(AktørDVH(1, "rolle", "beskrivelse")),
-                            ytelseType = "ytelseType",
-                            underType = "undertype",
                             sakStatus = "sakStatus",
-                            ytelseTypeBeskrivelse = "ytelseTypeBeskrivels",
-                            underTypeBeskrivelse = "underTypeBeskrivelse",
-                            sakStatusBeskrivelse = "sakStatusBeskrivelse",
                             avsender = "avsender",
                             versjon = "2")
 
