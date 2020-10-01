@@ -48,12 +48,7 @@ data class SakDVH(
         val sakId: String,
         val aktorId: Long,
         val aktorer: List<AktørDVH>? = emptyList(),
-        val ytelseType: String,
-        val underType: String? = null,
         val sakStatus: String,
-        val ytelseTypeBeskrivelse: String? = null,
-        val underTypeBeskrivelse: String? = null,
-        val sakStatusBeskrivelse: String? = null,
         val avsender: String,
         val versjon: String
 )
