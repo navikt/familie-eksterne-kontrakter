@@ -56,5 +56,5 @@ data class SakDVH(
 data class AktørDVH(
         val aktorId: Long,
         val rolle: String,
-        val rolleBeskrivelse: String
+        val rolleBeskrivelse: String? = null
 )
