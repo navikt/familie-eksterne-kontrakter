@@ -1,11 +1,12 @@
 package no.nav.familie.eksterne.kontrakter
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 data class VedtakDVH(val fagsakId: String,
                      val behandlingsId: String,
-                     val tidspunktVedtak: LocalDate,
-                     val personIdent: String,
+                     val tidspunktVedtak: LocalDateTime,
+                     val person: PersonDVH,
                      val ensligForsørger: Boolean,
                      val kategori: Kategori,
                      val underkategori: Underkategori,
