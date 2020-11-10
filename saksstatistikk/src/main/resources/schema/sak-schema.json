@@ -6,6 +6,7 @@
     "funksjonellTid",
     "tekniskTid",
     "opprettetDato",
+    "funksjonellId",
     "sakId",
     "aktorId",
     "sakStatus",
