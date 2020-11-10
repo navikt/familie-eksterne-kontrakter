@@ -14,6 +14,7 @@ import com.worldturner.medeia.api.jackson.MedeiaJacksonApi
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.ZonedDateTime
+import java.util.*
 
 
 class SaksstatistikkTest {
@@ -57,7 +58,8 @@ class SaksstatistikkTest {
                                           behandlendeEnhetType = "behandlendeEnhetType",
                                           totrinnsbehandling = true,
                                           avsender = "avsender",
-                                          versjon = "2")
+                                          versjon = "2",
+                                          funksjonellId = UUID.randomUUID().toString())
 
         val validatedParser = api.decorateJsonParser(behandlingSchemaValidator,
                                                      jsonFactory.createParser(objectMapper.writeValueAsBytes(behandlingDVH)))
@@ -71,6 +73,7 @@ class SaksstatistikkTest {
                                           mottattDato = ZonedDateTime.now(),
                                           registrertDato = ZonedDateTime.now(),
                                           behandlingId = "behandlingId",
+                                          funksjonellId = UUID.randomUUID().toString(),
                                           sakId = "sakId",
                                           behandlingType = "behandlingType",
                                           behandlingStatus = "behandlingStatus",
@@ -88,7 +91,8 @@ class SaksstatistikkTest {
                                           relatertBehandlingId = "relatertBehandlingId",
                                           vedtakId = "vedtakId",
                                           resultat = "resultat",
-                                          resultatBegrunnelser = listOf(ResultatBegrunnelseDVH("resultatBegrunnelse", "beskrivelse")),
+                                          resultatBegrunnelser = listOf(ResultatBegrunnelseDVH("resultatBegrunnelse",
+                                                                                               "beskrivelse")),
                                           behandlingTypeBeskrivelse = "behandlingTypeBeskrivelse",
                                           behandlingStatusBeskrivelse = "behandlingStatusBeskrivelse",
                                           utenlandstilsnittBeskrivelse = "utenlandstilsnittBeskrivelse",
@@ -109,6 +113,7 @@ class SaksstatistikkTest {
         val sakDVH = SakDVH(funksjonellTid = ZonedDateTime.now(),
                             tekniskTid = ZonedDateTime.now(),
                             opprettetDato = LocalDate.now(),
+                            funksjonellId = UUID.randomUUID().toString(),
                             sakId = "sakId",
                             aktorId = 123,
                             aktorer = listOf(AktørDVH(1, "rolle", "beskrivelse")),

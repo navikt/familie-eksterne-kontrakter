@@ -4,7 +4,8 @@ import java.time.LocalDate
 
 import java.time.ZonedDateTime
 
-data class VedtakDVH(val fagsakId: String,
+data class VedtakDVH(val funksjonellId: String,
+                     val fagsakId: String,
                      val behandlingsId: String,
                      val tidspunktVedtak: ZonedDateTime,
                      val person: PersonDVH,
