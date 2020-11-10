@@ -29,6 +29,11 @@
       "format": "date",
       "description": "Tidspunkt da saken først blir opprettet. Denne datoen forteller noe om når saken først oppstod hos oss. Dette kan være dato for mottatt brev, sakens første opprettelse ved digital søknad o.l."
     },
+    "funksjonellId": {
+      "type": "string",
+      "maxLength": 40 ,
+      "description":"Unik id for meldingingen"
+    },
     "sakId": {
       "type": "string",
       "maxLength": 40 ,
