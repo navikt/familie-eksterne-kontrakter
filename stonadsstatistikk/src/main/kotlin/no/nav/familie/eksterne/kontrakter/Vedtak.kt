@@ -4,8 +4,7 @@ import java.time.LocalDate
 
 import java.time.ZonedDateTime
 
-data class VedtakDVH(val funksjonellId: String,
-                     val fagsakId: String,
+data class VedtakDVH(val fagsakId: String,
                      val behandlingsId: String,
                      val tidspunktVedtak: ZonedDateTime,
                      val person: PersonDVH,
@@ -14,7 +13,9 @@ data class VedtakDVH(val funksjonellId: String,
                      val underkategori: Underkategori,
                      val behandlingType: BehandlingType,
                      val behandlingOpprinnelse: BehandlingOpprinnelse,
-                     val utbetalingsperioder: List<UtbetalingsperiodeDVH>)
+                     val utbetalingsperioder: List<UtbetalingsperiodeDVH>,
+                     val funksjonellId: String? = null,
+)
 
 data class UtbetalingsperiodeDVH(val hjemmel: String,
                                  val utbetaltPerMnd: Int,
