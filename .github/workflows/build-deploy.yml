@@ -35,11 +35,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: mvn clean install
 
-      - name: Ta vare på siste sha for saksstatistikk
-        run: echo ::set-env name=SAKSSTATISTIKK::$(git rev-list -1 HEAD -- "saksstatistikk")
-
-      - name: Ta vare på siste sha for stonadsstatistikk
-        run: echo ::set-env name=STONADSSTATISTIKK::$( git rev-list -1 HEAD -- "stonadsstatistikk")
+      - name: Ta vare på siste sha for saksstatistikk og stonadsstatistikk
+        run: |
+          echo "saksstatistikk_rev=$(git rev-list -1 HEAD -- "saksstatistikk")" >> $GITHUB_ENV
+          echo "stonadsstatistikk_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk")" >> $GITHUB_ENV
 
       - name: Setting version
         if: github.base_ref == 'master'
@@ -52,15 +51,15 @@ jobs:
           mvn versions:commit
 
       - name: Deploy saksstatistikk ved endring
-        if: env.SAKSSTATISTIKK == github.sha && github.base_ref == 'master'
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.saksstatistikk_rev == github.sha && github.base_ref == 'master'
         run: mvn --settings .github/maven-settings.xml -pl saksstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
 
       - name: Deploy stonadsstatistikk ved endring
-        if: env.STONADSSTATISTIKK == github.sha && github.base_ref == 'master'
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.stonadsstatistikk_rev == github.sha && github.base_ref == 'master'
         run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
