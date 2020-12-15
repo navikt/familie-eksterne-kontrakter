@@ -116,6 +116,7 @@ class SaksstatistikkTest {
                             funksjonellId = UUID.randomUUID().toString(),
                             sakId = "sakId",
                             aktorId = 123,
+                            bostedsland = "NO",
                             aktorer = listOf(AktørDVH(1, "rolle", "beskrivelse")),
                             sakStatus = "sakStatus",
                             avsender = "avsender",

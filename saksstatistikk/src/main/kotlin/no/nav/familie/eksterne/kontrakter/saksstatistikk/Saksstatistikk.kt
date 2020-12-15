@@ -49,6 +49,7 @@ data class SakDVH(
         val funksjonellId: String,
         val sakId: String,
         val aktorId: Long,
+        val bostedsland: String,
         val aktorer: List<AktørDVH>? = emptyList(),
         val sakStatus: String,
         val avsender: String,
