@@ -9,6 +9,7 @@
     "funksjonellId",
     "sakId",
     "aktorId",
+    "bostedsland",
     "sakStatus",
     "avsender",
     "versjon"
@@ -44,6 +45,11 @@
       "type": "number",
       "maxLength": 40 ,
       "description":"Aktør IDen til primær mottager av ytelsen om denne blir godkjent. Altså, den som saken omhandler."
+    },
+    "bostedsland": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "2 bokstavs forkortelse på bostedsland. ZZ ved ukjent bostedsland"
     },
     "aktorer": {
       "type": "array",
