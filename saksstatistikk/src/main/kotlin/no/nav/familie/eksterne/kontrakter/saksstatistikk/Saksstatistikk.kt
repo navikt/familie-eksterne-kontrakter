@@ -18,6 +18,8 @@ data class BehandlingDVH(
         val behandlingStatus: String,
         val behandlingKategori: String,
         val behandlingUnderkategori: String,
+        val behandlingAarsak: String,
+        val automatiskBehandlet: Boolean,
         val resultat: String? = null,
         val utenlandstilsnitt: String,
         val behandlingTypeBeskrivelse: String? = null,
