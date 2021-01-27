@@ -53,7 +53,8 @@ data class SakDVH(
         val aktorer: List<AktørDVH>? = emptyList(),
         val sakStatus: String,
         val avsender: String,
-        val versjon: String
+        val versjon: String,
+        val ytelseType: String = "BARNETRYGD"
 )
 
 data class AktørDVH(
