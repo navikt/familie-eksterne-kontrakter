@@ -12,7 +12,8 @@
     "bostedsland",
     "sakStatus",
     "avsender",
-    "versjon"
+    "versjon",
+    "ytelseType"
   ],
   "type": "object",
   "properties": {
@@ -89,6 +90,10 @@
     "versjon": {
       "type": "string",
       "description":"Angir på hvilken versjon av kildekoden JSON stringen er generert på bakgrunn av. "
+    },
+    "ytelseType": {
+      "type": "string",
+      "description": "Type ytelse, settes alltid til BARNETRYGD."
     }
   }
 }

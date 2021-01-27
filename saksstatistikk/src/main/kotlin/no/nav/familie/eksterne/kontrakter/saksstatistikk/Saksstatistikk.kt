@@ -18,6 +18,8 @@ data class BehandlingDVH(
         val behandlingStatus: String,
         val behandlingKategori: String,
         val behandlingUnderkategori: String,
+        val behandlingAarsak: String,
+        val automatiskBehandlet: Boolean,
         val resultat: String? = null,
         val utenlandstilsnitt: String,
         val behandlingTypeBeskrivelse: String? = null,
@@ -53,7 +55,8 @@ data class SakDVH(
         val aktorer: List<AktørDVH>? = emptyList(),
         val sakStatus: String,
         val avsender: String,
-        val versjon: String
+        val versjon: String,
+        val ytelseType: String = "BARNETRYGD"
 )
 
 data class AktørDVH(

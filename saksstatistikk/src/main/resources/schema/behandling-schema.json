@@ -14,6 +14,8 @@
     "behandlingStatus",
     "behandlingKategori",
     "behandlingUnderkategori",
+    "behandlingAarsak",
+    "automatiskBehandlet",
     "utenlandstilsnitt",
     "ansvarligEnhetKode",
     "ansvarligEnhetType",
@@ -94,6 +96,14 @@
       "type": "string",
       "maxLength": 100 ,
       "description": "Kode som angir den aktuelle behandlingens underkategori på gjeldende tidspunkt. Aktuelle koder er ORDINÆR eller UTVIDET barnetrygd."
+    },
+    "behandlingAarsak": {
+      "type": "string",
+      "description": "Beskriver hvorfor behandlingen ble opprettet."
+    },
+    "automatiskBehandlet": {
+      "type": "boolean",
+      "description": "Hvorvidt en behandling er automatisk behandlet, f.eks. ved fødselshendelse."
     },
     "resultat": {
       "type": "string",
