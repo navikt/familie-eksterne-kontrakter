@@ -1,4 +1,4 @@
-name: Build-Deploy
+name: Build
 on:
   workflow_dispatch:
   push:
@@ -55,7 +55,7 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.saksstatistikk_rev == ${{ github.sha }}
+        if: env.saksstatistikk_rev == github.sha
         run: echo "saksstatistikk"
         #run: mvn --settings .github/maven-settings.xml -pl saksstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
 
@@ -63,6 +63,6 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.stonadsstatistikk_rev == ${{ github.sha }}
+        if: env.stonadsstatistikk_rev == github.sha
         run: echo "stonadsstatistikk"
         #run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
