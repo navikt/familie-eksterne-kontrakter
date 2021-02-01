@@ -15,6 +15,7 @@ data class VedtakDVH(val fagsakId: String,
                      val behandlingOpprinnelse: BehandlingOpprinnelse,
                      val utbetalingsperioder: List<UtbetalingsperiodeDVH>,
                      val funksjonellId: String? = null,
+                     val behandlingÅrsak: BehandlingÅrsak? = null,
 )
 
 data class UtbetalingsperiodeDVH(val hjemmel: String,
@@ -55,6 +56,19 @@ enum class BehandlingType(val visningsnavn: String) {
     KLAGE("Klage"),
     MIGRERING_FRA_INFOTRYGD_OPPHØRT("Opphør migrering fra infotrygd"),
     TEKNISK_OPPHØR("Teknisk opphør")
+}
+
+enum class BehandlingÅrsak(val visningsnavn: String) {
+
+    SØKNAD("Søknad"),
+    FØDSELSHENDELSE("Fødselshendelse"),
+    ÅRLIG_KONTROLL("Årsak kontroll"),
+    DØDSFALL("Dødsfall"),
+    NYE_OPPLYSNINGER("Nye opplysninger"),
+    KLAGE("Klage"),
+    TEKNISK_OPPHØR("Teknisk opphør"), // Kan være tilbakeføring til infotrygd, feilutbetaling
+    OMREGNING_6ÅR("Omregning 6 år"),
+    OMREGNING_18ÅR("Omregning 18 år")
 }
 
 enum class Kategori {
