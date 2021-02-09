@@ -1,13 +1,19 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonUnwrapped
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
 data class BehandlingDVH(
-        val sakId: String,
+        val fagsakId: String,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        val saksnummer: String? = null,
         val behandlingId: String,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         val relatertBehandlingId: String? = null,
         val kode6eller7: Boolean,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         val tidspunktVedtak: ZonedDateTime? = null,
         val vilkårsvurderinger: List<Vilkårsvurdering>,
         val person: Person,
@@ -15,10 +21,12 @@ data class BehandlingDVH(
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val behandlingResultat: BehandlingResultat,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         val vedtak: Vedtak? = null,
         val utbetalinger: List<Utbetaling>,
         val inntekt: List<Inntekt>,
         val aktivitetskrav: Aktivitetskrav,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         val funksjonellId: String? = null,
 )
 
@@ -41,10 +49,10 @@ enum class BehandlingÅrsak {
 }
 
 enum class BehandlingResultat {
-    FULLFØRT,
+    FERDIGSTILT,
     DUPLIKAT,
     HENLAGT,
-    ANNULLERING
+    ANNULLERT
 }
 
 enum class Vedtak {
@@ -55,12 +63,12 @@ enum class Vedtak {
 }
 
 data class Person(
-        val personIdent: String? = null,
-        val aktorId: String? = null
+        @JsonInclude(JsonInclude.Include.NON_NULL) val personIdent: String? = null,
+        @JsonInclude(JsonInclude.Include.NON_NULL) val aktorId: String? = null
 )
 
-data class Utbetaling(val periodeBeløp: PeriodeBeløp,
-                      val utbetalingsdetalj: Utbetalingsdetalj
+data class Utbetaling(@JsonUnwrapped val periodeBeløp: PeriodeBeløp,
+                      @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj
 )
 
 data class PeriodeBeløp(
@@ -70,8 +78,8 @@ data class PeriodeBeløp(
         val tilOgMed: LocalDate,
 )
 
-data class Utbetalingsdetalj(val gjelderPerson: Person, // Identifiserer hvilken person utbetalingen gjelder, ikke nødvendigvis brukeren selv
-                             val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet
+data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person, // Identifiserer hvilken person utbetalingen gjelder, ikke nødvendigvis brukeren selv
+                             val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
                              val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
 
 enum class Periodetype {
@@ -79,7 +87,7 @@ enum class Periodetype {
 }
 
 data class Inntekt(
-        val periodeBeløp: PeriodeBeløp,
+        @JsonUnwrapped val periodeBeløp: PeriodeBeløp,
         val inntektstype: Inntektstype
 )
 
