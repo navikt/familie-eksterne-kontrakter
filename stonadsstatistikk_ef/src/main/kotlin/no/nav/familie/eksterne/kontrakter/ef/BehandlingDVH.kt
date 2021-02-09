@@ -3,19 +3,19 @@ package no.nav.familie.eksterne.kontrakter.ef
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
-data class Vedtak(
+data class BehandlingDVH(
         val sakId: String,
         val behandlingId: String,
-        val relatertBehandlingId: String,
+        val relatertBehandlingId: String? = null,
         val kode6eller7: Boolean,
-        val tidspunktVedtak: ZonedDateTime,
+        val tidspunktVedtak: ZonedDateTime? = null,
         val vilkårsvurderinger: List<Vilkårsvurdering>,
         val person: Person,
         val barn: List<Person>,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val behandlingResultat: BehandlingResultat,
-        val vedtakResultat: VedtakResultat? = null,
+        val vedtak: Vedtak? = null,
         val utbetalinger: List<Utbetaling>,
         val inntekt: List<Inntekt>,
         val aktivitetskrav: Aktivitetskrav,
@@ -43,10 +43,11 @@ enum class BehandlingÅrsak {
 enum class BehandlingResultat {
     FULLFØRT,
     DUPLIKAT,
-    HENLAGT
+    HENLAGT,
+    ANNULLERING
 }
 
-enum class VedtakResultat {
+enum class Vedtak {
     INNVILGET,
     DELVIS_INNVILGET,
     OPPHØRT,
