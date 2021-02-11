@@ -140,10 +140,10 @@
               "format": "date",
               "description": "Dato periode til og med."
             },
-            "begrunnelseType": {
+            "type": {
               "type": "string",
               "maxLength": 20 ,
-              "description": "Enum for hovedtype av begrunnelse (INNVIGELSE, OPPHØR eller REDUKSJON)."
+              "description": "Enum for vedtakbegrunnelsetype (INNVIGELSE, OPPHØR eller REDUKSJON)."
             },
             "vedtakBegrunnelse": {
               "type": "string",
@@ -152,9 +152,7 @@
             }
           },
           "required": [
-            "fom",
-            "tom",
-            "begrunnelseType",
+            "type",
             "vedtakBegrunnelse"
           ]
         }

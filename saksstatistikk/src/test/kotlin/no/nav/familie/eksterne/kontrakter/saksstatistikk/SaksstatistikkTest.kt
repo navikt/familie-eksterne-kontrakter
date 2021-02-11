@@ -96,7 +96,7 @@ class SaksstatistikkTest {
                                           resultat = "resultat",
                                           resultatBegrunnelser = listOf(ResultatBegrunnelseDVH(fom = LocalDate.now(),
                                                                                                tom = LocalDate.now().plusMonths(1),
-                                                                                               begrunnelseType = "INNVILGET",
+                                                                                               type = "INNVILGET",
                                                                                                vedtakBegrunnelse = "INNVILGET_BOSATT_I_NORGE")),
                                           behandlingTypeBeskrivelse = "behandlingTypeBeskrivelse",
                                           behandlingStatusBeskrivelse = "behandlingStatusBeskrivelse",
