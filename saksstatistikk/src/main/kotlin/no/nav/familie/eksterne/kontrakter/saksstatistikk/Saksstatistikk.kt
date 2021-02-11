@@ -41,8 +41,10 @@ data class BehandlingDVH(
         val versjon: String
 )
 
-data class ResultatBegrunnelseDVH(val resultatBegrunnelse: String,
-                                  val resultatBegrunnelseBeskrivelse: String? = null)
+data class ResultatBegrunnelseDVH(val fom: LocalDate? = null,
+                                  val tom: LocalDate? = null,
+                                  val type: String,
+                                  val vedtakBegrunnelse: String)
 
 data class SakDVH(
         val funksjonellTid: ZonedDateTime,
