@@ -130,19 +130,32 @@
         {
           "type": "object",
           "properties": {
-            "resultatBegrunnelse": {
+             "fom": {
               "type": "string",
-              "maxLength": 100 ,
-              "description": "Denne må inneholde en årsaksbeskrivelse knyttet til et hvert mulig resultat av behandlingen. Den kan enten være underordnet resultat eller stå for seg selv. Eks. årsak til avslag, årsak til delvis innvilgelse."
+               "format": "date",
+              "description": "Dato periode fra og med."
             },
-            "resultatBegrunnelseBeskrivelse": {
+            "tom": {
               "type": "string",
-              "maxLength": 1000 ,
-              "description": "Beskriver den funksjonelle verdien av koden. Finnes ikke den enda, regner vi med å få den senere."
+              "format": "date",
+              "description": "Dato periode til og med."
+            },
+            "begrunnelseType": {
+              "type": "string",
+              "maxLength": 20 ,
+              "description": "Enum for hovedtype av begrunnelse (INNVIGELSE, OPPHØR eller REDUKSJON)."
+            },
+            "vedtakBegrunnelse": {
+              "type": "string",
+              "maxLength": 40 ,
+              "description": "Enum for type av begrunnelse."
             }
           },
           "required": [
-            "resultatBegrunnelse"
+            "fom",
+            "tom",
+            "begrunnelseType",
+            "vedtakBegrunnelse"
           ]
         }
       ]
