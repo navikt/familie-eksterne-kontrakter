@@ -1,9 +1,10 @@
 {
-  "fagsakId": "089aacb0-fa71-4b84-aecc-de1ec34fc47b",
+  "fagsakId": "01d2cc6e-af5e-402c-99ae-5815207709d2",
+  "saksnummer": null,
   "behandlingId": "EF-123",
   "relatertBehandlingId": "EF-110",
   "kode6eller7": false,
-  "tidspunktVedtak": "2021-02-09T14:09:40.43981+01:00",
+  "tidspunktVedtak": "2021-02-14T09:16:58.532292+01:00",
   "vilkårsvurderinger": [
     {
       "vilkår": "LOVLIG_OPPHOLD",
@@ -15,10 +16,12 @@
     }
   ],
   "person": {
+    "personIdent": null,
     "aktorId": "5634422"
   },
   "barn": [
     {
+      "personIdent": null,
       "aktorId": "6442433"
     }
   ],
@@ -32,6 +35,7 @@
       "periodetype": "MÅNED",
       "fraOgMed": "2021-03-01",
       "tilOgMed": "2024-02-29",
+      "personIdent": null,
       "aktorId": "5634422",
       "klassekode": "EFOG",
       "delytelseId": "EF-123-EF-019"
@@ -49,5 +53,6 @@
   "aktivitetskrav": {
     "aktivitetspliktInntrefferDato": "2021-12-01",
     "harSagtOppArbeidsforhold": false
-  }
+  },
+  "funksjonellId": null
 }

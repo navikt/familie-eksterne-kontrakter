@@ -51,14 +51,14 @@ class BehandlingDVHTest {
 
 
     @Test
-    fun test1() {
+    fun verifserSerialisering() {
 
         val mapper = ObjectMapper().registerModule(KotlinModule())
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         val serialized = mapper.writeValueAsString(vedtak)
 
-        println(serialized)
+        //println(serialized)
     }
 
 }

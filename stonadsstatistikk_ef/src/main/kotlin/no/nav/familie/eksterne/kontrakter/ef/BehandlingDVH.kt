@@ -7,13 +7,10 @@ import java.time.ZonedDateTime
 
 data class BehandlingDVH(
         val fagsakId: String,
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val saksnummer: String? = null,
         val behandlingId: String,
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val relatertBehandlingId: String? = null,
         val kode6eller7: Boolean,
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val tidspunktVedtak: ZonedDateTime? = null,
         val vilkårsvurderinger: List<Vilkårsvurdering>,
         val person: Person,
@@ -21,16 +18,15 @@ data class BehandlingDVH(
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val behandlingResultat: BehandlingResultat,
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val vedtak: Vedtak? = null,
         val utbetalinger: List<Utbetaling>,
         val inntekt: List<Inntekt>,
         val aktivitetskrav: Aktivitetskrav,
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val funksjonellId: String? = null,
 )
 
 enum class BehandlingType {
+    SAKSBEHANDLINGSBLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING,  // Inkluderer opphør
     KLAGE,
@@ -63,8 +59,8 @@ enum class Vedtak {
 }
 
 data class Person(
-        @JsonInclude(JsonInclude.Include.NON_NULL) val personIdent: String? = null,
-        @JsonInclude(JsonInclude.Include.NON_NULL) val aktorId: String? = null
+        val personIdent: String? = null,
+        val aktorId: String? = null
 )
 
 data class Utbetaling(@JsonUnwrapped val periodeBeløp: PeriodeBeløp,
