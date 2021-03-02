@@ -26,7 +26,7 @@
     <modules>
         <module>stonadsstatistikk</module>
         <module>saksstatistikk</module>
-        <module>saksstatistikk_v2</module>
+        <module>saksstatistikk_ef</module>
         <module>stonadsstatistikk_ef</module>
     </modules>
 
