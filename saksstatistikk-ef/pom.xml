@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,13 +9,31 @@
         <version>${revision}${sha1}${changelist}</version>
     </parent>
 
-    <artifactId>stonadsstatistikk</artifactId>
+    <artifactId>saksstatistikk_v2</artifactId>
     <version>${revision}${sha1}${changelist}</version>
-    <name>Kontrakter - Stønadsstatistikk</name>
-    <description>Kontrakter for stønadsstatistikk</description>
+    <name>Kontrakter - Saksstatistikk</name>
+    <description>Kontrakter for saksstatistikk v2</description>
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.worldturner.medeia</groupId>
+            <artifactId>medeia-validator-jackson</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

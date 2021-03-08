@@ -1,7 +1,6 @@
 package no.nav.familie.eksterne.kontrakter
 
 import java.time.LocalDate
-
 import java.time.ZonedDateTime
 
 data class VedtakDVH(val fagsakId: String,

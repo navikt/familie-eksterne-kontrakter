@@ -1,0 +1,58 @@
+{
+  "fagsakId": "01d2cc6e-af5e-402c-99ae-5815207709d2",
+  "saksnummer": null,
+  "behandlingId": "EF-123",
+  "relatertBehandlingId": "EF-110",
+  "kode6eller7": false,
+  "tidspunktVedtak": "2021-02-14T09:16:58.532292+01:00",
+  "vilkårsvurderinger": [
+    {
+      "vilkår": "LOVLIG_OPPHOLD",
+      "oppfylt": true
+    },
+    {
+      "vilkår": "SIVILSTAND",
+      "oppfylt": true
+    }
+  ],
+  "person": {
+    "personIdent": null,
+    "aktorId": "5634422"
+  },
+  "barn": [
+    {
+      "personIdent": null,
+      "aktorId": "6442433"
+    }
+  ],
+  "behandlingType": "REVURDERING",
+  "behandlingÅrsak": "SØKNAD",
+  "behandlingResultat": "FERDIGSTILT",
+  "vedtak": "INNVILGET",
+  "utbetalinger": [
+    {
+      "utbetaltPerPeriode": 19003,
+      "periodetype": "MÅNED",
+      "fraOgMed": "2021-03-01",
+      "tilOgMed": "2024-02-29",
+      "personIdent": null,
+      "aktorId": "5634422",
+      "klassekode": "EFOG",
+      "delytelseId": "EF-123-EF-019"
+    }
+  ],
+  "inntekt": [
+    {
+      "utbetaltPerPeriode": 0,
+      "periodetype": "MÅNED",
+      "fraOgMed": "2021-03-01",
+      "tilOgMed": "2024-02-29",
+      "inntektstype": "ARBEIDINNTEKT"
+    }
+  ],
+  "aktivitetskrav": {
+    "aktivitetspliktInntrefferDato": "2021-12-01",
+    "harSagtOppArbeidsforhold": false
+  },
+  "funksjonellId": null
+}

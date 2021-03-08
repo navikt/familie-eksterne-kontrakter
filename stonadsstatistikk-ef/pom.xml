@@ -10,17 +10,22 @@
         <version>${revision}${sha1}${changelist}</version>
     </parent>
 
-    <artifactId>stonadsstatistikk</artifactId>
+    <artifactId>stonadsstatistikk_ef</artifactId>
     <version>${revision}${sha1}${changelist}</version>
-    <name>Kontrakter - Stønadsstatistikk</name>
-    <description>Kontrakter for stønadsstatistikk</description>
+    <name>Kontrakter - Stønadsstatistikk EF</name>
+    <description>Kontrakter for stønadsstatistikk for Enslig forsørger</description>
     <packaging>jar</packaging>
 
+    <properties>
+     </properties>
+
     <dependencies>
+
     </dependencies>
 
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
 
         <plugins>
             <plugin>
