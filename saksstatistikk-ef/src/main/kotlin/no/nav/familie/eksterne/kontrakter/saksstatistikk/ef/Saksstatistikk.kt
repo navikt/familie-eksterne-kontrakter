@@ -1,4 +1,4 @@
-package no.nav.familie.eksterne.kontrakter.saksstatistikk
+package no.nav.familie.eksterne.kontrakter.saksstatistikk.ef
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDate
