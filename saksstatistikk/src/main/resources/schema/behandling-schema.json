@@ -147,7 +147,7 @@
             },
             "vedtakBegrunnelse": {
               "type": "string",
-              "maxLength": 40 ,
+              "maxLength": 100 ,
               "description": "Enum for type av begrunnelse."
             }
           },
