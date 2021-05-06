@@ -9,7 +9,7 @@
         <version>${revision}${sha1}${changelist}</version>
     </parent>
 
-    <artifactId>saksstatistikk_v2</artifactId>
+    <artifactId>saksstatistikk-ef</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <name>Kontrakter - Saksstatistikk</name>
     <description>Kontrakter for saksstatistikk v2</description>

@@ -41,6 +41,14 @@ jobs:
           echo "stonadsstatistikk $(git rev-list -1 HEAD -- "stonadsstatistikk")"
           echo "gha.sha ${{ github.sha }}"
 
+      - name: EF - Ta vare på siste sha for saksstatistikk og stonadsstatistikk
+        run: |
+          echo "saksstatistikk_ef_rev=$(git rev-list -1 HEAD -- "saksstatistikk_ef")" >> $GITHUB_ENV
+          echo "stonadsstatistikk_ef_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk_ef")" >> $GITHUB_ENV
+          echo "saksstatistikk_ef $(git rev-list -1 HEAD -- "saksstatistikk_ef")"
+          echo "stonadsstatistikk_ef $(git rev-list -1 HEAD -- "stonadsstatistikk_ef")"
+          echo "gha.sha ${{ github.sha }}"
+
       - name: Setting version
         run: |
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
@@ -63,3 +71,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.stonadsstatistikk_rev == github.sha
         run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+
+      - name: Deploy saksstatistikk-ef ved endring
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.saksstatistikk_ef_rev == github.sha
+        run: mvn --settings .github/maven-settings.xml -pl saksstatistikk-ef source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+
+      - name: Deploy stonadsstatistikk-ef ved endring
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.stonadsstatistikk_ef_rev == github.sha
+        run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk-ef source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
