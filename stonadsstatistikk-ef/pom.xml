@@ -10,7 +10,7 @@
         <version>${revision}${sha1}${changelist}</version>
     </parent>
 
-    <artifactId>stonadsstatistikk_ef</artifactId>
+    <artifactId>stonadsstatistikk-ef</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <name>Kontrakter - Stønadsstatistikk EF</name>
     <description>Kontrakter for stønadsstatistikk for Enslig forsørger</description>
