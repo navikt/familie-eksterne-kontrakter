@@ -11,8 +11,8 @@
 
     <artifactId>saksstatistikk-ef</artifactId>
     <version>${revision}${sha1}${changelist}</version>
-    <name>Kontrakter - Saksstatistikk</name>
-    <description>Kontrakter for saksstatistikk v2</description>
+    <name>Kontrakter - Saksstatistikk EF</name>
+    <description>Kontrakter for saksstatistikk Enslig forsørger</description>
     <packaging>jar</packaging>
 
     <dependencies>

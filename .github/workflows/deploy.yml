@@ -43,10 +43,10 @@ jobs:
 
       - name: EF - Ta vare på siste sha for saksstatistikk og stonadsstatistikk
         run: |
-          echo "saksstatistikk_ef_rev=$(git rev-list -1 HEAD -- "saksstatistikk_ef")" >> $GITHUB_ENV
-          echo "stonadsstatistikk_ef_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk_ef")" >> $GITHUB_ENV
-          echo "saksstatistikk_ef $(git rev-list -1 HEAD -- "saksstatistikk_ef")"
-          echo "stonadsstatistikk_ef $(git rev-list -1 HEAD -- "stonadsstatistikk_ef")"
+          echo "saksstatistikk_ef_rev=$(git rev-list -1 HEAD -- "saksstatistikk-ef")" >> $GITHUB_ENV
+          echo "stonadsstatistikk_ef_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk-ef")" >> $GITHUB_ENV
+          echo "saksstatistikk_ef $(git rev-list -1 HEAD -- "saksstatistikk-ef")"
+          echo "stonadsstatistikk_ef $(git rev-list -1 HEAD -- "stonadsstatistikk-ef")"
           echo "gha.sha ${{ github.sha }}"
 
       - name: Setting version
