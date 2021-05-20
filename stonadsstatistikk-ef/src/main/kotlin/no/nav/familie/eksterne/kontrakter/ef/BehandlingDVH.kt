@@ -99,10 +99,16 @@ data class Vilkårsvurdering(
 )
 
 enum class Vilkår {
-    OPPHOLDSTILLATELSE,
     FORUTGÅENDE_MEDLEMSKAP,
     LOVLIG_OPPHOLD,
-    SIVILSTAND
+    MOR_ELLER_FAR,
+    SIVILSTAND,
+    SAMLIV,
+    ALENEOMSORG,
+    NYTT_BARN_SAMME_PARTNER,
+    SAGT_OPP_ELLER_REDUSERT,
+    AKTIVITET,
+    TIDLIGERE_VEDTAKSPERIODER;
 }
 
 data class Aktivitetskrav(
