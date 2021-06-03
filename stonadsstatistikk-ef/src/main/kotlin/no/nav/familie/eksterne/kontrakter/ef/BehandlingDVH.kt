@@ -1,6 +1,5 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonUnwrapped
 import java.time.LocalDate
 import java.time.ZonedDateTime
@@ -17,7 +16,6 @@ data class BehandlingDVH(
         val barn: List<Person>,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
-        val behandlingResultat: BehandlingResultat,
         val vedtak: Vedtak? = null,
         val utbetalinger: List<Utbetaling>,
         val inntekt: List<Inntekt>,
@@ -58,33 +56,21 @@ enum class Vedtak {
     AVSLÅTT
 }
 
-data class Person(
-        val personIdent: String? = null,
-        val aktorId: String? = null
-)
+data class Person(val personIdent: String? = null)
 
-data class Utbetaling(@JsonUnwrapped val periodeBeløp: PeriodeBeløp,
-                      @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj
-)
+data class Utbetaling(val beløp: Int,
+                      val fraOgMed: LocalDate,
+                      val tilOgMed: LocalDate,
+                      @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj)
 
-data class PeriodeBeløp(
-        val utbetaltPerPeriode: Int,
-        var periodetype: Periodetype,
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-)
-
-data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person, // Identifiserer hvilken person utbetalingen gjelder, ikke nødvendigvis brukeren selv
-                             val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
+data class Utbetalingsdetalj(val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
                              val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
 
-enum class Periodetype {
-    MÅNED
-}
-
 data class Inntekt(
-        @JsonUnwrapped val periodeBeløp: PeriodeBeløp,
-        val inntektstype: Inntektstype
+        val beløp: Int,
+        var samordningsfradrag: Int,
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
 )
 
 enum class Inntektstype {
@@ -111,8 +97,5 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER;
 }
 
-data class Aktivitetskrav(
-        val aktivitetspliktInntrefferDato: LocalDate,
-        val harSagtOppArbeidsforhold: Boolean
-)
+data class Aktivitetskrav(val harSagtOppArbeidsforhold: Boolean)
 
