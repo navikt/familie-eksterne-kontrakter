@@ -81,7 +81,7 @@ enum class Inntektstype {
 
 data class Vilkårsvurdering(
         val vilkår: Vilkår,
-        val oppfylt: Boolean
+        val oppfylt: Boolean?
 )
 
 enum class Vilkår {
@@ -97,5 +97,5 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER;
 }
 
-data class Aktivitetskrav(val harSagtOppArbeidsforhold: Boolean)
+data class Aktivitetskrav(val harSagtOppArbeidsforhold: Boolean?)
 
