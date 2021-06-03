@@ -1,6 +1,5 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -14,41 +13,33 @@ import java.util.*
 class BehandlingDVHTest {
 
     val vedtak = BehandlingDVH(
-            fagsakId = UUID.randomUUID().toString(),
-            behandlingId = "EF-123",
-            relatertBehandlingId = "EF-110",
-            kode6eller7 = false,
-            tidspunktVedtak = ZonedDateTime.now(),
-            vilkårsvurderinger = listOf(
+        fagsakId = UUID.randomUUID().toString(),
+        behandlingId = "EF-123",
+        relatertBehandlingId = "EF-110",
+        kode6eller7 = false,
+        tidspunktVedtak = ZonedDateTime.now(),
+        vilkårsvurderinger = listOf(
                     Vilkårsvurdering(Vilkår.LOVLIG_OPPHOLD, true),
                     Vilkårsvurdering(Vilkår.SIVILSTAND, true)
             ),
-            person = Person(aktorId = "5634422"),
-            barn = listOf(Person(aktorId = "6442433")),
-            behandlingType = BehandlingType.REVURDERING,
-            behandlingÅrsak = BehandlingÅrsak.SØKNAD,
-            behandlingResultat = BehandlingResultat.FERDIGSTILT,
-            vedtak = Vedtak.INNVILGET,
-            utbetalinger = listOf(
+        person = Person(personIdent = "5634422"),
+        barn = listOf(Person(personIdent = "6442433")),
+        behandlingType = BehandlingType.REVURDERING,
+        behandlingÅrsak = BehandlingÅrsak.SØKNAD,
+        vedtak = Vedtak.INNVILGET,
+        utbetalinger = listOf(
                     Utbetaling(
-                            PeriodeBeløp(19003, Periodetype.MÅNED,
+                           100,
                                          LocalDate.of(2021, 3, 1),
-                                         LocalDate.of(2024, 2, 29)),
-                            Utbetalingsdetalj(Person(aktorId = "5634422"), "EFOG", "EF-123-EF-019")
-                    )
-            ),
-            inntekt = listOf(Inntekt(
-                    PeriodeBeløp(0, Periodetype.MÅNED,
-                                 LocalDate.of(2021, 3, 1),
-                                 LocalDate.of(2024, 2, 29)
-                    ), Inntektstype.ARBEIDINNTEKT)),
-            aktivitetskrav = Aktivitetskrav(
-                    LocalDate.of(2021, 12, 1),
+                                         LocalDate.of(2024, 2, 29),
+                            Utbetalingsdetalj("EFOG", "EF-123-EF-019"))
+                    ),
+        inntekt = listOf(Inntekt(beløp = 100, samordningsfradrag = 0, fraOgMed = LocalDate.of(2021, 3, 1), tilOgMed =LocalDate.of(2024, 2, 29))),
+        aktivitetskrav = Aktivitetskrav(
                     harSagtOppArbeidsforhold = false
 
             )
     )
-
 
     @Test
     fun verifserSerialisering() {
