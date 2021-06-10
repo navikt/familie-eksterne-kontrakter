@@ -27,9 +27,9 @@ class BehandlingDVHTest {
             behandlingType = BehandlingType.REVURDERING,
             behandlingÅrsak = BehandlingÅrsak.SØKNAD,
             vedtak = Vedtak.INNVILGET,
-            vedtaksperiode = Vedtaksperiode(LocalDate.of(2021, 3, 1),
-                                            LocalDate.of(2024, 2, 29),
-                                            "aktivitet", "periodeType"),
+            vedtaksperioder = listOf(Vedtaksperiode(LocalDate.of(2021, 3, 1),
+                                                    LocalDate.of(2024, 2, 29),
+                                                    "aktivitet", "periodeType")),
             utbetalinger = listOf(
                     Utbetaling(
                             beløp = 100,
