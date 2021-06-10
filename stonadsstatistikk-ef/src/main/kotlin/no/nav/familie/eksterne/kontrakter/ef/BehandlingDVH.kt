@@ -6,19 +6,18 @@ import java.time.ZonedDateTime
 
 data class BehandlingDVH(
         val fagsakId: String,
-        val saksnummer: String? = null,
         val behandlingId: String,
         val relatertBehandlingId: String? = null,
-        val kode6eller7: Boolean,
+        val adressebeskyttelse: Adressebeskyttelse,
         val tidspunktVedtak: ZonedDateTime? = null,
         val vilkårsvurderinger: List<Vilkårsvurdering>,
         val person: Person,
-        val barn: List<Person>,
+        val barn: List<Barn>,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val vedtak: Vedtak? = null,
+        val vedtaksperiode: Vedtaksperiode,
         val utbetalinger: List<Utbetaling>,
-        val inntekt: List<Inntekt>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: String? = null,
 )
@@ -42,47 +41,47 @@ enum class BehandlingÅrsak {
     TEKNISK_FEIL // Kan være feilutbetaling, funksjonelle mangler
 }
 
-enum class BehandlingResultat {
-    FERDIGSTILT,
-    DUPLIKAT,
-    HENLAGT,
-    ANNULLERT
-}
-
 enum class Vedtak {
     INNVILGET,
-    DELVIS_INNVILGET,
     OPPHØRT,
     AVSLÅTT
 }
 
+enum class Adressebeskyttelse {
+    STRENGT_FORTROLIG,
+    STRENGT_FORTROLIG_UTLAND,
+    FORTROLIG,
+    UGRADERT
+}
+
 data class Person(val personIdent: String? = null)
 
-data class Utbetaling(val beløp: Int,
-                      val fraOgMed: LocalDate,
-                      val tilOgMed: LocalDate,
-                      @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj)
+data class Barn(val personIdent: String? = null, val termindato: LocalDate? = null)
 
-data class Utbetalingsdetalj(val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
-                             val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
-
-data class Inntekt(
+data class Utbetaling(
         val beløp: Int,
         var samordningsfradrag: Int,
+        val inntekt: Int,
+        val inntektsreduksjon: Int,
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
+        @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj,
 )
 
-enum class Inntektstype {
-    ARBEIDINNTEKT,
-    KAPITALINNTEKT,
-    TRYGD_ELLER_STØNAD
-}
+data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person,
+                             val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
+                             val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
 
 data class Vilkårsvurdering(
         val vilkår: Vilkår,
-        val oppfylt: Boolean?
+        val resultat: Vilkårsresultat
 )
+
+enum class Vilkårsresultat {
+    OPPFYLT,
+    IKKE_OPPFYLT,
+    IKKE_VURDERT
+}
 
 enum class Vilkår {
     FORUTGÅENDE_MEDLEMSKAP,
@@ -97,5 +96,12 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER;
 }
 
-data class Aktivitetskrav(val harSagtOppArbeidsforhold: Boolean?)
+data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate, val harSagtOppArbeidsforhold: Boolean?)
+
+data class Vedtaksperiode(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val aktivitet: String,
+        val periodeType: String
+)
 
