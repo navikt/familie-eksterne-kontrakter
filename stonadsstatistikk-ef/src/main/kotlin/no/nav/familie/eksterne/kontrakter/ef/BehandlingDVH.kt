@@ -74,10 +74,10 @@ data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person,
 
 data class Vilkårsvurdering(
         val vilkår: Vilkår,
-        val resultat: Resultat
+        val resultat: Vilkårsresultat
 )
 
-enum class Resultat {
+enum class Vilkårsresultat {
     OPPFYLT,
     IKKE_OPPFYLT,
     IKKE_VURDERT
@@ -96,7 +96,7 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER;
 }
 
-data class Aktivitetskrav(val harSagtOppArbeidsforhold: Boolean?)
+data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate, val harSagtOppArbeidsforhold: Boolean?)
 
 data class Vedtaksperiode(
         val fraOgMed: LocalDate,

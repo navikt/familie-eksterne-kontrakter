@@ -19,8 +19,8 @@ class BehandlingDVHTest {
             adressebeskyttelse = Adressebeskyttelse.UGRADERT,
             tidspunktVedtak = ZonedDateTime.now(),
             vilkårsvurderinger = listOf(
-                    Vilkårsvurdering(Vilkår.LOVLIG_OPPHOLD, Resultat.OPPFYLT),
-                    Vilkårsvurdering(Vilkår.SIVILSTAND, Resultat.OPPFYLT)
+                    Vilkårsvurdering(Vilkår.LOVLIG_OPPHOLD, Vilkårsresultat.OPPFYLT),
+                    Vilkårsvurdering(Vilkår.SIVILSTAND, Vilkårsresultat.OPPFYLT)
             ),
             person = Person(personIdent = "5634422"),
             barn = listOf(Barn(personIdent = "6442433")),
@@ -42,6 +42,7 @@ class BehandlingDVHTest {
                     )
             ),
             aktivitetskrav = Aktivitetskrav(
+                    aktivitetspliktInntrefferDato = LocalDate.of(2021, 3, 1),
                     harSagtOppArbeidsforhold = false
             )
     )
