@@ -29,7 +29,7 @@ class BehandlingDVHTest {
             vedtak = Vedtak.INNVILGET,
             vedtaksperioder = listOf(VedtaksperiodeDto(LocalDate.of(2021, 3, 1),
                                                        LocalDate.of(2024, 2, 29),
-                                                       "aktivitet", "periodeType")),
+                                                       AktivitetType.BARNET_ER_SYKT, VedtaksperiodeType.HOVEDPERIODE)),
             utbetalinger = listOf(
                     Utbetaling(
                             beløp = 100,

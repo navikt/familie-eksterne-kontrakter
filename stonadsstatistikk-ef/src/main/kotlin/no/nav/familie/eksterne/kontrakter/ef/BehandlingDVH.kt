@@ -104,7 +104,25 @@ data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val har
 data class VedtaksperiodeDto(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        val aktivitet: String,
-        val periodeType: String
+        val aktivitet: AktivitetType,
+        val periodeType: VedtaksperiodeType
 )
+
+enum class VedtaksperiodeType {
+    PERIODE_FØR_FØDSEL,
+    HOVEDPERIODE,
+}
+
+enum class AktivitetType {
+    IKKE_AKTIVITETSPLIKT,
+    BARN_UNDER_ETT_ÅR,
+    FORSØRGER_I_ARBEID,
+    FORSØRGER_I_UTDANNING,
+    FORSØRGER_REELL_ARBEIDSSØKER,
+    FORSØRGER_ETABLERER_VIRKSOMHET,
+    BARNET_SÆRLIG_TILSYNSKREVENDE,
+    FORSØRGER_MANGLER_TILSYNSORDNING,
+    FORSØRGER_ER_SYK,
+    BARNET_ER_SYKT,
+}
 
