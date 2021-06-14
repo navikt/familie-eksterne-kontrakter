@@ -19,17 +19,17 @@ class BehandlingDVHTest {
             adressebeskyttelse = Adressebeskyttelse.UGRADERT,
             tidspunktVedtak = ZonedDateTime.now(),
             vilkårsvurderinger = listOf(
-                    Vilkårsvurdering(Vilkår.LOVLIG_OPPHOLD, Vilkårsresultat.OPPFYLT),
-                    Vilkårsvurdering(Vilkår.SIVILSTAND, Vilkårsresultat.OPPFYLT)
+                    VilkårsvurderingDto(Vilkår.LOVLIG_OPPHOLD, Vilkårsresultat.OPPFYLT),
+                    VilkårsvurderingDto(Vilkår.SIVILSTAND, Vilkårsresultat.OPPFYLT)
             ),
             person = Person(personIdent = "5634422"),
             barn = listOf(Barn(personIdent = "6442433")),
             behandlingType = BehandlingType.REVURDERING,
             behandlingÅrsak = BehandlingÅrsak.SØKNAD,
             vedtak = Vedtak.INNVILGET,
-            vedtaksperiode = Vedtaksperiode(LocalDate.of(2021, 3, 1),
-                                            LocalDate.of(2024, 2, 29),
-                                            "aktivitet", "periodeType"),
+            vedtaksperioder = listOf(VedtaksperiodeDto(LocalDate.of(2021, 3, 1),
+                                                       LocalDate.of(2024, 2, 29),
+                                                       AktivitetType.BARNET_ER_SYKT, VedtaksperiodeType.HOVEDPERIODE)),
             utbetalinger = listOf(
                     Utbetaling(
                             beløp = 100,

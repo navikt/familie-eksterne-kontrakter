@@ -8,25 +8,26 @@ data class BehandlingDVH(
         val fagsakId: String,
         val behandlingId: String,
         val relatertBehandlingId: String? = null,
-        val adressebeskyttelse: Adressebeskyttelse,
+        val adressebeskyttelse: Adressebeskyttelse? = null,
         val tidspunktVedtak: ZonedDateTime? = null,
-        val vilkårsvurderinger: List<Vilkårsvurdering>,
+        val vilkårsvurderinger: List<VilkårsvurderingDto>,
         val person: Person,
         val barn: List<Barn>,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val vedtak: Vedtak? = null,
-        val vedtaksperiode: Vedtaksperiode,
+        val vedtaksperioder: List<VedtaksperiodeDto>,
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: String? = null,
 )
 
 enum class BehandlingType {
-    SAKSBEHANDLINGSBLANKETT,
+    BLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING,  // Inkluderer opphør
     KLAGE,
+    TEKNISK_OPPHØR,
     MIGRERING_FRA_INFOTRYGD,
     TILBAKEFØRING_TIL_INFOTRYGD
 }
@@ -72,7 +73,7 @@ data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person,
                              val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
                              val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
 
-data class Vilkårsvurdering(
+data class VilkårsvurderingDto(
         val vilkår: Vilkår,
         val resultat: Vilkårsresultat
 )
@@ -80,7 +81,9 @@ data class Vilkårsvurdering(
 enum class Vilkårsresultat {
     OPPFYLT,
     IKKE_OPPFYLT,
-    IKKE_VURDERT
+    IKKE_AKTUELL,
+    IKKE_TATT_STILLING_TIL,
+    SKAL_IKKE_VURDERES;
 }
 
 enum class Vilkår {
@@ -96,12 +99,30 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER;
 }
 
-data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate, val harSagtOppArbeidsforhold: Boolean?)
+data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val harSagtOppArbeidsforhold: Boolean?)
 
-data class Vedtaksperiode(
+data class VedtaksperiodeDto(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        val aktivitet: String,
-        val periodeType: String
+        val aktivitet: AktivitetType,
+        val periodeType: VedtaksperiodeType
 )
+
+enum class VedtaksperiodeType {
+    PERIODE_FØR_FØDSEL,
+    HOVEDPERIODE,
+}
+
+enum class AktivitetType {
+    IKKE_AKTIVITETSPLIKT,
+    BARN_UNDER_ETT_ÅR,
+    FORSØRGER_I_ARBEID,
+    FORSØRGER_I_UTDANNING,
+    FORSØRGER_REELL_ARBEIDSSØKER,
+    FORSØRGER_ETABLERER_VIRKSOMHET,
+    BARNET_SÆRLIG_TILSYNSKREVENDE,
+    FORSØRGER_MANGLER_TILSYNSORDNING,
+    FORSØRGER_ER_SYK,
+    BARNET_ER_SYKT,
+}
 
