@@ -20,7 +20,7 @@ data class BehandlingDVH(
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: String? = null,
-        val stønadType: StønadType
+        val stønadstype: StønadType
 )
 
 enum class BehandlingType {
