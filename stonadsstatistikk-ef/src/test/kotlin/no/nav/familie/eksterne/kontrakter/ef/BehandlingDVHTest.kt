@@ -44,7 +44,8 @@ class BehandlingDVHTest {
             aktivitetskrav = Aktivitetskrav(
                     aktivitetspliktInntrefferDato = LocalDate.of(2021, 3, 1),
                     harSagtOppArbeidsforhold = false
-            )
+            ),
+            stønadstype = StønadType.OVERGANGSSTØNAD
     )
 
     @Test
