@@ -20,6 +20,7 @@ data class BehandlingDVH(
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: String? = null,
+        val stønadType: StønadType
 )
 
 enum class BehandlingType {
@@ -124,5 +125,11 @@ enum class AktivitetType {
     FORSØRGER_MANGLER_TILSYNSORDNING,
     FORSØRGER_ER_SYK,
     BARNET_ER_SYKT,
+}
+
+enum class StønadType {
+    OVERGANGSSTØNAD,
+    BARNETILSYN,
+    SKOLEPENGER
 }
 
