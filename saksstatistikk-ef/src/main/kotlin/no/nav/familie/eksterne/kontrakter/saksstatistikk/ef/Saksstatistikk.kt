@@ -6,7 +6,7 @@ import java.time.ZonedDateTime
 
 data class BehandlingDVH(
         val behandlingId: String, // Fagsystemets behandlings-ID
-        val aktorId: String, // Aktør-IDen tilknyttet søker eller hovedaktør for ytelsen
+        val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
         val registrertTid: ZonedDateTime, // Tidspunkt da behandlingen først oppstod eller ble registrert i fagsystemet
         val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen. Ved første melding vil denne være lik registrertTid
         val tekniskTid: ZonedDateTime, // Tidspunktet da fagsystemet legger hendelsen på grensesnittet/topicen
