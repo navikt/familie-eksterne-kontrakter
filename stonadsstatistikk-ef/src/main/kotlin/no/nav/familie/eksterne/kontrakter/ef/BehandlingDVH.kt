@@ -1,6 +1,5 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
@@ -67,10 +66,10 @@ data class Utbetaling(
         val inntektsreduksjon: Int,
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        @JsonUnwrapped val utbetalingsdetalj: Utbetalingsdetalj,
+        val utbetalingsdetalj: Utbetalingsdetalj,
 )
 
-data class Utbetalingsdetalj(@JsonUnwrapped val gjelderPerson: Person,
+data class Utbetalingsdetalj(val gjelderPerson: Person,
                              val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
                              val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
 
