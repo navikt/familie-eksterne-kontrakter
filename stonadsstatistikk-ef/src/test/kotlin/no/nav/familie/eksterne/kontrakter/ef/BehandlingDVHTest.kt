@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.ZonedDateTime
@@ -49,14 +50,14 @@ class BehandlingDVHTest {
     )
 
     @Test
-    fun verifserSerialisering() {
+    fun `serialiser og deserialiser, forvent ingen unntak`() {
 
         val mapper = ObjectMapper().registerModule(KotlinModule())
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        val serialized = mapper.writeValueAsString(vedtak)
+        val json = mapper.writeValueAsString(vedtak)
+        val behandlingDVH = mapper.readValue<BehandlingDVH>(json)
 
-        //println(serialized)
     }
 
 }
