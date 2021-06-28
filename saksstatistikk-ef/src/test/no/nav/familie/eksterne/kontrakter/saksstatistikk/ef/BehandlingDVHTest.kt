@@ -40,4 +40,4 @@ internal class BehandlingDVHTest {
                              behandlingMetode = "MANUELL",
                              avsender = "NAV Enslig forelder")
     }
-}t
+}
