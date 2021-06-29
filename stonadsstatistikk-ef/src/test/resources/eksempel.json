@@ -1,58 +1,60 @@
 {
-  "fagsakId": "01d2cc6e-af5e-402c-99ae-5815207709d2",
-  "saksnummer": null,
+  "fagsakId": "d2038a08-f438-478c-9612-e60adae0572f",
   "behandlingId": "EF-123",
   "relatertBehandlingId": "EF-110",
-  "kode6eller7": false,
-  "tidspunktVedtak": "2021-02-14T09:16:58.532292+01:00",
+  "adressebeskyttelse": "UGRADERT",
+  "tidspunktVedtak": "2021-06-29T09:09:48.76851+02:00",
   "vilkårsvurderinger": [
     {
       "vilkår": "LOVLIG_OPPHOLD",
-      "oppfylt": true
+      "resultat": "OPPFYLT"
     },
     {
       "vilkår": "SIVILSTAND",
-      "oppfylt": true
+      "resultat": "OPPFYLT"
     }
   ],
   "person": {
-    "personIdent": null,
-    "aktorId": "5634422"
+    "personIdent": "5634422"
   },
   "barn": [
     {
-      "personIdent": null,
-      "aktorId": "6442433"
+      "personIdent": "6442433",
+      "termindato": null
     }
   ],
   "behandlingType": "REVURDERING",
   "behandlingÅrsak": "SØKNAD",
-  "behandlingResultat": "FERDIGSTILT",
   "vedtak": "INNVILGET",
-  "utbetalinger": [
+  "vedtaksperioder": [
     {
-      "utbetaltPerPeriode": 19003,
-      "periodetype": "MÅNED",
       "fraOgMed": "2021-03-01",
       "tilOgMed": "2024-02-29",
-      "personIdent": null,
-      "aktorId": "5634422",
-      "klassekode": "EFOG",
-      "delytelseId": "EF-123-EF-019"
+      "aktivitet": "BARNET_ER_SYKT",
+      "periodeType": "HOVEDPERIODE"
     }
   ],
-  "inntekt": [
+  "utbetalinger": [
     {
-      "utbetaltPerPeriode": 0,
-      "periodetype": "MÅNED",
+      "beløp": 100,
+      "samordningsfradrag": 0,
+      "inntekt": 100,
+      "inntektsreduksjon": 0,
       "fraOgMed": "2021-03-01",
       "tilOgMed": "2024-02-29",
-      "inntektstype": "ARBEIDINNTEKT"
+      "utbetalingsdetalj": {
+        "gjelderPerson": {
+          "personIdent": "5634422"
+        },
+        "klassekode": "EFOG",
+        "delytelseId": "EF-123-EF-019"
+      }
     }
   ],
   "aktivitetskrav": {
-    "aktivitetspliktInntrefferDato": "2021-12-01",
+    "aktivitetspliktInntrefferDato": "2021-03-01",
     "harSagtOppArbeidsforhold": false
   },
-  "funksjonellId": null
+  "funksjonellId": null,
+  "stønadstype": "OVERGANGSSTØNAD"
 }
