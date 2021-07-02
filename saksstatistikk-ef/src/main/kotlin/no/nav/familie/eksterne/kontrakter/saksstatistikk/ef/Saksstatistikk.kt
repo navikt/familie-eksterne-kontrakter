@@ -17,7 +17,6 @@ data class BehandlingDVH(
         val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
         val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet. Avslåtte klager i vedtaksinstans skal ha riktig KA-enhet her
         val totrinnsbehandling: Boolean, // Hvis det er utført totrinnskontroll skal denne være true
-
         @JsonInclude(JsonInclude.Include.NON_NULL)
         val behandlingUuid: String? = null, // Behandlingens UUID
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -35,7 +34,7 @@ data class BehandlingDVH(
         @JsonInclude(JsonInclude.Include.NON_NULL)
         val datoForsteUtbetaling: LocalDate? = null, // Hvis systemet eller bruker har et forhold til når ytelsen normalt skal utbetales (planlagt uttak, ønsket oppstart etc)
         @JsonInclude(JsonInclude.Include.NON_NULL)
-        val sakUtland: String? = null, // Kode som angir hvor vidt saken er for utland eller nasjonal å anses. Se begrepskatalogen: https://jira.adeo.no/browse/BEGREP-1611#
+        val sakUtland: String? = null, // Nasjonal/Utland - Kode som angir hvor vidt saken er for utland eller nasjonal å anses. Se begrepskatalogen: https://jira.adeo.no/browse/BEGREP-1611#
         @JsonInclude(JsonInclude.Include.NON_NULL)
         val venteAarsak: String? = null, // Kode som angir årsak til venting/utsettelse av saksbehandlings prosesser - typisk: venter på utland, venter på inntektsmelding etc.
         @JsonInclude(JsonInclude.Include.NON_NULL)
