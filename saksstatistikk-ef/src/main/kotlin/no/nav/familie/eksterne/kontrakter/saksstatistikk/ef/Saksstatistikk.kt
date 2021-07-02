@@ -16,6 +16,8 @@ data class BehandlingDVH(
         val opprettetAv: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Saksbehandler-ID som opprettet behandlingen. Hvis det er en servicebruker så sende denne
         val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
         val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet. Avslåtte klager i vedtaksinstans skal ha riktig KA-enhet her
+        val totrinnsbehandling: Boolean, // Hvis det er utført totrinnskontroll skal denne være true
+
         @JsonInclude(JsonInclude.Include.NON_NULL)
         val behandlingUuid: String? = null, // Behandlingens UUID
         @JsonInclude(JsonInclude.Include.NON_NULL)
