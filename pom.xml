@@ -28,6 +28,7 @@
         <module>saksstatistikk</module>
         <module>saksstatistikk-ef</module>
         <module>stonadsstatistikk-ef</module>
+        <module>skatteetaten</module>
     </modules>
 
     <dependencies>

@@ -37,8 +37,10 @@ jobs:
         run: |
           echo "saksstatistikk_rev=$(git rev-list -1 HEAD -- "saksstatistikk")" >> $GITHUB_ENV
           echo "stonadsstatistikk_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk")" >> $GITHUB_ENV
+          echo "skatteetaten_rev=$(git rev-list -1 HEAD -- "skatteetaten")" >> $GITHUB_ENV
           echo "saksstatistikk $(git rev-list -1 HEAD -- "saksstatistikk")"
           echo "stonadsstatistikk $(git rev-list -1 HEAD -- "stonadsstatistikk")"
+          echo "skatteetaten $(git rev-list -1 HEAD -- "skatteetaten")"
           echo "gha.sha ${{ github.sha }}"
 
       - name: EF - Ta vare på siste sha for saksstatistikk og stonadsstatistikk
@@ -85,3 +87,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.stonadsstatistikk_ef_rev == github.sha
         run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk-ef source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+
+      - name: Deploy skatteetaten ved endring
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.skatteetaten_rev == github.sha
+        run: mvn --settings .github/maven-settings.xml -pl skatteetaten source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
