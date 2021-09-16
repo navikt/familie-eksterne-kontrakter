@@ -1,7 +1,7 @@
 package no.nav.familie.eksterne.kontrakter.skatteetaten
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.time.OffsetDateTime
+import java.time.LocalDateTime
 import javax.validation.Valid
 import javax.validation.constraints.NotNull
 
@@ -17,7 +17,7 @@ data class SkatteetatenPerioder(
     @field:JsonProperty("ident") val ident: String,
 
     @get:NotNull
-    @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: OffsetDateTime,
+    @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: LocalDateTime,
 
     @get:NotNull
     @field:Valid
