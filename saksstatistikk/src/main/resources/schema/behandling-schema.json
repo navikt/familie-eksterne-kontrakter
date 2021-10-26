@@ -225,6 +225,10 @@
     "versjon": {
       "type": "string",
       "description":"Angir på hvilken versjon av kildekoden JSON stringen er generert på bakgrunn av. "
+    },
+    "førsteInnvilgedeVilkårsdato": {
+      "type": ["string", "null"],
+      "description":"Dato for når vilkårene er oppfylt første gang i gjeldende behandling. "
     }
   }
 }
