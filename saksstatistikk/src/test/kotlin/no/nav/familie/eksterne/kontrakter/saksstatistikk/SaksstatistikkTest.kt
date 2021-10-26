@@ -105,7 +105,8 @@ class SaksstatistikkTest {
                                           saksbehandler = "saksbehandler",
                                           behandlingOpprettetAv = "behandlingOpprettetAv",
                                           behandlingOpprettetType = "behandlingOpprettetType",
-                                          behandlingOpprettetTypeBeskrivelse = "behandlingOpprettetTypeBeskrivelse"
+                                          behandlingOpprettetTypeBeskrivelse = "behandlingOpprettetTypeBeskrivelse",
+                                          førsteInnvilgedeVilkårsdato = LocalDate.now()
         )
 
         val validatedParser = api.decorateJsonParser(behandlingSchemaValidator,

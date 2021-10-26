@@ -38,7 +38,8 @@ data class BehandlingDVH(
         val behandlendeEnhetType: String,
         val totrinnsbehandling: Boolean,
         val avsender: String,
-        val versjon: String
+        val versjon: String,
+        val førsteInnvilgedeVilkårsdato: LocalDate? = null
 )
 
 data class ResultatBegrunnelseDVH(val fom: LocalDate? = null,
