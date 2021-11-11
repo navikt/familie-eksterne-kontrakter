@@ -53,7 +53,8 @@ enum class BehandlingType(val visningsnavn: String) {
     REVURDERING("Revurdering"),
     MIGRERING_FRA_INFOTRYGD("Migrering fra infotrygd"),
     MIGRERING_FRA_INFOTRYGD_OPPHØRT("Opphør migrering fra infotrygd"),
-    TEKNISK_OPPHØR("Teknisk opphør")
+    TEKNISK_OPPHØR("Teknisk opphør"), // Ikke i bruk lenger
+    TEKNISK_ENDRING("Teknisk endring")
 }
 
 enum class BehandlingÅrsak(val visningsnavn: String) {
@@ -64,7 +65,8 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     DØDSFALL_BRUKER("Dødsfall bruker"),
     NYE_OPPLYSNINGER("Nye opplysninger"),
     KLAGE("Klage"),
-    TEKNISK_OPPHØR("Teknisk opphør"), // Kan være tilbakeføring til infotrygd, feilutbetaling
+    TEKNISK_OPPHØR("Teknisk opphør"), // Ikke i bruk lenger
+    TEKNISK_ENDRING("Teknisk endring"),
     KORREKSJON_VEDTAKSBREV("Korrigere vedtak med egen brevmal"),
     OMREGNING_6ÅR("Omregning 6 år"),
     OMREGNING_18ÅR("Omregning 18 år"),
