@@ -29,6 +29,7 @@
         <module>saksstatistikk-ef</module>
         <module>stonadsstatistikk-ef</module>
         <module>skatteetaten</module>
+        <module>bisys</module>
     </modules>
 
     <dependencies>
