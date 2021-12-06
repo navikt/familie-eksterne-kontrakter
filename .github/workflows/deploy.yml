@@ -42,6 +42,7 @@ jobs:
           echo "stonadsstatistikk $(git rev-list -1 HEAD -- "stonadsstatistikk")"
           echo "skatteetaten $(git rev-list -1 HEAD -- "skatteetaten")"
           echo "bisys $(git rev-list -1 HEAD -- "bisys")"
+          echo "bisys_rev=$(git rev-list -1 HEAD -- "bisys")" >> $GITHUB_ENV
           echo "gha.sha ${{ github.sha }}"
 
       - name: EF - Ta vare på siste sha for saksstatistikk og stonadsstatistikk
