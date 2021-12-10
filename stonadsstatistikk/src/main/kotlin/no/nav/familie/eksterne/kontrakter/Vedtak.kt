@@ -73,7 +73,8 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     SMÅBARNSTILLEGG("Småbarnstillegg"),
     MIGRERING("Migrering"),
     SATSENDRING("Satsendring"),
-    ENDRE_MIGRERINGSDATO("Endre migreringsdato")
+    ENDRE_MIGRERINGSDATO("Endre migreringsdato"),
+    HELMANUELL_MIGRERING("Manuell migrering")
 }
 
 enum class Kategori {
