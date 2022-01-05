@@ -14,9 +14,9 @@ import java.util.*
 class BehandlingDVHTest {
 
     val vedtak = BehandlingDVH(
-            fagsakId = UUID.randomUUID().toString(),
-            behandlingId = "EF-123",
-            relatertBehandlingId = "EF-110",
+            fagsakId = 100L,
+            behandlingId = 123L,
+            relatertBehandlingId = 110L,
             adressebeskyttelse = Adressebeskyttelse.UGRADERT,
             tidspunktVedtak = ZonedDateTime.now(),
             vilkårsvurderinger = listOf(
@@ -46,7 +46,8 @@ class BehandlingDVHTest {
                     aktivitetspliktInntrefferDato = LocalDate.of(2021, 3, 1),
                     harSagtOppArbeidsforhold = false
             ),
-            stønadstype = StønadType.OVERGANGSSTØNAD
+            stønadstype = StønadType.OVERGANGSSTØNAD,
+
     )
 
     @Test
@@ -56,7 +57,7 @@ class BehandlingDVHTest {
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         val json = mapper.writeValueAsString(vedtak)
-        val behandlingDVH = mapper.readValue<BehandlingDVH>(json)
+        mapper.readValue<BehandlingDVH>(json)
 
     }
 
