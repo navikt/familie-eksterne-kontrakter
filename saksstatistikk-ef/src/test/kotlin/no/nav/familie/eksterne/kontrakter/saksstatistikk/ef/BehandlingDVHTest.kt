@@ -7,7 +7,6 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
 import java.time.ZonedDateTime
-import java.util.UUID
 
 internal class BehandlingDVHTest {
 
@@ -17,13 +16,13 @@ internal class BehandlingDVHTest {
         val mapper = ObjectMapper().registerModule(KotlinModule())
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        val json = mapper.writeValueAsString(opprettBehandlingstatistikk(UUID.randomUUID()))
-        val behandlingDVH = mapper.readValue<BehandlingDVH>(json)
+        val json = mapper.writeValueAsString(opprettBehandlingstatistikk())
+        mapper.readValue<BehandlingDVH>(json)
 
     }
 
-    private fun opprettBehandlingstatistikk(behandlingId: UUID): BehandlingDVH {
-        return BehandlingDVH(behandlingId = behandlingId.toString(),
+    private fun opprettBehandlingstatistikk(): BehandlingDVH {
+        return BehandlingDVH(behandlingId = 123L,
                              personIdent = "persinIdent",
                              saksbehandler = "gjeldendeSaksbehandlerId",
                              registrertTid = ZonedDateTime.now(),
@@ -35,9 +34,11 @@ internal class BehandlingDVHTest {
                              opprettetAv = "gjeldendeSaksbehandlerId",
                              opprettetEnhet = "",
                              ansvarligEnhet = "",
-                             saksnummer = "saksnummer",
+                             saksnummer = 123L,
                              mottattTid = ZonedDateTime.now(),
                              behandlingMetode = "MANUELL",
-                             avsender = "NAV Enslig forelder")
+                             avsender = "NAV Enslig forelder",
+                             totrinnsbehandling = true,
+                             sakId = 321L)
     }
 }
