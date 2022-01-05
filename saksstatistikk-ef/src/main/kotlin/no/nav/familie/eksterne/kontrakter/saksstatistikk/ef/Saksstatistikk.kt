@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.time.ZonedDateTime
 
 data class BehandlingDVH(
-        val behandlingId: String, // Fagsystemets behandlings-ID
+        val behandlingId: Long, // Fagsystemets eksterne behandlings-ID
         val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
         val registrertTid: ZonedDateTime, // Tidspunkt da behandlingen først oppstod eller ble registrert i fagsystemet
         val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen. Ved første melding vil denne være lik registrertTid
@@ -18,13 +18,9 @@ data class BehandlingDVH(
         val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet. Avslåtte klager i vedtaksinstans skal ha riktig KA-enhet her
         val totrinnsbehandling: Boolean, // Hvis det er utført totrinnskontroll skal denne være true
         @JsonInclude(JsonInclude.Include.NON_NULL)
-        val behandlingUuid: String? = null, // Behandlingens UUID
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        val relatertBehandlingId: String? = null, // Hvis behandlingen har oppsått med bakgrunn i en annen, skal den foregående behandlingen refereres til her
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        val sakId: String? = null, // Hvis fagsystemet har et forhold til sak, skal saks-IDen oppgis her
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        val saksnummer: String? = null, // Saksnummer som følger behandlingen for NAV globalt
+        val relatertBehandlingId: Long? = null, // Hvis behandlingen har oppsått med bakgrunn i en annen, skal den foregående behandlingen refereres til her
+        val sakId: Long, // Saksnummer som følger behandlingen for NAV globalt
+        val saksnummer: Long, // Saksnummer som følger behandlingen for NAV globalt
         @JsonInclude(JsonInclude.Include.NON_NULL)
         val mottattTid: ZonedDateTime? = null, // Tidspunktet da behandlingen oppstår (eks søknadstidspunkt, inntektsmelding, etc). Det er ønskelig å måle brukers opplevde ventetid. Ved elektronisk kontakt regner vi med at denne er lik registrertTid
         @JsonInclude(JsonInclude.Include.NON_NULL)

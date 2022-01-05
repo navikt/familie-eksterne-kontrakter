@@ -4,9 +4,9 @@ import java.time.LocalDate
 import java.time.ZonedDateTime
 
 data class BehandlingDVH(
-        val fagsakId: String,
-        val behandlingId: String,
-        val relatertBehandlingId: String? = null,
+        val fagsakId: Long, // Ekstern fagsakId
+        val behandlingId: Long, // Ekstern behandlingId
+        val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
         val adressebeskyttelse: Adressebeskyttelse? = null,
         val tidspunktVedtak: ZonedDateTime? = null,
         val vilkårsvurderinger: List<VilkårsvurderingDto>,
@@ -18,7 +18,7 @@ data class BehandlingDVH(
         val vedtaksperioder: List<VedtaksperiodeDto>,
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
-        val funksjonellId: String? = null,
+        val funksjonellId: Long? = null,
         val stønadstype: StønadType
 )
 
