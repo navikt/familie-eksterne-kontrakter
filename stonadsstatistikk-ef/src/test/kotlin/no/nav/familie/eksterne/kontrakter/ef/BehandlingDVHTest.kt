@@ -8,12 +8,11 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.ZonedDateTime
-import java.util.*
 
 
 class BehandlingDVHTest {
 
-    val vedtak = BehandlingDVH(
+    private val vedtak = BehandlingDVH(
             fagsakId = 100L,
             behandlingId = 123L,
             relatertBehandlingId = 110L,

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class BehandlingDVH(
         val behandlingId: Long, // Fagsystemets eksterne behandlings-ID
         val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
@@ -17,33 +18,20 @@ data class BehandlingDVH(
         val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
         val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet. Avslåtte klager i vedtaksinstans skal ha riktig KA-enhet her
         val totrinnsbehandling: Boolean, // Hvis det er utført totrinnskontroll skal denne være true
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val relatertBehandlingId: Long? = null, // Hvis behandlingen har oppsått med bakgrunn i en annen, skal den foregående behandlingen refereres til her
         val sakId: Long, // Saksnummer som følger behandlingen for NAV globalt
         val saksnummer: Long, // Saksnummer som følger behandlingen for NAV globalt
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val mottattTid: ZonedDateTime? = null, // Tidspunktet da behandlingen oppstår (eks søknadstidspunkt, inntektsmelding, etc). Det er ønskelig å måle brukers opplevde ventetid. Ved elektronisk kontakt regner vi med at denne er lik registrertTid
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val ferdigBehandletTid: ZonedDateTime? = null, // Tidspunkt når behandling ble avsluttet, enten avbrutt, henlagt, vedtak innvilget/avslått, etc
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val vedtakTid: ZonedDateTime? = null, // Tidspunktet for når vedtaket ble fattet - hvis saken ble vedtatt
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val datoForsteUtbetaling: LocalDate? = null, // Hvis systemet eller bruker har et forhold til når ytelsen normalt skal utbetales (planlagt uttak, ønsket oppstart etc)
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val sakUtland: String? = null, // Nasjonal/Utland - Kode som angir hvor vidt saken er for utland eller nasjonal å anses. Se begrepskatalogen: https://jira.adeo.no/browse/BEGREP-1611#
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val venteAarsak: String? = null, // Kode som angir årsak til venting/utsettelse av saksbehandlings prosesser - typisk: venter på utland, venter på inntektsmelding etc.
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val behandlingResultat: String? = null, // Kode som angir resultatet på behandling - typisk: avbrutt, innvilget, delvis innvilget, henlagt av tekniske hensyn, etc
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val resultatBegrunnelse: String? = null, // Kode som angir en begrunnelse til resultat - typisk: vilkårsprøvingen feilet, dublett, teknisk avvik, etc
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val behandlingMetode: String? = null, // Kode som angir om saken er behandlet manuelt eller automatisk (hvis fagsystemet opererer med en slik verdi)
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val saksbehandler: String? = null, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Saksbehandler-ID som sist var involvert i behandlingen
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val ansvarligBeslutter: String? = null, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6, men kun om det skulle hatt verdi] Ved krav om totrinnskontroll skal dette feltet innholde ansvarlig beslutter sin ID
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         val avsender: String? = null, // Angir fagsystemets eget navn
-        @JsonInclude(JsonInclude.Include.NON_NULL)val versjon: String? = null, // "Kode som hvilken versjonen av koden dataene er generert med bakgrunn på. Kan godt være relatert til Git repoet
+        val versjon: String? = null, // "Kode som hvilken versjonen av koden dataene er generert med bakgrunn på. Kan godt være relatert til Git repoet
 )
