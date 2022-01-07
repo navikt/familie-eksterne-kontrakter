@@ -1,8 +1,10 @@
 package no.nav.familie.eksterne.kontrakter.saksstatistikk.ef
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class BehandlingDVH(
         val behandlingId: Long, // Fagsystemets eksterne behandlings-ID
         val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
