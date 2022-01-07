@@ -19,7 +19,8 @@ data class BehandlingDVH(
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: Long? = null,
-        val stønadstype: StønadType
+        val stønadstype: StønadType,
+        val versjon: String = "2" // Versjon av denne filen. Må økes ved endringer i filen.
 )
 
 enum class BehandlingType {
