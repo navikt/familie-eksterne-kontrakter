@@ -107,6 +107,7 @@ data class VedtaksperiodeDto(
 enum class VedtaksperiodeType {
     FORLENGELSE,
     HOVEDPERIODE,
+    SANKSJON,
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
 }
