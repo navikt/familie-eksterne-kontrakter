@@ -106,7 +106,10 @@ class SaksstatistikkTest {
                                           behandlingOpprettetAv = "behandlingOpprettetAv",
                                           behandlingOpprettetType = "behandlingOpprettetType",
                                           behandlingOpprettetTypeBeskrivelse = "behandlingOpprettetTypeBeskrivelse",
-                                          førsteInnvilgedeVilkårsdato = LocalDate.now()
+                                          førsteInnvilgedeVilkårsdato = LocalDate.now(),
+                                          settPaaVent = SettPåVent(frist= ZonedDateTime.now(),
+                                                                   tidSattPaaVent= ZonedDateTime.now(),
+                                                                   aarsak= "AVVENTER_DOKUMENTASJON",)
         )
 
         val validatedParser = api.decorateJsonParser(behandlingSchemaValidator,
