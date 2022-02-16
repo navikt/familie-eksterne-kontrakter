@@ -39,7 +39,8 @@ data class BehandlingDVH(
         val totrinnsbehandling: Boolean,
         val avsender: String,
         val versjon: String,
-        val førsteInnvilgedeVilkårsdato: LocalDate? = null
+        val førsteInnvilgedeVilkårsdato: LocalDate? = null,
+        val settPaaVent: SettPåVent? = null,
 )
 
 data class ResultatBegrunnelseDVH(val fom: LocalDate? = null,
@@ -66,4 +67,10 @@ data class AktørDVH(
         val aktorId: Long,
         val rolle: String,
         val rolleBeskrivelse: String? = null
+)
+
+data class SettPåVent(
+        val frist: String,
+        val tidSattPaaVent: String,
+        val aarsak: String,
 )

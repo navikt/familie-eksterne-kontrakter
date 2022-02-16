@@ -229,6 +229,25 @@
     "førsteInnvilgedeVilkårsdato": {
       "type": ["string", "null"],
       "description":"Dato for når vilkårene er oppfylt første gang i gjeldende behandling. "
+    },
+    "settPaaVent":{
+      "type": ["object", "null"],
+      "properties": {
+        "frist": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Tid saksbehandler skal fortsette behandlingen."
+        },
+        "tidSattPaaVent":{
+          "type": "string",
+          "format": "date-time",
+          "description": "Tid behandling ble satt paa vent."
+        },
+        "aarsak": {
+          "type": "string",
+          "description": "Kode som beskriver hvorfor behandling er satt paa vent."
+        }
+      }
     }
   }
 }
