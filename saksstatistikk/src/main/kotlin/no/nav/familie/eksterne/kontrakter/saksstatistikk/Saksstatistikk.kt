@@ -70,7 +70,7 @@ data class AktørDVH(
 )
 
 data class SettPåVent(
-        val frist: String,
-        val tidSattPaaVent: String,
+        val frist: ZonedDateTime,
+        val tidSattPaaVent: ZonedDateTime,
         val aarsak: String,
 )
