@@ -245,7 +245,8 @@
         },
         "aarsak": {
           "type": "string",
-          "description": "Kode som beskriver hvorfor behandling er satt paa vent."
+          "maxLength": 100 ,
+          "description": "Enum for hvorfor behandling er satt paa vent."
         }
       }
     }
