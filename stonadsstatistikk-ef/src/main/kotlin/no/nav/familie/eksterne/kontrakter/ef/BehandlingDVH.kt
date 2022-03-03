@@ -106,6 +106,7 @@ data class VedtaksperiodeDto(
 )
 
 enum class VedtaksperiodeType {
+    MIGRERING,
     FORLENGELSE,
     HOVEDPERIODE,
     SANKSJON,
