@@ -35,6 +35,7 @@ enum class BehandlingType {
 enum class BehandlingÅrsak {
     SØKNAD,
     NYE_OPPLYSNINGER,
+    SANKSJON_1_MND,
     KLAGE,
     MIGRERING
 }
