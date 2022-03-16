@@ -9,6 +9,11 @@ class BarnetilsynBisysResponse(
     val datakilde: Datakilde
 )
 
+class BarnetilsynBisysRequest(
+    val ident: String,
+    val fomDato: LocalDate
+)
+
 enum class Datakilde {
     EF,
     INFOTRYGD
