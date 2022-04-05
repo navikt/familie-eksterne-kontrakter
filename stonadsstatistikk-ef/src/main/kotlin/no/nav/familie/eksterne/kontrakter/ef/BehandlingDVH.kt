@@ -1,9 +1,13 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
+import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
-data class BehandlingDVH(
+@Deprecated("Bruk BehandlingOvergangsstønadDVH")
+typealias BehandlingDVH = BehandlingOvergangsstønadDVH
+
+data class BehandlingOvergangsstønadDVH(
         val fagsakId: Long, // Ekstern fagsakId
         val behandlingId: Long, // Ekstern behandlingId
         val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
@@ -15,11 +19,32 @@ data class BehandlingDVH(
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val vedtak: Vedtak? = null,
-        val vedtaksperioder: List<VedtaksperiodeDto>,
+        val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto>,
         val utbetalinger: List<Utbetaling>,
         val aktivitetskrav: Aktivitetskrav,
         val funksjonellId: Long? = null,
         val stønadstype: StønadType
+)
+
+data class BehandlingBarnetilsynDVH(
+        val fagsakId: Long, // Ekstern fagsakId
+        val behandlingId: Long, // Ekstern behandlingId
+        val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
+        val adressebeskyttelse: Adressebeskyttelse? = null,
+        val tidspunktVedtak: ZonedDateTime? = null,
+        val vilkårsvurderinger: List<VilkårsvurderingDto>,
+        val person: Person,
+        val barn: List<Barn>,
+        val behandlingType: BehandlingType,
+        val behandlingÅrsak: BehandlingÅrsak,
+        val vedtak: Vedtak? = null,
+        val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto>,
+        val utbetalinger: List<Utbetaling>,
+        val aktivitetskrav: Aktivitetskrav,
+        val funksjonellId: Long? = null,
+        val stønadstype: StønadType,
+        val perioderKontantstøtte: List<PeriodeMedBeløp>,
+        val perioderTilleggsstønad: List<PeriodeMedBeløp>
 )
 
 enum class BehandlingType {
@@ -94,16 +119,36 @@ enum class Vilkår {
     NYTT_BARN_SAMME_PARTNER,
     SAGT_OPP_ELLER_REDUSERT,
     AKTIVITET,
-    TIDLIGERE_VEDTAKSPERIODER;
+    AKTIVITET_ARBEID,
+    TIDLIGERE_VEDTAKSPERIODER,
+    INNTEKT,
+    ALDER_PÅ_BARN
 }
 
 data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val harSagtOppArbeidsforhold: Boolean?)
 
-data class VedtaksperiodeDto(
+@Deprecated("Bruk VedtaksperiodeOvergangsstønadDto")
+typealias VedtaksperiodeDto = VedtaksperiodeOvergangsstønadDto
+
+data class VedtaksperiodeOvergangsstønadDto(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
         val aktivitet: AktivitetType,
         val periodeType: VedtaksperiodeType
+)
+
+data class VedtaksperiodeBarnetilsynDto(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val utgifter: BigDecimal,
+        val antallBarn: Int
+)
+
+
+data class PeriodeMedBeløp(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val beløp: BigDecimal
 )
 
 enum class VedtaksperiodeType {
