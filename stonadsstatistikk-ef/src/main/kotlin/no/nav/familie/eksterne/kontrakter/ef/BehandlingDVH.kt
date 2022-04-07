@@ -5,9 +5,9 @@ import java.time.LocalDate
 import java.time.ZonedDateTime
 
 @Deprecated("Bruk BehandlingOvergangsstønadDVH")
-typealias BehandlingDVH = BehandlingOvergangsstønadDVH
+typealias BehandlingDVH = VedtakOvergangsstønadDVH
 
-data class BehandlingOvergangsstønadDVH(
+data class VedtakOvergangsstønadDVH(
         val fagsakId: Long, // Ekstern fagsakId
         val behandlingId: Long, // Ekstern behandlingId
         val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
