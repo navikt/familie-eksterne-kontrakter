@@ -1,6 +1,5 @@
 package no.nav.familie.eksterne.kontrakter.ef
 
-import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
@@ -140,7 +139,7 @@ data class VedtaksperiodeOvergangsstønadDto(
 data class VedtaksperiodeBarnetilsynDto(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        val utgifter: BigDecimal,
+        val utgifter: Int,
         val antallBarn: Int
 )
 
@@ -148,7 +147,7 @@ data class VedtaksperiodeBarnetilsynDto(
 data class PeriodeMedBeløp(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        val beløp: BigDecimal
+        val beløp: Int
 )
 
 enum class VedtaksperiodeType {
