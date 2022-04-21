@@ -25,7 +25,7 @@ data class VedtakOvergangsstønadDVH(
         val stønadstype: StønadType
 )
 
-data class BehandlingBarnetilsynDVH(
+data class VedtakBarnetilsynDVH(
         val fagsakId: Long, // Ekstern fagsakId
         val behandlingId: Long, // Ekstern behandlingId
         val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
