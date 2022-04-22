@@ -127,8 +127,7 @@ enum class Vilkår {
 enum class AktivitetsvilkårBarnetilsyn {
     ER_I_ARBEID,
     ETABLERER_EGEN_VIRKSOMHET,
-    HAR_FORBIGÅENDE_SYKDOM,
-
+    HAR_FORBIGÅENDE_SYKDOM
 }
 
 data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val harSagtOppArbeidsforhold: Boolean?)
