@@ -39,7 +39,7 @@ data class VedtakBarnetilsynDVH(
         val vedtak: Vedtak? = null,
         val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto>,
         val utbetalinger: List<Utbetaling>,
-        val aktivitetskrav: Aktivitetskrav,
+        val aktivitetskrav: AktivitetsvilkårBarnetilsyn,
         val funksjonellId: Long? = null,
         val stønadstype: StønadType,
         val perioderKontantstøtte: List<PeriodeMedBeløp>,
@@ -122,6 +122,13 @@ enum class Vilkår {
     TIDLIGERE_VEDTAKSPERIODER,
     INNTEKT,
     ALDER_PÅ_BARN
+}
+
+enum class AktivitetsvilkårBarnetilsyn {
+    ER_I_ARBEID,
+    ETABLERER_EGEN_VIRKSOMHET,
+    HAR_FORBIGÅENDE_SYKDOM,
+
 }
 
 data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val harSagtOppArbeidsforhold: Boolean?)
