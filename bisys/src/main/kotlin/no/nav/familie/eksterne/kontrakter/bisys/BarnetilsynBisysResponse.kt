@@ -4,7 +4,7 @@ import java.time.LocalDate
 
 class BarnetilsynBisysResponse(
     val gjeldendeBarnIdent: String,
-    val periode: Periode,
+    val periode: List<Periode>,
     val beløp: Int,
     val datakilde: Datakilde
 )
