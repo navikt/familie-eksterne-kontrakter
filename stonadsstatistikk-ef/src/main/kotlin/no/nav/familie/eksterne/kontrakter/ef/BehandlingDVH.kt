@@ -61,7 +61,8 @@ enum class BehandlingÅrsak {
     NYE_OPPLYSNINGER,
     SANKSJON_1_MND,
     KLAGE,
-    MIGRERING
+    MIGRERING,
+    G_OMREGNING
 }
 
 enum class Vedtak {
