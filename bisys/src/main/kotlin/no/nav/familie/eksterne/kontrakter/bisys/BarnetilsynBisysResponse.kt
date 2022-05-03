@@ -2,16 +2,20 @@ package no.nav.familie.eksterne.kontrakter.bisys
 
 import java.time.LocalDate
 
+class BarnetilsynBisys(
+        val gjeldendeBarnIdent: String,
+        val periode: Periode,
+        val prosentsats: Int,
+        val beløp: Int,
+        val datakilde: Datakilde
+)
+
 class BarnetilsynBisysResponse(
-    val gjeldendeBarnIdent: List<String>,
-    val periode: List<Periode>,
-    val beløp: Int,
-    val datakilde: Datakilde
+        val BarnetilsynBisysListe: List<BarnetilsynBisys>
 )
 
 class BarnetilsynBisysRequest(
-    val ident: String,
-    val fomDato: LocalDate
+        val BarnetilsynBisysListe: List<BarnetilsynBisys>
 )
 
 enum class Datakilde {
@@ -20,6 +24,6 @@ enum class Datakilde {
 }
 
 data class Periode(
-    val fom: LocalDate,
-    val tom: LocalDate
+        val fom: LocalDate,
+        val tom: LocalDate
 )
