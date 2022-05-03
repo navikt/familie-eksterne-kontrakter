@@ -3,7 +3,6 @@ package no.nav.familie.eksterne.kontrakter.bisys
 import java.time.LocalDate
 
 data class BarnetilsynBisysResponse(
-        val prosentsats: Int,
         val barnetilsynBisysPerioder: List<BarnetilsynBisysPeriode>
 )
 
