@@ -15,7 +15,9 @@ class BarnetilsynBisysResponse(
 )
 
 class BarnetilsynBisysRequest(
-        val BarnetilsynBisysListe: List<BarnetilsynBisys>
+        val ident: String,
+        val fomDato: LocalDate
+
 )
 
 enum class Datakilde {
