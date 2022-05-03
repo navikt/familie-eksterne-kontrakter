@@ -3,7 +3,7 @@ package no.nav.familie.eksterne.kontrakter.bisys
 import java.time.LocalDate
 
 class BarnetilsynBisys(
-        val gjeldendeBarnIdent: String,
+        val gjeldendeBarnIdenter: List<String>,
         val periode: Periode,
         val prosentsats: Int,
         val beløp: Int,
