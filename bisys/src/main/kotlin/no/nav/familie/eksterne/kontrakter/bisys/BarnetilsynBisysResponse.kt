@@ -2,16 +2,9 @@ package no.nav.familie.eksterne.kontrakter.bisys
 
 import java.time.LocalDate
 
-data class BarnetilsynBisys(
-        val barnIdenter: List<String>,
-        val periode: Periode,
-        val beløp: Int,
-        val datakilde: Datakilde
-)
-
 data class BarnetilsynBisysResponse(
         val prosentsats: Int,
-        val BarnetilsynBisys: List<BarnetilsynBisys>
+        val BarnetilsynBisys: List<BarnetilsynBisysPeriode>
 )
 
 data class BarnetilsynBisysPeriode(
