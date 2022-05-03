@@ -4,7 +4,7 @@ import java.time.LocalDate
 
 data class BarnetilsynBisysResponse(
         val prosentsats: Int,
-        val BarnetilsynBisys: List<BarnetilsynBisysPeriode>
+        val barnetilsynBisys: List<BarnetilsynBisysPeriode>
 )
 
 data class BarnetilsynBisysPeriode(
