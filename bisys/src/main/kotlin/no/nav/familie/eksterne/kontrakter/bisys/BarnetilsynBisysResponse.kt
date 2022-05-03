@@ -11,7 +11,7 @@ class BarnetilsynBisys(
 )
 
 class BarnetilsynBisysResponse(
-        val BarnetilsynBisysListe: List<BarnetilsynBisys>
+        val BarnetilsynBisys: List<BarnetilsynBisys>
 )
 
 class BarnetilsynBisysRequest(
