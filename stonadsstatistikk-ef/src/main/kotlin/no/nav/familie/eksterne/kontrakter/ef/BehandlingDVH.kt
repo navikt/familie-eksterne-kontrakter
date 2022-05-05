@@ -62,7 +62,8 @@ enum class BehandlingÅrsak {
     SANKSJON_1_MND,
     KLAGE,
     MIGRERING,
-    G_OMREGNING
+    G_OMREGNING,
+    KORRIGERING_UTEN_BREV
 }
 
 enum class Vedtak {
