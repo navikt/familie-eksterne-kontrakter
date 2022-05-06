@@ -87,7 +87,6 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
     DØDSFALL_BRUKER("Dødsfall bruker"),
     NYE_OPPLYSNINGER("Nye opplysninger"),
     KLAGE("Klage"),
-    TEKNISK_OPPHØR("Teknisk opphør"), // Ikke i bruk lenger
     TEKNISK_ENDRING("Teknisk endring"),
     KORREKSJON_VEDTAKSBREV("Korrigere vedtak med egen brevmal"),
     OMREGNING_6ÅR("Omregning 6 år"),
