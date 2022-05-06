@@ -76,7 +76,6 @@ enum class BehandlingTypeV2(val visningsnavn: String) {
     REVURDERING("Revurdering"),
     MIGRERING_FRA_INFOTRYGD("Migrering fra infotrygd"),
     MIGRERING_FRA_INFOTRYGD_OPPHØRT("Opphør migrering fra infotrygd"),
-    TEKNISK_OPPHØR("Teknisk opphør"), // Ikke i bruk lenger
     TEKNISK_ENDRING("Teknisk endring")
 }
 
