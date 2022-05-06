@@ -14,7 +14,7 @@ data class VedtakDVHV2(val fagsakId: String,
                        val behandlingTypeV2: BehandlingTypeV2,
                        val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
                        val kompetanseperioder: List<Kompetanse>? = null,
-                       val funksjonellId: String? = null,
+                       val funksjonellId: String,
                        val behandlingÅrsakV2: BehandlingÅrsakV2? = null,
 )
 
