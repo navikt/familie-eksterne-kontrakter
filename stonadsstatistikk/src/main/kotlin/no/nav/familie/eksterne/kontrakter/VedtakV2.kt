@@ -7,13 +7,13 @@ import java.time.ZonedDateTime
 data class VedtakDVHV2(val fagsakId: String,
                        val behandlingsId: String,
                        val tidspunktVedtak: ZonedDateTime,
-                       val person: PersonDVHV2,
+                       val personV2: PersonDVHV2,
                        val ensligForsørger: Boolean,
                        val kategoriV2: KategoriV2,
                        val underkategoriV2: UnderkategoriV2,
                        val behandlingTypeV2: BehandlingTypeV2,
                        val behandlingOpprinnelseV2: BehandlingOpprinnelseV2,
-                       val utbetalingsperioder: List<UtbetalingsperiodeDVHV2>,
+                       val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
                        val kompetanseperioder: List<Kompetanse>? = null,
                        val funksjonellId: String? = null,
                        val behandlingÅrsakV2: BehandlingÅrsakV2? = null,
@@ -87,7 +87,7 @@ enum class BehandlingTypeV2(val visningsnavn: String) {
     TEKNISK_ENDRING("Teknisk endring")
 }
 
-enum class BehandlingÅrsakV2(val visningsnavn: String) {
+enum class BehandlingÅrsakV2(val beskrivelse: String) {
 
     SØKNAD("Søknad"),
     FØDSELSHENDELSE("Fødselshendelse"),
