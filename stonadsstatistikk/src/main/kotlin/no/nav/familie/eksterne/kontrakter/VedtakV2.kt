@@ -12,7 +12,6 @@ data class VedtakDVHV2(val fagsakId: String,
                        val kategoriV2: KategoriV2,
                        val underkategoriV2: UnderkategoriV2,
                        val behandlingTypeV2: BehandlingTypeV2,
-                       val behandlingOpprinnelseV2: BehandlingOpprinnelseV2,
                        val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
                        val kompetanseperioder: List<Kompetanse>? = null,
                        val funksjonellId: String? = null,
@@ -72,12 +71,6 @@ enum class KompetanseResultat {
     TO_PRIMÆRLAND
 }
 
-enum class BehandlingOpprinnelseV2 {
-    MANUELL,
-    AUTOMATISK_VED_FØDSELSHENDELSE,
-    AUTOMATISK_VED_JOURNALFØRING
-}
-
 enum class BehandlingTypeV2(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
@@ -87,7 +80,7 @@ enum class BehandlingTypeV2(val visningsnavn: String) {
     TEKNISK_ENDRING("Teknisk endring")
 }
 
-enum class BehandlingÅrsakV2(val beskrivelse: String) {
+enum class BehandlingÅrsakV2(val visningsnavn: String) {
 
     SØKNAD("Søknad"),
     FØDSELSHENDELSE("Fødselshendelse"),
