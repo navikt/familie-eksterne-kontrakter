@@ -39,7 +39,7 @@ data class VedtakBarnetilsynDVH(
         val vedtak: Vedtak? = null,
         val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto>,
         val utbetalinger: List<Utbetaling>,
-        val aktivitetskrav: AktivitetsvilkårBarnetilsyn,
+        val aktivitetskrav: AktivitetsvilkårBarnetilsyn?,
         val funksjonellId: Long? = null,
         val stønadstype: StønadType,
         val perioderKontantstøtte: List<PeriodeMedBeløp>,
