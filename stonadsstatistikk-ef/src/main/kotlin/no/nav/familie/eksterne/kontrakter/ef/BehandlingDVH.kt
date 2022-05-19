@@ -123,7 +123,8 @@ enum class Vilkår {
     AKTIVITET_ARBEID,
     TIDLIGERE_VEDTAKSPERIODER,
     INNTEKT,
-    ALDER_PÅ_BARN
+    ALDER_PÅ_BARN,
+    DOKUMENTASJON_TILSYNSUTGIFTER;
 }
 
 enum class AktivitetsvilkårBarnetilsyn {
