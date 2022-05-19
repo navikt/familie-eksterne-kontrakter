@@ -63,7 +63,8 @@ enum class BehandlingÅrsak {
     KLAGE,
     MIGRERING,
     G_OMREGNING,
-    KORRIGERING_UTEN_BREV
+    KORRIGERING_UTEN_BREV,
+    PAPIRSØKNAD,
 }
 
 enum class Vedtak {
