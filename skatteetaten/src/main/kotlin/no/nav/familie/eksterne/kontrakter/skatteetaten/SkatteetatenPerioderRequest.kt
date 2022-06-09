@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull
  */
 data class SkatteetatenPerioderRequest(
 
-
     @get:NotNull
     @field:JsonProperty("aar") val aar: String,
 

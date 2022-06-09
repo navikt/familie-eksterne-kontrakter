@@ -7,49 +7,49 @@ import java.time.ZonedDateTime
 typealias BehandlingDVH = VedtakOvergangsstønadDVH
 
 data class VedtakOvergangsstønadDVH(
-        val fagsakId: Long, // Ekstern fagsakId
-        val behandlingId: Long, // Ekstern behandlingId
-        val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
-        val adressebeskyttelse: Adressebeskyttelse? = null,
-        val tidspunktVedtak: ZonedDateTime? = null,
-        val vilkårsvurderinger: List<VilkårsvurderingDto>,
-        val person: Person,
-        val barn: List<Barn>,
-        val behandlingType: BehandlingType,
-        val behandlingÅrsak: BehandlingÅrsak,
-        val vedtak: Vedtak? = null,
-        val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto>,
-        val utbetalinger: List<Utbetaling>,
-        val aktivitetskrav: Aktivitetskrav,
-        val funksjonellId: Long? = null,
-        val stønadstype: StønadType
+    val fagsakId: Long, // Ekstern fagsakId
+    val behandlingId: Long, // Ekstern behandlingId
+    val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
+    val adressebeskyttelse: Adressebeskyttelse? = null,
+    val tidspunktVedtak: ZonedDateTime? = null,
+    val vilkårsvurderinger: List<VilkårsvurderingDto>,
+    val person: Person,
+    val barn: List<Barn>,
+    val behandlingType: BehandlingType,
+    val behandlingÅrsak: BehandlingÅrsak,
+    val vedtak: Vedtak? = null,
+    val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto>,
+    val utbetalinger: List<Utbetaling>,
+    val aktivitetskrav: Aktivitetskrav,
+    val funksjonellId: Long? = null,
+    val stønadstype: StønadType
 )
 
 data class VedtakBarnetilsynDVH(
-        val fagsakId: Long, // Ekstern fagsakId
-        val behandlingId: Long, // Ekstern behandlingId
-        val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
-        val adressebeskyttelse: Adressebeskyttelse? = null,
-        val tidspunktVedtak: ZonedDateTime? = null,
-        val vilkårsvurderinger: List<VilkårsvurderingDto>,
-        val person: Person,
-        val barn: List<Barn>,
-        val behandlingType: BehandlingType,
-        val behandlingÅrsak: BehandlingÅrsak,
-        val vedtak: Vedtak? = null,
-        val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto>,
-        val utbetalinger: List<Utbetaling>,
-        val aktivitetskrav: AktivitetsvilkårBarnetilsyn?,
-        val funksjonellId: Long? = null,
-        val stønadstype: StønadType,
-        val perioderKontantstøtte: List<PeriodeMedBeløp>,
-        val perioderTilleggsstønad: List<PeriodeMedBeløp>
+    val fagsakId: Long, // Ekstern fagsakId
+    val behandlingId: Long, // Ekstern behandlingId
+    val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
+    val adressebeskyttelse: Adressebeskyttelse? = null,
+    val tidspunktVedtak: ZonedDateTime? = null,
+    val vilkårsvurderinger: List<VilkårsvurderingDto>,
+    val person: Person,
+    val barn: List<Barn>,
+    val behandlingType: BehandlingType,
+    val behandlingÅrsak: BehandlingÅrsak,
+    val vedtak: Vedtak? = null,
+    val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto>,
+    val utbetalinger: List<Utbetaling>,
+    val aktivitetskrav: AktivitetsvilkårBarnetilsyn?,
+    val funksjonellId: Long? = null,
+    val stønadstype: StønadType,
+    val perioderKontantstøtte: List<PeriodeMedBeløp>,
+    val perioderTilleggsstønad: List<PeriodeMedBeløp>
 )
 
 enum class BehandlingType {
     BLANKETT,
     FØRSTEGANGSBEHANDLING,
-    REVURDERING,  // Inkluderer opphør
+    REVURDERING, // Inkluderer opphør
     KLAGE,
     TEKNISK_OPPHØR,
     MIGRERING_FRA_INFOTRYGD,
@@ -85,22 +85,24 @@ data class Person(val personIdent: String? = null)
 data class Barn(val personIdent: String? = null, val termindato: LocalDate? = null)
 
 data class Utbetaling(
-        val beløp: Int,
-        var samordningsfradrag: Int,
-        val inntekt: Int,
-        val inntektsreduksjon: Int,
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-        val utbetalingsdetalj: Utbetalingsdetalj,
+    val beløp: Int,
+    var samordningsfradrag: Int,
+    val inntekt: Int,
+    val inntektsreduksjon: Int,
+    val fraOgMed: LocalDate,
+    val tilOgMed: LocalDate,
+    val utbetalingsdetalj: Utbetalingsdetalj,
 )
 
-data class Utbetalingsdetalj(val gjelderPerson: Person,
-                             val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
-                             val delytelseId: String) // Identifiderer utbetalingen i oppdragssystemet
+data class Utbetalingsdetalj(
+    val gjelderPerson: Person,
+    val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
+    val delytelseId: String
+) // Identifiderer utbetalingen i oppdragssystemet
 
 data class VilkårsvurderingDto(
-        val vilkår: Vilkår,
-        val resultat: Vilkårsresultat
+    val vilkår: Vilkår,
+    val resultat: Vilkårsresultat
 )
 
 enum class Vilkårsresultat {
@@ -144,24 +146,23 @@ data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val har
 typealias VedtaksperiodeDto = VedtaksperiodeOvergangsstønadDto
 
 data class VedtaksperiodeOvergangsstønadDto(
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-        val aktivitet: AktivitetType,
-        val periodeType: VedtaksperiodeType
+    val fraOgMed: LocalDate,
+    val tilOgMed: LocalDate,
+    val aktivitet: AktivitetType,
+    val periodeType: VedtaksperiodeType
 )
 
 data class VedtaksperiodeBarnetilsynDto(
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-        val utgifter: Int,
-        val antallBarn: Int
+    val fraOgMed: LocalDate,
+    val tilOgMed: LocalDate,
+    val utgifter: Int,
+    val antallBarn: Int
 )
 
-
 data class PeriodeMedBeløp(
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-        val beløp: Int
+    val fraOgMed: LocalDate,
+    val tilOgMed: LocalDate,
+    val beløp: Int
 )
 
 enum class VedtaksperiodeType {
@@ -202,4 +203,3 @@ enum class StønadType {
     BARNETILSYN,
     SKOLEPENGER
 }
-

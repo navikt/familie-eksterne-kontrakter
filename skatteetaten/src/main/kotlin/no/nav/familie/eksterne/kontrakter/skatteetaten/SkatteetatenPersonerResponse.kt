@@ -12,4 +12,3 @@ data class SkatteetatenPersonerResponse(
     @field:Valid
     @field:JsonProperty("brukere") val brukere: List<SkatteetatenPerson> = emptyList()
 )
-

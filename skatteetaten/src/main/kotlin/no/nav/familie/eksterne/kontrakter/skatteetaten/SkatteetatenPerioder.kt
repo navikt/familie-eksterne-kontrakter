@@ -23,4 +23,3 @@ data class SkatteetatenPerioder(
     @field:Valid
     @field:JsonProperty("perioder") val perioder: List<SkatteetatenPeriode>
 )
-

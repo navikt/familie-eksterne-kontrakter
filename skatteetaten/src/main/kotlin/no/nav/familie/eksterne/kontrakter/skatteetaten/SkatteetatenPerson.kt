@@ -17,4 +17,3 @@ data class SkatteetatenPerson(
     @get:NotNull
     @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: LocalDateTime
 )
-

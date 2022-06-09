@@ -18,27 +18,28 @@ internal class BehandlingDVHTest {
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         val json = mapper.writeValueAsString(opprettBehandlingstatistikk())
         mapper.readValue<BehandlingDVH>(json)
-
     }
 
     private fun opprettBehandlingstatistikk(): BehandlingDVH {
-        return BehandlingDVH(behandlingId = 123L,
-                             personIdent = "persinIdent",
-                             saksbehandler = "gjeldendeSaksbehandlerId",
-                             registrertTid = ZonedDateTime.now(),
-                             endretTid = ZonedDateTime.now(),
-                             tekniskTid = ZonedDateTime.now(),
-                             sakYtelse = "EFOG",
-                             behandlingType = "Førstegangsbehandling",
-                             behandlingStatus = "MOTTATT",
-                             opprettetAv = "gjeldendeSaksbehandlerId",
-                             opprettetEnhet = "",
-                             ansvarligEnhet = "",
-                             saksnummer = 123L,
-                             mottattTid = ZonedDateTime.now(),
-                             behandlingMetode = "MANUELL",
-                             avsender = "NAV Enslig forelder",
-                             totrinnsbehandling = true,
-                             sakId = 321L)
+        return BehandlingDVH(
+            behandlingId = 123L,
+            personIdent = "persinIdent",
+            saksbehandler = "gjeldendeSaksbehandlerId",
+            registrertTid = ZonedDateTime.now(),
+            endretTid = ZonedDateTime.now(),
+            tekniskTid = ZonedDateTime.now(),
+            sakYtelse = "EFOG",
+            behandlingType = "Førstegangsbehandling",
+            behandlingStatus = "MOTTATT",
+            opprettetAv = "gjeldendeSaksbehandlerId",
+            opprettetEnhet = "",
+            ansvarligEnhet = "",
+            saksnummer = 123L,
+            mottattTid = ZonedDateTime.now(),
+            behandlingMetode = "MANUELL",
+            avsender = "NAV Enslig forelder",
+            totrinnsbehandling = true,
+            sakId = 321L
+        )
     }
 }
