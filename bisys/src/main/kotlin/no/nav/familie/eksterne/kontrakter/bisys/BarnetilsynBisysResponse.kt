@@ -9,14 +9,13 @@ data class BarnetilsynBisysResponse(
 data class BarnetilsynBisysPeriode(
     val periode: Periode,
     val barnIdenter: List<String>,
-    val totalbeløp: Int,
+    val månedsbeløp: Int,
     val datakilde: Datakilde
 )
 
 data class BarnetilsynBisysRequest(
     val ident: String,
     val fomDato: LocalDate
-
 )
 
 enum class Datakilde {
