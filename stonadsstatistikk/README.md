@@ -2,6 +2,7 @@
 
 | Dato       | Endring                                                                                                                            |
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
+| 2022-06-14 | Lagt til flere enumverdier i SøkersAktivitet                                                                                       |
 | 2022-05-06 | Ny versjon av Vedtak(V2) med støtte for kompetanse og fjerning av felter som ikke var ibruk. Ny versjon vil kun bli brukt på aiven |
 | 2021-08-20 | Opprydding. behandlingÅrsak DØDSFALL endret til DØDSFALL_BRUKER. Fjernet KLAGE fra behandlingstype                                 |
 | 2021-06-29 | Lagt til behandlingÅrsak SATSENDRING                                                                                               |
