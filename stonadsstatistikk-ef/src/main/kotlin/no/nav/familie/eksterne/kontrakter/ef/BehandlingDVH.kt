@@ -59,7 +59,7 @@ data class VedtakSkolepenger(
     val behandlingÅrsak: BehandlingÅrsak,
     val vedtak: Vedtak? = null,
     val vedtaksperioder: List<VedtaksperiodeSkolepenger>,
-    val vedtaksbegrunnelse: String,
+    val vedtaksbegrunnelse: String? = null,
     val utbetalinger: List<Utbetaling>,
     val funksjonellId: Long? = null,
     val stønadstype: StønadType,
