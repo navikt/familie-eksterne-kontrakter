@@ -73,7 +73,6 @@ data class VedtaksperiodeSkolepenger(
 )
 
 data class UtgiftSkolepenger(
-    val utgiftstype: List<Utgiftstype>,
     val utgiftsdato: LocalDate,
     val utgiftsbeløp: Int,
     val utbetaltBeløp: Int
@@ -89,12 +88,6 @@ data class Delårsperiode(
 enum class Studietype {
     HØGSKOLE_UNIVERSITET,
     VIDEREGÅENDE,
-}
-
-enum class Utgiftstype {
-    SEMESTERAVGIFT,
-    STUDIEAVGIFT,
-    EKSAMENSAVGIFT
 }
 
 enum class BehandlingType {
