@@ -91,7 +91,6 @@ enum class Studietype {
 }
 
 enum class BehandlingType {
-    BLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING, // Inkluderer opphør
     KLAGE,
