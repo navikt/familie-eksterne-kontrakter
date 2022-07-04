@@ -95,7 +95,6 @@ enum class BehandlingType {
     FØRSTEGANGSBEHANDLING,
     REVURDERING, // Inkluderer opphør
     KLAGE,
-    TEKNISK_OPPHØR,
     MIGRERING_FRA_INFOTRYGD,
     TILBAKEFØRING_TIL_INFOTRYGD
 }
