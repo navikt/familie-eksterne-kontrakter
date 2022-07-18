@@ -149,6 +149,7 @@ data class VilkårsvurderingDto(
 
 enum class Vilkårsresultat {
     OPPFYLT,
+    AUTOMATISK_OPPFYLT,
     IKKE_OPPFYLT,
     IKKE_AKTUELL,
     IKKE_TATT_STILLING_TIL,
