@@ -16,7 +16,7 @@ data class VedtakDVHV2(
     val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
     val kompetanseperioder: List<Kompetanse>? = null,
     val funksjonellId: String,
-    val behandlingÅrsakV2: BehandlingÅrsakV2,
+    val behandlingÅrsakV2: BehandlingÅrsakV2
 )
 
 data class UtbetalingsperiodeDVHV2(
@@ -47,6 +47,7 @@ data class Kompetanse(
     val fom: YearMonth,
     val tom: YearMonth?,
     val sokersaktivitet: SøkersAktivitet,
+    val sokersAktivitetsland: String? = null,
     val annenForeldersAktivitet: AnnenForeldersAktivitet? = null,
     val annenForeldersAktivitetsland: String? = null,
     val barnetsBostedsland: String? = null,
