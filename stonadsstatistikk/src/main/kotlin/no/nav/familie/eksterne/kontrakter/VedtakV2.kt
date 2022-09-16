@@ -16,7 +16,7 @@ data class VedtakDVHV2(
     val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
     val kompetanseperioder: List<Kompetanse>? = null,
     val funksjonellId: String,
-    val behandlingÅrsakV2: BehandlingÅrsakV2,
+    val behandlingÅrsakV2: BehandlingÅrsakV2
 )
 
 data class UtbetalingsperiodeDVHV2(
@@ -46,7 +46,8 @@ data class Kompetanse(
     val barnsIdenter: List<String>,
     val fom: YearMonth,
     val tom: YearMonth?,
-    val sokersaktivitet: SøkersAktivitet,
+    val sokersaktivitet: SøkersAktivitet? = null,
+    val sokersAktivitetsland: String? = null,
     val annenForeldersAktivitet: AnnenForeldersAktivitet? = null,
     val annenForeldersAktivitetsland: String? = null,
     val barnetsBostedsland: String? = null,
@@ -54,12 +55,19 @@ data class Kompetanse(
 )
 
 enum class SøkersAktivitet {
-    ARBEIDER_I_NORGE,
+    ARBEIDER,
     SELVSTENDIG_NÆRINGSDRIVENDE,
-    MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN,
+    MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
-    MOTTAR_UFØRETRYGD_FRA_NORGE,
-    MOTTAR_PENSJON_FRA_NORGE,
+    MOTTAR_UFØRETRYGD,
+    MOTTAR_PENSJON,
+    ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
+    ARBEIDER_PÅ_NORSK_SOKKEL,
+    ARBEIDER_FOR_ET_NORSK_FLYSELSKAP,
+    ARBEIDER_VED_UTENLANDSK_UTENRIKSSTASJON,
+    MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
+    MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
+    MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     INAKTIV
 }
 

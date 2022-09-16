@@ -46,12 +46,54 @@ data class VedtakBarnetilsynDVH(
     val perioderTilleggsstønad: List<PeriodeMedBeløp>
 )
 
+data class VedtakSkolepenger(
+    val fagsakId: Long, // Ekstern fagsakId
+    val behandlingId: Long, // Ekstern behandlingId
+    val relatertBehandlingId: Long? = null, // Ekstern behandlingId på relatert behandling
+    val adressebeskyttelse: Adressebeskyttelse? = null,
+    val tidspunktVedtak: ZonedDateTime? = null,
+    val vilkårsvurderinger: List<VilkårsvurderingDto>,
+    val person: Person,
+    val barn: List<Barn>,
+    val behandlingType: BehandlingType,
+    val behandlingÅrsak: BehandlingÅrsak,
+    val vedtak: Vedtak? = null,
+    val vedtaksperioder: List<VedtaksperiodeSkolepenger>,
+    val vedtaksbegrunnelse: String? = null,
+    val utbetalinger: List<Utbetaling>,
+    val funksjonellId: Long? = null,
+    val stønadstype: StønadType,
+)
+
+data class VedtaksperiodeSkolepenger(
+    val skoleår: Int, // 2021 = Skoleåret 2021/2022
+    val perioder: List<Delårsperiode>, // Det er mulig med flere studieperioder innenfor samme skoleår
+    val utgifter: List<UtgiftSkolepenger>,
+    val maksSatsForSkoleår: Int
+)
+
+data class UtgiftSkolepenger(
+    val utgiftsdato: LocalDate,
+    val utgiftsbeløp: Int,
+    val utbetaltBeløp: Int
+)
+
+data class Delårsperiode(
+    val studietype: Studietype,
+    val datoFra: LocalDate,
+    val datoTil: LocalDate,
+    val studiebelastning: Int,
+)
+
+enum class Studietype {
+    HØGSKOLE_UNIVERSITET,
+    VIDEREGÅENDE,
+}
+
 enum class BehandlingType {
-    BLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING, // Inkluderer opphør
     KLAGE,
-    TEKNISK_OPPHØR,
     MIGRERING_FRA_INFOTRYGD,
     TILBAKEFØRING_TIL_INFOTRYGD
 }
@@ -107,6 +149,7 @@ data class VilkårsvurderingDto(
 
 enum class Vilkårsresultat {
     OPPFYLT,
+    AUTOMATISK_OPPFYLT,
     IKKE_OPPFYLT,
     IKKE_AKTUELL,
     IKKE_TATT_STILLING_TIL,

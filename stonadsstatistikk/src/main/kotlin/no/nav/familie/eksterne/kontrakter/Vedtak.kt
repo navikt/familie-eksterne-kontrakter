@@ -3,6 +3,7 @@ package no.nav.familie.eksterne.kontrakter
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
+@Deprecated("use VedtakV2")
 data class VedtakDVH(
     val fagsakId: String,
     val behandlingsId: String,
@@ -18,6 +19,7 @@ data class VedtakDVH(
     val behandlingÅrsak: BehandlingÅrsak? = null,
 )
 
+@Deprecated("use VedtakV2")
 data class UtbetalingsperiodeDVH(
     val hjemmel: String,
     val utbetaltPerMnd: Int,
@@ -26,6 +28,7 @@ data class UtbetalingsperiodeDVH(
     val utbetalingsDetaljer: List<UtbetalingsDetaljDVH>
 )
 
+@Deprecated("use VedtakV2")
 data class UtbetalingsDetaljDVH(
     val person: PersonDVH,
     val klassekode: String,
@@ -33,6 +36,7 @@ data class UtbetalingsDetaljDVH(
     val delytelseId: String
 )
 
+@Deprecated("use VedtakV2")
 data class PersonDVH(
     val personIdent: String,
     val rolle: String,
@@ -47,12 +51,14 @@ data class PersonDVH(
     val annenpartBostedsland: String
 )
 
+@Deprecated("use VedtakV2")
 enum class BehandlingOpprinnelse {
     MANUELL,
     AUTOMATISK_VED_FØDSELSHENDELSE,
     AUTOMATISK_VED_JOURNALFØRING
 }
 
+@Deprecated("use VedtakV2")
 enum class BehandlingType(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
@@ -62,6 +68,7 @@ enum class BehandlingType(val visningsnavn: String) {
     TEKNISK_ENDRING("Teknisk endring")
 }
 
+@Deprecated("use VedtakV2")
 enum class BehandlingÅrsak(val visningsnavn: String) {
 
     SØKNAD("Søknad"),
@@ -83,11 +90,13 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     HELMANUELL_MIGRERING("Manuell migrering")
 }
 
+@Deprecated("use VedtakV2")
 enum class Kategori {
     EØS,
     NASJONAL
 }
 
+@Deprecated("use VedtakV2")
 enum class Underkategori {
     UTVIDET,
     ORDINÆR
