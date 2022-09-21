@@ -2,6 +2,7 @@
 
 | Dato       | Endring                                                                                                                            |
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
+| 2022-09-21 | Lagt til fagsaktype for fagsaken for å skille mellom enslig mindreårig, institusjon og normale saker                               |
 | 2022-09-16 | Gjort søkers aktivitet nullable for å støtte migrering av eøs                                                                      |
 | 2022-06-14 | Lagt til flere enumverdier i SøkersAktivitet                                                                                       |
 | 2022-05-06 | Ny versjon av Vedtak(V2) med støtte for kompetanse og fjerning av felter som ikke var ibruk. Ny versjon vil kun bli brukt på aiven |
