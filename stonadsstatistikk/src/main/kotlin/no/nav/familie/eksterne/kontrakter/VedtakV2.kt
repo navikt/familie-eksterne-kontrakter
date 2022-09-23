@@ -56,24 +56,20 @@ data class Kompetanse(
 )
 
 enum class SøkersAktivitet {
-    @Deprecated("Skal bruke ARBEIDER")
+    @Deprecated("Skal bruke ARBEIDER. Siste melding sendt 2022-09-05 med offset 27648")
     ARBEIDER_I_NORGE,
     ARBEIDER,
 
     SELVSTENDIG_NÆRINGSDRIVENDE,
 
-    @Deprecated("Skal bruke MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN")
+    @Deprecated("Skal bruke MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN, Sist sendt 2022-08-04 med offset 18122")
     MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN,
     MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
 
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
 
-    @Deprecated("Skal bruke MOTTAR_UFØRETRYGD")
-    MOTTAR_UFØRETRYGD_FRA_NORGE,
     MOTTAR_UFØRETRYGD,
 
-    @Deprecated("Skal bruke MOTTAR_PENSJON")
-    MOTTAR_PENSJON_FRA_NORGE,
     MOTTAR_PENSJON,
 
     ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
