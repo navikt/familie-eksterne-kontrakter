@@ -29,7 +29,6 @@ internal class BehandlingsstatistikkKlageTest {
             endretTid = ZonedDateTime.now(),
             tekniskTid = ZonedDateTime.now(),
             sakYtelse = "EFOG",
-            behandlingType = "Førstegangsbehandling",
             behandlingStatus = "MOTTATT",
             opprettetAv = "gjeldendeSaksbehandlerId",
             opprettetEnhet = "",
@@ -38,7 +37,6 @@ internal class BehandlingsstatistikkKlageTest {
             mottattTid = ZonedDateTime.now(),
             behandlingMetode = "MANUELL",
             avsender = "NAV Enslig forelder",
-            totrinnsbehandling = true,
             sakId = 321L
         )
     }
