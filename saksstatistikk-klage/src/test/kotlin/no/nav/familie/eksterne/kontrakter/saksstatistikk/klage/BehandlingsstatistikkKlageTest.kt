@@ -8,7 +8,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
 import java.time.ZonedDateTime
 
-internal class BehandlingDVHTest {
+internal class BehandlingsstatistikkKlageTest {
 
     @Test
     fun `serialiser og deserialiser, forvent ingen unntak`() {
@@ -17,11 +17,11 @@ internal class BehandlingDVHTest {
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         val json = mapper.writeValueAsString(opprettBehandlingstatistikk())
-        mapper.readValue<BehandlingDVH>(json)
+        mapper.readValue<BehandlingsstatistikkKlage>(json)
     }
 
-    private fun opprettBehandlingstatistikk(): BehandlingDVH {
-        return BehandlingDVH(
+    private fun opprettBehandlingstatistikk(): BehandlingsstatistikkKlage {
+        return BehandlingsstatistikkKlage(
             behandlingId = 123L,
             personIdent = "persinIdent",
             saksbehandler = "gjeldendeSaksbehandlerId",
