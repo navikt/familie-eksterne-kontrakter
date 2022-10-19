@@ -7,6 +7,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
 import java.time.ZonedDateTime
+import java.util.UUID
 
 internal class BehandlingsstatistikkKlageTest {
 
@@ -22,7 +23,7 @@ internal class BehandlingsstatistikkKlageTest {
 
     private fun opprettBehandlingstatistikk(): BehandlingsstatistikkKlage {
         return BehandlingsstatistikkKlage(
-            behandlingId = 123L,
+            behandlingId = UUID.randomUUID(),
             personIdent = "persinIdent",
             saksbehandler = "gjeldendeSaksbehandlerId",
             registrertTid = ZonedDateTime.now(),

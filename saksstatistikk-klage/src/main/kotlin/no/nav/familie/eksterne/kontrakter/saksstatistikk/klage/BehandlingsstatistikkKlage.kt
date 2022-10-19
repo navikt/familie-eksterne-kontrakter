@@ -2,10 +2,11 @@ package no.nav.familie.eksterne.kontrakter.saksstatistikk.klage
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.ZonedDateTime
+import java.util.UUID
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class BehandlingsstatistikkKlage(
-    val behandlingId: Long, // Fagsystemets eksterne behandlings-ID
+    val behandlingId: UUID, // Fagsystemets eksterne behandlings-ID
     val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
     val registrertTid: ZonedDateTime, // Tidspunkt da behandlingen først oppstod eller ble registrert i fagsystemet
     val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen. Ved første melding vil denne være lik registrertTid
