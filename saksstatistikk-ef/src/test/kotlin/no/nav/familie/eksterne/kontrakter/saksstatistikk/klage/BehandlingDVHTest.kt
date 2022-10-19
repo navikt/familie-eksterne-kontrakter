@@ -1,4 +1,4 @@
-package no.nav.familie.eksterne.kontrakter.saksstatistikk.ef
+package no.nav.familie.eksterne.kontrakter.saksstatistikk.klage
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature

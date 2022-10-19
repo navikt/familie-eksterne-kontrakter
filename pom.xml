@@ -27,6 +27,7 @@
         <module>stonadsstatistikk</module>
         <module>saksstatistikk</module>
         <module>saksstatistikk-ef</module>
+        <module>saksstatistikk-klage</module>
         <module>stonadsstatistikk-ef</module>
         <module>skatteetaten</module>
         <module>bisys</module>
