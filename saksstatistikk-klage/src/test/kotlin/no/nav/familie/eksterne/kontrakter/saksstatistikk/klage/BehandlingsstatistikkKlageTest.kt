@@ -34,12 +34,12 @@ internal class BehandlingsstatistikkKlageTest {
             opprettetAv = "gjeldendeSaksbehandlerId",
             opprettetEnhet = "",
             ansvarligEnhet = "",
-            saksnummer = 123L,
+            saksnummer = "123",
             mottattTid = ZonedDateTime.now(),
             behandlingMetode = "MANUELL",
             avsender = "NAV Enslig forelder",
-            sakId = 321L,
-            relatertEksternFagsakId = "1"
+            sakId = "321",
+            relatertEksternBehandlingId = "1"
         )
     }
 }
