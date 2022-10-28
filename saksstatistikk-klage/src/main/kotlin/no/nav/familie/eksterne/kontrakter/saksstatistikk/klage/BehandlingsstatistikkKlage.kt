@@ -21,7 +21,6 @@ data class BehandlingsstatistikkKlage(
     val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
     val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet. Avslåtte klager i vedtaksinstans skal ha riktig KA-enhet her
     val sakId: String, // Saksnummer som følger behandlingen for NAV globalt
-    val saksnummer: String, // Saksnummer som følger behandlingen for NAV globalt
     val mottattTid: ZonedDateTime? = null, // Tidspunktet da behandlingen oppstår (eks søknadstidspunkt, inntektsmelding, etc). Det er ønskelig å måle brukers opplevde ventetid. Ved elektronisk kontakt regner vi med at denne er lik registrertTid
     val ferdigBehandletTid: ZonedDateTime? = null, // Tidspunkt når behandling ble avsluttet, enten avbrutt, henlagt, vedtak innvilget/avslått, etc
     val vedtakTid: ZonedDateTime? = null, // Tidspunktet for når vedtaket ble fattet - hvis saken ble vedtatt
