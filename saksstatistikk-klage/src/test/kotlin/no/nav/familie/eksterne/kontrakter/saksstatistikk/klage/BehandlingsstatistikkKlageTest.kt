@@ -38,7 +38,6 @@ internal class BehandlingsstatistikkKlageTest {
             mottattTid = ZonedDateTime.now(),
             behandlingMetode = "MANUELL",
             avsender = "NAV Enslig forelder",
-            sakId = "321",
             relatertEksternBehandlingId = "1"
         )
     }
