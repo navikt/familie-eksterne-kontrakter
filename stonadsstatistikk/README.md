@@ -2,6 +2,7 @@
 
 | Dato       | Endring                                                                                                                                                                                                                                                       |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2022-11-03 | La til `Institusjon` som enum-konstant i `UnderkategoriV2`
 | 2022-09-23 | Ryddet i enums for SøkersAktivitet. Revertert ARBEIDER_I_NORGE og MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN fordi det finnes meldinger med de enda på topic for å sikre bakoverkompabilitet hvis man skal lese gamle meldinger. Slettet ubrukte deprikerte |
 | 2022-09-21 | Lagt til fagsaktype for fagsaken for å skille mellom enslig mindreårig, institusjon og normale saker                                                                                                                                                          |
 | 2022-09-16 | Gjort søkers aktivitet nullable for å støtte migrering av eøs                                                                                                                                                                                                 |

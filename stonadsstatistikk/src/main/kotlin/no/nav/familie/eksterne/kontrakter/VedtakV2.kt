@@ -132,7 +132,8 @@ enum class KategoriV2 {
 
 enum class UnderkategoriV2 {
     UTVIDET,
-    ORDINÆR
+    ORDINÆR,
+    INSTITUSJON
 }
 
 enum class FagsakType {
