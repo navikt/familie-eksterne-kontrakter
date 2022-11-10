@@ -9,7 +9,7 @@ data class BehandlingsstatistikkKlage(
     val behandlingId: UUID, // Fagsystemets eksterne behandlings-ID
     val personIdent: String, // PersonIdent tilknyttet søker eller hovedaktør for ytelsen
     val registrertTid: ZonedDateTime, // Tidspunkt da behandlingen først oppstod eller ble registrert i fagsystemet
-    val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen. Ved første melding vil denne være lik registrertTid
+    val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen
     val tekniskTid: ZonedDateTime, // Tidspunktet da fagsystemet legger hendelsen på grensesnittet/topicen
     val behandlingType: String, // Behandlingstype som blir her satt til "KLAGE"
     val sakYtelse: String, // Kode som angir hvilken ytelse/stønad behandlingen gjelder
@@ -17,7 +17,6 @@ data class BehandlingsstatistikkKlage(
     val relatertEksternBehandlingId: String? = null, // Fagsystemet sin eksterne behandlingId, hvis klagen er koblet til en behandling
     val behandlingStatus: String, // Kode som angir hvilken status behandlingen har - typisk: opprettet, under behandling, avsluttet, etc
     val opprettetAv: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Saksbehandler-ID som opprettet behandlingen. Hvis det er en servicebruker så sende denne
-    // Trenger vi begge disse enhetene? Har vi denne informasjonen?
     val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
     val ansvarligEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som nå har ansvar for saken. Dette kan være samme som opprettetEnhet.
     val saksnummer: String, // Saksnummer som følger behandlingen for NAV globalt
