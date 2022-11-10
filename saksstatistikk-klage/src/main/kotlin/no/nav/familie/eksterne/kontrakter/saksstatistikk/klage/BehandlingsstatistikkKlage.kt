@@ -13,7 +13,7 @@ data class BehandlingsstatistikkKlage(
     val tekniskTid: ZonedDateTime, // Tidspunktet da fagsystemet legger hendelsen på grensesnittet/topicen
     val behandlingType: String, // Behandlingstype som blir her satt til "KLAGE"
     val sakYtelse: String, // Kode som angir hvilken ytelse/stønad behandlingen gjelder
-    val fagsystem: String, // Fagsystem som anvender klage
+    val fagsystem: String, // Fagsystem som anvender klage (E.g BA, EF, KS)
     val relatertEksternBehandlingId: String? = null, // Fagsystemet sin eksterne behandlingId, hvis klagen er koblet til en behandling
     val behandlingStatus: String, // Kode som angir hvilken status behandlingen har - typisk: opprettet, under behandling, avsluttet, etc
     val opprettetAv: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Saksbehandler-ID som opprettet behandlingen. Hvis det er en servicebruker så sende denne
