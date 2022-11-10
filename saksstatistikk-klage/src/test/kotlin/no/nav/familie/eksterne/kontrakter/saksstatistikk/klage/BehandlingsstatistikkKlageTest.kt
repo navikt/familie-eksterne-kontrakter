@@ -24,6 +24,8 @@ internal class BehandlingsstatistikkKlageTest {
     private fun opprettBehandlingstatistikk(): BehandlingsstatistikkKlage {
         return BehandlingsstatistikkKlage(
             behandlingId = UUID.randomUUID(),
+            behandlingType = "Klage",
+            fagsystem = "EF",
             personIdent = "persinIdent",
             saksbehandler = "gjeldendeSaksbehandlerId",
             registrertTid = ZonedDateTime.now(),
