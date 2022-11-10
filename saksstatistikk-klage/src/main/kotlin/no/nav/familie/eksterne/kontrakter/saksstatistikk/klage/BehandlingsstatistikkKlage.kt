@@ -11,7 +11,9 @@ data class BehandlingsstatistikkKlage(
     val registrertTid: ZonedDateTime, // Tidspunkt da behandlingen først oppstod eller ble registrert i fagsystemet
     val endretTid: ZonedDateTime, // Tidspunkt for siste endring på behandlingen. Ved første melding vil denne være lik registrertTid
     val tekniskTid: ZonedDateTime, // Tidspunktet da fagsystemet legger hendelsen på grensesnittet/topicen
+    val behandlingType: String, // Behandlingstype som blir her satt til "KLAGE"
     val sakYtelse: String, // Kode som angir hvilken ytelse/stønad behandlingen gjelder
+    val fagsystem: String, // Fagsystem som anvender klage
     val relatertEksternBehandlingId: String? = null, // Fagsystemet sin eksterne behandlingId, hvis klagen er koblet til en behandling
     // klage / anke?
     // val behandlingType: String, // Kode som angir hvilken type behandling det er snakk om - typisk: søknad, revurdering, tilbakekreving, klage, etc.
@@ -23,7 +25,6 @@ data class BehandlingsstatistikkKlage(
     val saksnummer: String, // Saksnummer som følger behandlingen for NAV globalt
     val mottattTid: ZonedDateTime? = null, // Tidspunktet da behandlingen oppstår (eks søknadstidspunkt, inntektsmelding, etc). Det er ønskelig å måle brukers opplevde ventetid. Ved elektronisk kontakt regner vi med at denne er lik registrertTid
     val ferdigBehandletTid: ZonedDateTime? = null, // Tidspunkt når behandling ble avsluttet, enten avbrutt, henlagt, vedtak innvilget/avslått, etc
-    val vedtakTid: ZonedDateTime? = null, // Tidspunktet for når vedtaket ble fattet - hvis saken ble vedtatt
     val sakUtland: String? = null, // Nasjonal/Utland - Kode som angir hvor vidt saken er for utland eller nasjonal å anses. Se begrepskatalogen: https://jira.adeo.no/browse/BEGREP-1611#
     val behandlingResultat: String? = null, // Kode som angir resultatet på behandling - typisk: avbrutt, innvilget, delvis innvilget, henlagt av tekniske hensyn, etc
     val resultatBegrunnelse: String? = null, // Kode som angir en begrunnelse til resultat - typisk: vilkårsprøvingen feilet, dublett, teknisk avvik, etc
