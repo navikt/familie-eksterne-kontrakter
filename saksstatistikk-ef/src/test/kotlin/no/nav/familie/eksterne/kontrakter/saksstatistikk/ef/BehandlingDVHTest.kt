@@ -1,4 +1,4 @@
-package no.nav.familie.eksterne.kontrakter.saksstatistikk.klage
+package no.nav.familie.eksterne.kontrakter.saksstatistikk.ef
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
+import java.time.LocalDate
 import java.time.ZonedDateTime
 
 internal class BehandlingDVHTest {
@@ -39,7 +40,10 @@ internal class BehandlingDVHTest {
             behandlingMetode = "MANUELL",
             avsender = "NAV Enslig forelder",
             totrinnsbehandling = true,
-            sakId = 321L
+            sakId = 321L,
+            kravMottatt = LocalDate.now(),
+            revurderingÅrsak = "ENDRING_I_INNTEKT",
+            revurderingOopplysningskilde = "MODIA"
         )
     }
 }
