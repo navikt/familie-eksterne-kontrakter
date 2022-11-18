@@ -49,7 +49,8 @@ class BehandlingDVHTest {
             harSagtOppArbeidsforhold = false
         ),
         stønadstype = StønadType.OVERGANGSSTØNAD,
-
+        kravMottatt = LocalDate.now(),
+        årsakRevurdering = ÅrsakRevurdering(opplysningskilde = "MODIA", årsak = "ENDRING_I_INNTEKT")
     )
 
     @Test

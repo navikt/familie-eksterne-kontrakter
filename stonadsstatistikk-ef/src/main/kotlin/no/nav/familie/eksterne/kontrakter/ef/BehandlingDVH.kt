@@ -22,7 +22,9 @@ data class VedtakOvergangsstønadDVH(
     val utbetalinger: List<Utbetaling>,
     val aktivitetskrav: Aktivitetskrav,
     val funksjonellId: Long? = null,
-    val stønadstype: StønadType
+    val stønadstype: StønadType,
+    val kravMottatt: LocalDate? = null,
+    val årsakRevurdering: ÅrsakRevurdering? = null
 )
 
 data class VedtakBarnetilsynDVH(
@@ -43,7 +45,9 @@ data class VedtakBarnetilsynDVH(
     val funksjonellId: Long? = null,
     val stønadstype: StønadType,
     val perioderKontantstøtte: List<PeriodeMedBeløp>,
-    val perioderTilleggsstønad: List<PeriodeMedBeløp>
+    val perioderTilleggsstønad: List<PeriodeMedBeløp>,
+    val kravMottatt: LocalDate? = null,
+    val årsakRevurdering: ÅrsakRevurdering? = null
 )
 
 data class VedtakSkolepenger(
@@ -63,6 +67,8 @@ data class VedtakSkolepenger(
     val utbetalinger: List<Utbetaling>,
     val funksjonellId: Long? = null,
     val stønadstype: StønadType,
+    val kravMottatt: LocalDate? = null,
+    val årsakRevurdering: ÅrsakRevurdering? = null
 )
 
 data class VedtaksperiodeSkolepenger(
@@ -247,3 +253,8 @@ enum class StønadType {
     BARNETILSYN,
     SKOLEPENGER
 }
+
+data class ÅrsakRevurdering(
+    val opplysningskilde: String,
+    val årsak: String
+)
