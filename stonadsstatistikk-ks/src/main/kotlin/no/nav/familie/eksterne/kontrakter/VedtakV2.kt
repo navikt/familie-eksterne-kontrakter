@@ -1,7 +1,6 @@
 package no.nav.familie.eksterne.kontrakter
 
 import java.time.LocalDate
-import java.time.YearMonth
 import java.time.ZonedDateTime
 
 data class VedtakDVHV2(
@@ -9,15 +8,12 @@ data class VedtakDVHV2(
     val behandlingsId: String,
     val tidspunktVedtak: ZonedDateTime,
     val personV2: PersonDVHV2,
-    val ensligForsørger: Boolean,
     val kategoriV2: KategoriV2,
     val underkategoriV2: UnderkategoriV2,
     val behandlingTypeV2: BehandlingTypeV2,
     val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
-    val kompetanseperioder: List<Kompetanse>? = null,
     val funksjonellId: String,
     val behandlingÅrsakV2: BehandlingÅrsakV2,
-    val fagsakType: FagsakType? = null
 )
 
 data class UtbetalingsperiodeDVHV2(
@@ -43,27 +39,11 @@ data class PersonDVHV2(
     val delingsprosentYtelse: Int
 )
 
-data class Kompetanse(
-    val barnsIdenter: List<String>,
-    val fom: YearMonth,
-    val tom: YearMonth?,
-    val sokersaktivitet: SøkersAktivitet? = null,
-    val sokersAktivitetsland: String? = null,
-    val annenForeldersAktivitet: AnnenForeldersAktivitet? = null,
-    val annenForeldersAktivitetsland: String? = null,
-    val barnetsBostedsland: String? = null,
-    val resultat: KompetanseResultat? = null
-)
-
 enum class SøkersAktivitet {
-    @Deprecated("Skal bruke ARBEIDER. Siste melding sendt 2022-09-05 med offset 27648")
-    ARBEIDER_I_NORGE,
     ARBEIDER,
 
     SELVSTENDIG_NÆRINGSDRIVENDE,
 
-    @Deprecated("Skal bruke MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN, Sist sendt 2022-08-04 med offset 18122")
-    MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN,
     MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
 
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
@@ -91,38 +71,22 @@ enum class AnnenForeldersAktivitet {
     IKKE_AKTUELT
 }
 
-enum class KompetanseResultat {
-    NORGE_ER_PRIMÆRLAND,
-    NORGE_ER_SEKUNDÆRLAND,
-    TO_PRIMÆRLAND
-}
-
 enum class BehandlingTypeV2(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
-    MIGRERING_FRA_INFOTRYGD("Migrering fra infotrygd"),
-    MIGRERING_FRA_INFOTRYGD_OPPHØRT("Opphør migrering fra infotrygd"),
     TEKNISK_ENDRING("Teknisk endring")
 }
 
 enum class BehandlingÅrsakV2(val visningsnavn: String) {
-
     SØKNAD("Søknad"),
     FØDSELSHENDELSE("Fødselshendelse"),
     ÅRLIG_KONTROLL("Årsak kontroll"),
-    DØDSFALL_BRUKER("Dødsfall bruker"),
+    DØDSFALL("Dødsfall bruker"),
     NYE_OPPLYSNINGER("Nye opplysninger"),
     KLAGE("Klage"),
     TEKNISK_ENDRING("Teknisk endring"),
     KORREKSJON_VEDTAKSBREV("Korrigere vedtak med egen brevmal"),
-    OMREGNING_6ÅR("Omregning 6 år"),
-    OMREGNING_18ÅR("Omregning 18 år"),
-    OMREGNING_SMÅBARNSTILLEGG("Omregning småbarnstillegg"),
-    SMÅBARNSTILLEGG("Småbarnstillegg"),
-    MIGRERING("Migrering"),
     SATSENDRING("Satsendring"),
-    ENDRE_MIGRERINGSDATO("Endre migreringsdato"),
-    HELMANUELL_MIGRERING("Manuell migrering")
 }
 
 enum class KategoriV2 {
@@ -131,13 +95,5 @@ enum class KategoriV2 {
 }
 
 enum class UnderkategoriV2 {
-    UTVIDET,
     ORDINÆR,
-    INSTITUSJON
-}
-
-enum class FagsakType {
-    NORMAL,
-    BARN_ENSLIG_MINDREÅRIG,
-    INSTITUSJON
 }
