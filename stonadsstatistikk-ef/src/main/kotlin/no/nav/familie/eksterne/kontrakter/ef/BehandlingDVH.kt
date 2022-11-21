@@ -24,8 +24,8 @@ data class VedtakOvergangsstønadDVH(
     val funksjonellId: Long? = null,
     val stønadstype: StønadType,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakRevurdering? = null
-    val avslagÅrsak: AvslagÅrsak? = null
+    val årsakRevurdering: ÅrsakRevurdering? = null,
+    val avslagÅrsak: String? = null // F.eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
 )
 
 data class VedtakBarnetilsynDVH(
@@ -89,7 +89,7 @@ data class Delårsperiode(
     val studietype: Studietype,
     val datoFra: LocalDate,
     val datoTil: LocalDate,
-    val studiebelastning: Int,
+    val studiebelastning: Int
 )
 
 enum class Studietype {
@@ -141,7 +141,7 @@ data class Utbetaling(
     val inntektsreduksjon: Int,
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
-    val utbetalingsdetalj: Utbetalingsdetalj,
+    val utbetalingsdetalj: Utbetalingsdetalj
 )
 
 data class Utbetalingsdetalj(
@@ -259,11 +259,3 @@ data class ÅrsakRevurdering(
     val opplysningskilde: String,
     val årsak: String
 )
-
-enum class AvslagÅrsak {
-    VILKÅR_IKKE_OPPFYLT,
-    BARN_OVER_ÅTTE_ÅR,
-    STØNADSTID_OPPBRUKT,
-    MANGLENDE_OPPLYSNINGER,
-    MINDRE_INNTEKTSENDRINGER
-}
