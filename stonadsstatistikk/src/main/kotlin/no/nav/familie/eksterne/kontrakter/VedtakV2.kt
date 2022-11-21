@@ -11,7 +11,7 @@ data class VedtakDVHV2(
     val personV2: PersonDVHV2,
     val ensligForsørger: Boolean,
     val kategoriV2: KategoriV2,
-    val underkategoriV2: UnderkategoriV2,
+    @Deprecated("Mer riktig å se på ytelseType på utebetalingsdetalj ") val underkategoriV2: UnderkategoriV2?,
     val behandlingTypeV2: BehandlingTypeV2,
     val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
     val kompetanseperioder: List<Kompetanse>? = null,
@@ -32,7 +32,8 @@ data class UtbetalingsDetaljDVHV2(
     val person: PersonDVHV2,
     val klassekode: String,
     val utbetaltPrMnd: Int,
-    val delytelseId: String
+    val delytelseId: String,
+    val ytelseType: YtelseType
 )
 
 data class PersonDVHV2(
@@ -140,4 +141,11 @@ enum class FagsakType {
     NORMAL,
     BARN_ENSLIG_MINDREÅRIG,
     INSTITUSJON
+}
+
+enum class YtelseType {
+    ORDINÆR_BARNETRYGD,
+    UTVIDET_BARNETRYGD,
+    SMÅBARNSTILLEGG,
+    MANUELL_VURDERING
 }
