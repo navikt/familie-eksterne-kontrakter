@@ -38,4 +38,5 @@ data class BehandlingDVH(
     val kravMottatt: LocalDate? = null, // Dato for når krav eller informasjon om at man må opprette revurdering ble mottatt
     val revurderingOpplysningskilde: String? = null, // Opplysningskilde til hvorfor det må gjøres en revurdering, eks MODIA
     val revurderingÅrsak: String? = null, // Årsak til revurdering, eks ENDRING_I_INNTEKT
+    val avslagÅrsak: String? = null // Eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
 )

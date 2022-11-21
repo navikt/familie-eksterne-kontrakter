@@ -25,6 +25,7 @@ data class VedtakOvergangsstønadDVH(
     val stønadstype: StønadType,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null
+    val avslagÅrsak: AvslagÅrsak? = null
 )
 
 data class VedtakBarnetilsynDVH(
@@ -258,3 +259,11 @@ data class ÅrsakRevurdering(
     val opplysningskilde: String,
     val årsak: String
 )
+
+enum class AvslagÅrsak {
+    VILKÅR_IKKE_OPPFYLT,
+    BARN_OVER_ÅTTE_ÅR,
+    STØNADSTID_OPPBRUKT,
+    MANGLENDE_OPPLYSNINGER,
+    MINDRE_INNTEKTSENDRINGER
+}
