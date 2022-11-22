@@ -36,6 +36,6 @@ data class BehandlingDVH(
     val versjon: String? = null, // "Kode som hvilken versjonen av koden dataene er generert med bakgrunn på. Kan godt være relatert til Git repoet
     val behandlingÅrsak: String? = null, // Årsak til opprettet behandling - typisk klage, nye opplysninger, sanksjon, søknad, migrering, g-omregning, korrigering og papirsøknad
     val kravMottatt: LocalDate? = null, // Dato for når krav eller informasjon om at man må opprette revurdering ble mottatt
-    val revurderingOopplysningskilde: String? = null, // Opplysningskilde til hvorfor det må gjøres en revurdering, eks MODIA
+    val revurderingOpplysningskilde: String? = null, // Opplysningskilde til hvorfor det må gjøres en revurdering, eks MODIA
     val revurderingÅrsak: String? = null, // Årsak til revurdering, eks ENDRING_I_INNTEKT
 )

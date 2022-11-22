@@ -43,7 +43,7 @@ internal class BehandlingDVHTest {
             sakId = 321L,
             kravMottatt = LocalDate.now(),
             revurderingÅrsak = "ENDRING_I_INNTEKT",
-            revurderingOopplysningskilde = "MODIA"
+            revurderingOpplysningskilde = "MODIA"
         )
     }
 }
