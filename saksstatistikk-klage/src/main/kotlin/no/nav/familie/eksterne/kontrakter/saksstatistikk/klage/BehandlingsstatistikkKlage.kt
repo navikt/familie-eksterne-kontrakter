@@ -15,6 +15,7 @@ data class BehandlingsstatistikkKlage(
     val sakYtelse: String, // Kode som angir hvilken ytelse/stønad behandlingen gjelder
     val fagsystem: String, // Fagsystem som anvender klage (E.g BA, EF, KS)
     val relatertEksternBehandlingId: String? = null, // Fagsystemet sin eksterne behandlingId, hvis klagen er koblet til en behandling
+    val relatertFagsystemType: String? = null, // Påklaget behandling sin fagsystemtype, eks ORDINÆR eller TILBAKEKREVING
     val behandlingStatus: String, // Kode som angir hvilken status behandlingen har - typisk: opprettet, under behandling, avsluttet, etc
     val opprettetAv: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Saksbehandler-ID som opprettet behandlingen. Hvis det er en servicebruker så sende denne
     val opprettetEnhet: String, // [Feltet er geo-lokaliserende og skal oppgis som -5 hvis noen personer tilknyttet behandlingen er kode 6] Hvilken org enhet som behandlingen opprinnelig ble rutet til i NAV. Dette kan også være en nasjonal kø
