@@ -7,30 +7,30 @@ data class VedtakDVH(
     val fagsakId: String,
     val behandlingsId: String,
     val tidspunktVedtak: ZonedDateTime,
-    val personV2: PersonDVHV2,
-    val kategoriV2: KategoriV2,
-    val behandlingTypeV2: BehandlingTypeV2,
-    val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
+    val person: PersonDVH,
+    val kategori: Kategori,
+    val behandlingType: BehandlingType,
+    val utbetalingsperioder: List<UtbetalingsperiodeDVH>,
     val funksjonellId: String,
     val behandlingÅrsak: BehandlingÅrsak,
 )
 
-data class UtbetalingsperiodeDVHV2(
+data class UtbetalingsperiodeDVH(
     val hjemmel: String,
     val utbetaltPerMnd: Int,
     val stønadFom: LocalDate,
     val stønadTom: LocalDate,
-    val utbetalingsDetaljer: List<UtbetalingsDetaljDVHV2>
+    val utbetalingsDetaljer: List<UtbetalingsDetaljDVH>
 )
 
-data class UtbetalingsDetaljDVHV2(
-    val person: PersonDVHV2,
+data class UtbetalingsDetaljDVH(
+    val person: PersonDVH,
     val klassekode: String,
     val utbetaltPrMnd: Int,
     val delytelseId: String
 )
 
-data class PersonDVHV2(
+data class PersonDVH(
     val personIdent: String,
     val rolle: String,
     val statsborgerskap: List<String>,
@@ -64,7 +64,7 @@ enum class AnnenForeldersAktivitet {
     IKKE_AKTUELT
 }
 
-enum class BehandlingTypeV2(val visningsnavn: String) {
+enum class BehandlingType(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
     TEKNISK_ENDRING("Teknisk endring")
@@ -81,7 +81,7 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     SATSENDRING("Satsendring"),
 }
 
-enum class KategoriV2 {
+enum class Kategori {
     EØS,
     NASJONAL
 }
