@@ -48,7 +48,8 @@ data class VedtakBarnetilsynDVH(
     val perioderKontantstøtte: List<PeriodeMedBeløp>,
     val perioderTilleggsstønad: List<PeriodeMedBeløp>,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakRevurdering? = null
+    val årsakRevurdering: ÅrsakRevurdering? = null,
+    val avslagÅrsak: String? = null
 )
 
 data class VedtakSkolepenger(
@@ -69,7 +70,8 @@ data class VedtakSkolepenger(
     val funksjonellId: Long? = null,
     val stønadstype: StønadType,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakRevurdering? = null
+    val årsakRevurdering: ÅrsakRevurdering? = null,
+    val avslagÅrsak: String? = null
 )
 
 data class VedtaksperiodeSkolepenger(
