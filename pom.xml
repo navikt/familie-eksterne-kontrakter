@@ -25,6 +25,7 @@
 
     <modules>
         <module>stonadsstatistikk</module>
+        <module>stonadsstatistikk-ks</module>
         <module>saksstatistikk</module>
         <module>saksstatistikk-ef</module>
         <module>saksstatistikk-klage</module>
