@@ -3,17 +3,16 @@ package no.nav.familie.eksterne.kontrakter
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
-data class VedtakDVHV2(
+data class VedtakDVH(
     val fagsakId: String,
     val behandlingsId: String,
     val tidspunktVedtak: ZonedDateTime,
     val personV2: PersonDVHV2,
     val kategoriV2: KategoriV2,
-    val underkategoriV2: UnderkategoriV2,
     val behandlingTypeV2: BehandlingTypeV2,
     val utbetalingsperioderV2: List<UtbetalingsperiodeDVHV2>,
     val funksjonellId: String,
-    val behandlingÅrsakV2: BehandlingÅrsakV2,
+    val behandlingÅrsak: BehandlingÅrsak,
 )
 
 data class UtbetalingsperiodeDVHV2(
@@ -41,17 +40,11 @@ data class PersonDVHV2(
 
 enum class SøkersAktivitet {
     ARBEIDER,
-
     SELVSTENDIG_NÆRINGSDRIVENDE,
-
     MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
-
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
-
     MOTTAR_UFØRETRYGD,
-
     MOTTAR_PENSJON,
-
     ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
     ARBEIDER_PÅ_NORSK_SOKKEL,
     ARBEIDER_FOR_ET_NORSK_FLYSELSKAP,
@@ -77,9 +70,8 @@ enum class BehandlingTypeV2(val visningsnavn: String) {
     TEKNISK_ENDRING("Teknisk endring")
 }
 
-enum class BehandlingÅrsakV2(val visningsnavn: String) {
+enum class BehandlingÅrsak(val visningsnavn: String) {
     SØKNAD("Søknad"),
-    FØDSELSHENDELSE("Fødselshendelse"),
     ÅRLIG_KONTROLL("Årsak kontroll"),
     DØDSFALL("Dødsfall bruker"),
     NYE_OPPLYSNINGER("Nye opplysninger"),
@@ -92,8 +84,4 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
 enum class KategoriV2 {
     EØS,
     NASJONAL
-}
-
-enum class UnderkategoriV2 {
-    ORDINÆR,
 }
