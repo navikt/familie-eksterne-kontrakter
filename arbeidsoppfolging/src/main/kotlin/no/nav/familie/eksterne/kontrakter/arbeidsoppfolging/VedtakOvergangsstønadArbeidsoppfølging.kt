@@ -3,7 +3,7 @@ package no.nav.familie.eksterne.kontrakter.arbeidsoppfolging
 import java.time.LocalDate
 
 data class VedtakOvergangsstønadArbeidsoppfølging(
-    val behandlingId: Long,
+    val vedtakId: Long,
     val personIdent: String,
     val barn: List<Barn>,
     val stønadstype: String,
