@@ -47,6 +47,8 @@ jobs:
           echo "skatteetaten $(git rev-list -1 HEAD -- "skatteetaten")"
           echo "bisys $(git rev-list -1 HEAD -- "bisys")"
           echo "bisys_rev=$(git rev-list -1 HEAD -- "bisys")" >> $GITHUB_ENV
+          echo "arbeidsoppfolging $(git rev-list -1 HEAD -- "arbeidsoppfolging")"
+          echo "arbeidsoppfolging_rev=$(git rev-list -1 HEAD -- "arbeidsoppfolging")" >> $GITHUB_ENV
           echo "gha.sha ${{ github.sha }}"
 
       - name: EF - Ta vare på siste sha for saksstatistikk og stonadsstatistikk
@@ -121,3 +123,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.bisys_rev == github.sha
         run: mvn --settings .github/maven-settings.xml -pl bisys source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+
+      - name: Deploy arbeidsoppfolging ved endring
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: env.arbeidsoppfolging_rev == github.sha
+        run: mvn --settings .github/maven-settings.xml -pl arbeidsoppfolging source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
