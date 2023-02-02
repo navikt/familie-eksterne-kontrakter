@@ -12,13 +12,13 @@ data class VedtakOvergangsstønadArbeidsoppfølging(
 )
 
 data class Barn(
-    val fødselsnummer: String,
-    val termindato: LocalDate
+    val fødselsnummer: String? = null,
+    val termindato: LocalDate? = null
 )
 
 data class Periode(
     val fom: LocalDate,
     val tom: LocalDate,
-    val vedtaksperiodeType: String,
+    val periodetype: String,
     val aktivitetstype: String,
 )
