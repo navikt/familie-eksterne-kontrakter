@@ -8,7 +8,7 @@ data class VedtakOvergangsstønadArbeidsoppfølging(
     val barn: List<Barn>,
     val stønadstype: Stønadstype,
     val periode: List<Periode>,
-    val vedtaksresultat: String
+    val vedtaksresultat: Vedtaksresultat
 )
 
 data class Barn(
@@ -27,6 +27,12 @@ enum class Stønadstype {
     OVERGANGSSTØNAD,
     BARNETILSYN,
     SKOLEPENGER
+}
+
+enum class Vedtaksresultat {
+    INNVILGET,
+    OPPHØRT,
+    AVSLÅTT
 }
 
 enum class Periodetype {
