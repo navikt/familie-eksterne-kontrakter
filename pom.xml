@@ -32,6 +32,7 @@
         <module>stonadsstatistikk-ef</module>
         <module>skatteetaten</module>
         <module>bisys</module>
+        <module>arbeidsoppfolging</module>
     </modules>
 
     <dependencies>
