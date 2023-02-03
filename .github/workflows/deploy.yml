@@ -128,5 +128,4 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.arbeidsoppfolging_rev == github.sha
         run: mvn --settings .github/maven-settings.xml -pl arbeidsoppfolging source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
