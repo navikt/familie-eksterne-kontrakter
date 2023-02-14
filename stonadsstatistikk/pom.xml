@@ -13,7 +13,7 @@
     <artifactId>stonadsstatistikk</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <name>Kontrakter - Stønadsstatistikk</name>
-    <description>Kontrakter for stønadsstatistikk</description>
+    <description>Kontrakter for stønadsstatistikk BA</description>
     <packaging>jar</packaging>
 
     <dependencies>

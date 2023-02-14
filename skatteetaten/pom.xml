@@ -16,9 +16,6 @@
     <description>Kontrakter for skatteetaten-API</description>
     <packaging>jar</packaging>
 
-    <properties>
-     </properties>
-
     <dependencies>
         <dependency>
             <groupId>javax.validation</groupId>

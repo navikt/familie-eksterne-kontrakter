@@ -12,7 +12,7 @@
     <artifactId>saksstatistikk</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <name>Kontrakter - Saksstatistikk</name>
-    <description>Kontrakter for saksstatistikk</description>
+    <description>Kontrakter for saksstatistikk BA</description>
     <packaging>jar</packaging>
 
     <dependencies>
