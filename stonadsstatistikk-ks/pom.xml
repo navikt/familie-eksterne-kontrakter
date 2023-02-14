@@ -16,9 +16,6 @@
     <description>Kontrakter for stønadsstatistikk for Kontantstøtte</description>
     <packaging>jar</packaging>
 
-    <dependencies>
-    </dependencies>
-
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
 

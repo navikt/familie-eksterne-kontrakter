@@ -16,9 +16,6 @@
     <description>Kontrakter for arbeidsoppfolging vedtakhendelser</description>
     <packaging>jar</packaging>
 
-    <properties>
-    </properties>
-
     <dependencies>
     </dependencies>
 

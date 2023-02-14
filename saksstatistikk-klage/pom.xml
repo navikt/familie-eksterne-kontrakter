@@ -15,9 +15,6 @@
     <description>Kontrakter for saksstatistikk klage</description>
     <packaging>jar</packaging>
 
-    <dependencies>
-    </dependencies>
-
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
