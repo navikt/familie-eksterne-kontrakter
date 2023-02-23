@@ -89,7 +89,8 @@ enum class AnnenForeldersAktivitet {
     FORSIKRET_I_BOSTEDSLAND,
     MOTTAR_PENSJON,
     INAKTIV,
-    IKKE_AKTUELT
+    IKKE_AKTUELT,
+    UTSENDT_ARBEIDSTAKER
 }
 
 enum class KompetanseResultat {
