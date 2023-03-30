@@ -79,6 +79,7 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     TEKNISK_ENDRING("Teknisk endring"),
     KORREKSJON_VEDTAKSBREV("Korrigere vedtak med egen brevmal"),
     SATSENDRING("Satsendring"),
+    BARNEHAGELISTE("Barnehageliste"),
 }
 
 enum class Kategori {
