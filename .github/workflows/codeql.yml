@@ -1,0 +1,42 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches:  [ "master", * ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: "00 03 * * 1" # At 03:00 every Monday
+
+jobs:
+  analyze:
+    name: "Analyze"
+    runs-on: "ubuntu-latest"
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"] # Update this
+        # CodeQL currently supports ["cpp", "csharp", "go", "java", "javascript", "python"]
+        # CodeQL treats Java and Kotlin as parts of the same language, so to enable Kotlin support you should enable java as a language.
+
+    steps:
+      - name: "Checkout repository"
+        uses: "actions/checkout@v2"
+
+      - name: "Initialize CodeQL"
+        uses: "github/codeql-action/init@v1"
+        with:
+          languages: ${{ matrix.language }}
+
+      # Autobuild attempts to build any compiled languages in general C/C++, C#, or Java
+      # If this step fails, then you should remove it and add working build steps for your application instead
+      # You can remove this step for non-compiled languages like JavaScript
+      - name: "Autobuild"
+        uses: "github/codeql-action/autobuild@v2"
+
+      - name: "Perform CodeQL Analysis"
+        uses: "github/codeql-action/analyze@v2"
