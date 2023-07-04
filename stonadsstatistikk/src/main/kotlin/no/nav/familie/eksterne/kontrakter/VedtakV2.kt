@@ -48,14 +48,15 @@ data class Kompetanse(
     val barnsIdenter: List<String>,
     val fom: YearMonth,
     val tom: YearMonth?,
-    val sokersaktivitet: SøkersAktivitet? = null,
+    val sokersaktivitet: KompetanseAktivitet? = null,
     val sokersAktivitetsland: String? = null,
-    val annenForeldersAktivitet: AnnenForeldersAktivitet? = null,
+    val annenForeldersAktivitet: KompetanseAktivitet? = null,
     val annenForeldersAktivitetsland: String? = null,
     val barnetsBostedsland: String? = null,
-    val resultat: KompetanseResultat? = null
+    val resultat: KompetanseResultat? = null,
 )
 
+@Deprecated("Skal bruke KompetanseAktivitet")
 enum class SøkersAktivitet {
     @Deprecated("Skal bruke ARBEIDER. Siste melding sendt 2022-09-05 med offset 27648")
     ARBEIDER_I_NORGE,
@@ -83,12 +84,35 @@ enum class SøkersAktivitet {
     INAKTIV
 }
 
+@Deprecated("Skal bruke KompetanseAktivitet")
 enum class AnnenForeldersAktivitet {
     I_ARBEID,
     MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
     FORSIKRET_I_BOSTEDSLAND,
     MOTTAR_PENSJON,
     INAKTIV,
+    IKKE_AKTUELT,
+    UTSENDT_ARBEIDSTAKER
+}
+
+enum class KompetanseAktivitet(
+) {
+    ARBEIDER,
+    SELVSTENDIG_NÆRINGSDRIVENDE,
+    UTSENDT_ARBEIDSTAKER_FRA_NORGE,
+    MOTTAR_UFØRETRYGD,
+    ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
+    ARBEIDER_PÅ_NORSK_SOKKEL,
+    ARBEIDER_FOR_ET_NORSK_FLYSELSKAP,
+    ARBEIDER_VED_UTENLANDSK_UTENRIKSSTASJON,
+    MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
+    MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
+    MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
+    MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
+    MOTTAR_PENSJON,
+    INAKTIV,
+    I_ARBEID,
+    FORSIKRET_I_BOSTEDSLAND,
     IKKE_AKTUELT,
     UTSENDT_ARBEIDSTAKER
 }
