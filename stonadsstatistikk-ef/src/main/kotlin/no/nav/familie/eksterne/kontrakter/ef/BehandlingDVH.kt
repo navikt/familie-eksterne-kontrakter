@@ -83,7 +83,6 @@ data class VedtaksperiodeSkolepenger(
 
 data class UtgiftSkolepenger(
     val utgiftsdato: LocalDate,
-    val utgiftsbeløp: Int,
     val utbetaltBeløp: Int
 )
 
