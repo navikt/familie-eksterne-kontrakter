@@ -95,8 +95,7 @@ enum class AnnenForeldersAktivitet {
     UTSENDT_ARBEIDSTAKER
 }
 
-enum class KompetanseAktivitet(
-) {
+enum class KompetanseAktivitet() {
     ARBEIDER,
     SELVSTENDIG_NÆRINGSDRIVENDE,
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
@@ -114,7 +113,13 @@ enum class KompetanseAktivitet(
     I_ARBEID,
     FORSIKRET_I_BOSTEDSLAND,
     IKKE_AKTUELT,
-    UTSENDT_ARBEIDSTAKER
+    UTSENDT_ARBEIDSTAKER,
+
+    @Deprecated("Skal bruke ARBEIDER. Siste melding sendt 2022-09-05 med offset 27648")
+    ARBEIDER_I_NORGE,
+
+    @Deprecated("Skal bruke MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN, Sist sendt 2022-08-04 med offset 18122")
+    MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN,
 }
 
 enum class KompetanseResultat {
