@@ -54,6 +54,7 @@ data class Kompetanse(
     val annenForeldersAktivitetsland: String? = null,
     val barnetsBostedsland: String? = null,
     val resultat: KompetanseResultat? = null,
+    val annenForelderOmfattetAvNorskLovgivning: Boolean? = false,
 )
 
 @Deprecated("Skal bruke KompetanseAktivitet")
