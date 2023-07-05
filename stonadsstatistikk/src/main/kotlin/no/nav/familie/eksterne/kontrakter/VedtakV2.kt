@@ -96,7 +96,7 @@ enum class AnnenForeldersAktivitet {
     UTSENDT_ARBEIDSTAKER
 }
 
-enum class KompetanseAktivitet() {
+enum class KompetanseAktivitet {
     ARBEIDER,
     SELVSTENDIG_NÆRINGSDRIVENDE,
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
