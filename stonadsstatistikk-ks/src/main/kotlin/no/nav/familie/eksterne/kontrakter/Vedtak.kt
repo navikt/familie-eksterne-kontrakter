@@ -43,6 +43,9 @@ data class PersonDVH(
 data class VilkårResultat(
     var resultat: Resultat,
     val antallTimer: BigDecimal? = null,
+    val periodeFom: LocalDate? = null,
+    val periodeTom: LocalDate? = null,
+    val ident: String? = null,
     val vilkårType: Vilkår
 )
 
