@@ -1,5 +1,6 @@
 package no.nav.familie.eksterne.kontrakter
 
+import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.ZonedDateTime
 
@@ -13,6 +14,7 @@ data class VedtakDVH(
     val utbetalingsperioder: List<UtbetalingsperiodeDVH>,
     val funksjonellId: String,
     val behandlingÅrsak: BehandlingÅrsak,
+    val vilkårResultater: List<VilkårResultat>? = emptyList(),
 )
 
 data class UtbetalingsperiodeDVH(
@@ -36,6 +38,15 @@ data class PersonDVH(
     val statsborgerskap: List<String>,
     val bostedsland: String,
     val delingsprosentYtelse: Int
+)
+
+data class VilkårResultat(
+    var resultat: Resultat,
+    val antallTimer: BigDecimal? = null,
+    val periodeFom: LocalDate? = null,
+    val periodeTom: LocalDate? = null,
+    val ident: String? = null,
+    val vilkårType: Vilkår
 )
 
 enum class SøkersAktivitet {
@@ -85,4 +96,65 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
 enum class Kategori {
     EØS,
     NASJONAL
+}
+
+enum class Resultat {
+    OPPFYLT,
+    IKKE_AKTUELT,
+    IKKE_OPPFYLT,
+    IKKE_VURDERT
+}
+
+enum class Vilkår(
+    val parterDetteGjelderFor: List<PersonType>,
+    val ytelseType: YtelseType,
+    val beskrivelse: String,
+    val harRegelverk: Boolean
+) {
+
+    BOSATT_I_RIKET(
+        parterDetteGjelderFor = listOf(PersonType.SØKER, PersonType.BARN),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Bosatt i riket",
+        harRegelverk = true
+    ),
+    MEDLEMSKAP(
+        parterDetteGjelderFor = listOf(PersonType.SØKER),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Medlemskap",
+        harRegelverk = true
+    ),
+    BARNEHAGEPLASS(
+        parterDetteGjelderFor = listOf(PersonType.BARN),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Barnehageplass",
+        harRegelverk = false
+    ),
+    MEDLEMSKAP_ANNEN_FORELDER(
+        parterDetteGjelderFor = listOf(PersonType.BARN),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Medlemskap annen forelder",
+        harRegelverk = true
+    ),
+    BOR_MED_SØKER(
+        parterDetteGjelderFor = listOf(PersonType.BARN),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Bor fast hos søker",
+        harRegelverk = true
+    ),
+    BARNETS_ALDER(
+        parterDetteGjelderFor = listOf(PersonType.BARN),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Mellom 1 og 2 år eller adoptert",
+        harRegelverk = false
+    );
+
+    enum class PersonType {
+        SØKER,
+        BARN,
+    }
+
+    enum class YtelseType(val klassifisering: String) {
+        ORDINÆR_KONTANTSTØTTE("KS"), // TODO verdien må avklares med økonomi
+    }
 }

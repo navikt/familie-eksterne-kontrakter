@@ -115,7 +115,8 @@ enum class BehandlingÅrsak {
     G_OMREGNING,
     KORRIGERING_UTEN_BREV,
     PAPIRSØKNAD,
-    SATSENDRING
+    SATSENDRING,
+    MANUELT_OPPRETTET
 }
 
 enum class Vedtak {
