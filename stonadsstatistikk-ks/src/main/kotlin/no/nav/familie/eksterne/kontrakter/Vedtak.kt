@@ -22,14 +22,14 @@ data class UtbetalingsperiodeDVH(
     val utbetaltPerMnd: Int,
     val stønadFom: LocalDate,
     val stønadTom: LocalDate,
-    val utbetalingsDetaljer: List<UtbetalingsDetaljDVH>
+    val utbetalingsDetaljer: List<UtbetalingsDetaljDVH>,
 )
 
 data class UtbetalingsDetaljDVH(
     val person: PersonDVH,
     val klassekode: String,
     val utbetaltPrMnd: Int,
-    val delytelseId: String
+    val delytelseId: String,
 )
 
 data class PersonDVH(
@@ -37,7 +37,7 @@ data class PersonDVH(
     val rolle: String,
     val statsborgerskap: List<String>,
     val bostedsland: String,
-    val delingsprosentYtelse: Int
+    val delingsprosentYtelse: Int,
 )
 
 data class VilkårResultat(
@@ -46,7 +46,7 @@ data class VilkårResultat(
     val periodeFom: LocalDate? = null,
     val periodeTom: LocalDate? = null,
     val ident: String? = null,
-    val vilkårType: Vilkår
+    val vilkårType: Vilkår,
 )
 
 enum class SøkersAktivitet {
@@ -63,7 +63,7 @@ enum class SøkersAktivitet {
     MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    INAKTIV
+    INAKTIV,
 }
 
 enum class AnnenForeldersAktivitet {
@@ -72,13 +72,13 @@ enum class AnnenForeldersAktivitet {
     FORSIKRET_I_BOSTEDSLAND,
     MOTTAR_PENSJON,
     INAKTIV,
-    IKKE_AKTUELT
+    IKKE_AKTUELT,
 }
 
 enum class BehandlingType(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
-    TEKNISK_ENDRING("Teknisk endring")
+    TEKNISK_ENDRING("Teknisk endring"),
 }
 
 enum class BehandlingÅrsak(val visningsnavn: String) {
@@ -95,59 +95,74 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
 
 enum class Kategori {
     EØS,
-    NASJONAL
+    NASJONAL,
 }
 
 enum class Resultat {
     OPPFYLT,
     IKKE_AKTUELT,
     IKKE_OPPFYLT,
-    IKKE_VURDERT
+    IKKE_VURDERT,
 }
 
 enum class Vilkår(
     val parterDetteGjelderFor: List<PersonType>,
     val ytelseType: YtelseType,
     val beskrivelse: String,
-    val harRegelverk: Boolean
+    val harRegelverk: Boolean,
+    val eøsSpesifikt: Boolean,
 ) {
 
     BOSATT_I_RIKET(
         parterDetteGjelderFor = listOf(PersonType.SØKER, PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Bosatt i riket",
-        harRegelverk = true
+        harRegelverk = true,
+        eøsSpesifikt = false,
+    ),
+    LOVLIG_OPPHOLD(
+        parterDetteGjelderFor = listOf(PersonType.SØKER),
+        ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
+        beskrivelse = "Lovlig opphold",
+        harRegelverk = false,
+        eøsSpesifikt = true,
     ),
     MEDLEMSKAP(
         parterDetteGjelderFor = listOf(PersonType.SØKER),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Medlemskap",
-        harRegelverk = true
+        harRegelverk = true,
+        eøsSpesifikt = false,
     ),
     BARNEHAGEPLASS(
         parterDetteGjelderFor = listOf(PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Barnehageplass",
-        harRegelverk = false
+        harRegelverk = false,
+        eøsSpesifikt = false,
     ),
     MEDLEMSKAP_ANNEN_FORELDER(
         parterDetteGjelderFor = listOf(PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Medlemskap annen forelder",
-        harRegelverk = true
+        harRegelverk = true,
+        eøsSpesifikt = false,
     ),
     BOR_MED_SØKER(
         parterDetteGjelderFor = listOf(PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Bor fast hos søker",
-        harRegelverk = true
+        harRegelverk = true,
+        eøsSpesifikt = false,
     ),
     BARNETS_ALDER(
         parterDetteGjelderFor = listOf(PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
         beskrivelse = "Mellom 1 og 2 år eller adoptert",
-        harRegelverk = false
-    );
+        harRegelverk = false,
+        eøsSpesifikt = false,
+    ),
+    ;
 
     enum class PersonType {
         SØKER,
