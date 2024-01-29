@@ -2,6 +2,7 @@ package no.nav.familie.eksterne.kontrakter
 
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.YearMonth
 import java.time.ZonedDateTime
 
 data class VedtakDVH(
@@ -12,6 +13,7 @@ data class VedtakDVH(
     val kategori: Kategori,
     val behandlingType: BehandlingType,
     val utbetalingsperioder: List<UtbetalingsperiodeDVH>,
+    val kompetanseperioder: List<Kompetanse>? = null,
     val funksjonellId: String,
     val behandlingÅrsak: BehandlingÅrsak,
     val vilkårResultater: List<VilkårResultat>? = emptyList(),
@@ -49,13 +51,24 @@ data class VilkårResultat(
     val vilkårType: Vilkår,
 )
 
-enum class SøkersAktivitet {
+data class Kompetanse(
+    val barnsIdenter: List<String>,
+    val fom: YearMonth,
+    val tom: YearMonth?,
+    val sokersaktivitet: KompetanseAktivitet? = null,
+    val sokersAktivitetsland: String? = null,
+    val annenForeldersAktivitet: KompetanseAktivitet? = null,
+    val annenForeldersAktivitetsland: String? = null,
+    val barnetsBostedsland: String? = null,
+    val resultat: KompetanseResultat? = null,
+    val annenForelderOmfattetAvNorskLovgivning: Boolean? = false,
+)
+
+enum class KompetanseAktivitet {
     ARBEIDER,
     SELVSTENDIG_NÆRINGSDRIVENDE,
-    MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
     UTSENDT_ARBEIDSTAKER_FRA_NORGE,
     MOTTAR_UFØRETRYGD,
-    MOTTAR_PENSJON,
     ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
     ARBEIDER_PÅ_NORSK_SOKKEL,
     ARBEIDER_FOR_ET_NORSK_FLYSELSKAP,
@@ -63,18 +76,20 @@ enum class SøkersAktivitet {
     MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    INAKTIV,
-}
-
-enum class AnnenForeldersAktivitet {
-    I_ARBEID,
     MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
-    FORSIKRET_I_BOSTEDSLAND,
     MOTTAR_PENSJON,
     INAKTIV,
+    I_ARBEID,
+    FORSIKRET_I_BOSTEDSLAND,
     IKKE_AKTUELT,
+    UTSENDT_ARBEIDSTAKER,
 }
 
+enum class KompetanseResultat {
+    NORGE_ER_PRIMÆRLAND,
+    NORGE_ER_SEKUNDÆRLAND,
+    TO_PRIMÆRLAND
+}
 enum class BehandlingType(val visningsnavn: String) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
