@@ -55,7 +55,7 @@ data class Kompetanse(
     val barnsIdenter: List<String>,
     val fom: YearMonth,
     val tom: YearMonth?,
-    val sokersaktivitet: KompetanseAktivitet? = null,
+    val kompetanseAktivitet: KompetanseAktivitet? = null,
     val sokersAktivitetsland: String? = null,
     val annenForeldersAktivitet: KompetanseAktivitet? = null,
     val annenForeldersAktivitetsland: String? = null,
