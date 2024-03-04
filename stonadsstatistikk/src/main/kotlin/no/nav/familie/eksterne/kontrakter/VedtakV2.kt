@@ -145,10 +145,11 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
     OMREGNING_18ÅR("Omregning 18 år"),
     OMREGNING_SMÅBARNSTILLEGG("Omregning småbarnstillegg"),
     SMÅBARNSTILLEGG("Småbarnstillegg"),
+    SMÅBARNSTILLEGG_ENDRING_FRAM_I_TID("Småbarnstillegg endring fram i tid"),
     MIGRERING("Migrering"),
     SATSENDRING("Satsendring"),
     ENDRE_MIGRERINGSDATO("Endre migreringsdato"),
-    HELMANUELL_MIGRERING("Manuell migrering")
+    HELMANUELL_MIGRERING("Manuell migrering"),
 }
 
 enum class KategoriV2 {
