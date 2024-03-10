@@ -150,6 +150,7 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
     SATSENDRING("Satsendring"),
     ENDRE_MIGRERINGSDATO("Endre migreringsdato"),
     HELMANUELL_MIGRERING("Manuell migrering"),
+    MÅNEDLIG_VALUTAJUSTERING("Månedlig valutajustering"),
 }
 
 enum class KategoriV2 {
