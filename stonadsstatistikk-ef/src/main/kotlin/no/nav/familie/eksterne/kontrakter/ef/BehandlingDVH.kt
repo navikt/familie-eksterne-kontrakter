@@ -25,7 +25,8 @@ data class VedtakOvergangsstønadDVH(
     val stønadstype: StønadType,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
-    val avslagÅrsak: String? = null // F.eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
+    val avslagÅrsak: String? = null, // F.eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
+    val eøsUnntak: EøsUnntak? = null
 )
 
 data class VedtakBarnetilsynDVH(
@@ -49,7 +50,8 @@ data class VedtakBarnetilsynDVH(
     val perioderTilleggsstønad: List<PeriodeMedBeløp>,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
-    val avslagÅrsak: String? = null
+    val avslagÅrsak: String? = null,
+    val eøsUnntak: EøsUnntak? = null
 )
 
 data class VedtakSkolepenger(
@@ -71,7 +73,8 @@ data class VedtakSkolepenger(
     val stønadstype: StønadType,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
-    val avslagÅrsak: String? = null
+    val avslagÅrsak: String? = null,
+    val eøsUnntak: EøsUnntak? = null
 )
 
 data class VedtaksperiodeSkolepenger(
@@ -261,4 +264,10 @@ enum class StønadType {
 data class ÅrsakRevurdering(
     val opplysningskilde: String,
     val årsak: String
+)
+
+data class EøsUnntak(
+    val medlemMerEnn5ÅrEøs: Boolean,
+    val medlemMerEnn5ÅrEøsAnnenForelderTrygdedekketINorge: Boolean,
+    val oppholderSegIAnnetEøsLand: Boolean
 )
