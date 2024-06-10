@@ -1,0 +1,63 @@
+name: 'Remove Old Images'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2-5 * * *'
+
+jobs:
+  remove-images:
+    name: 'Remove old images job'
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.stonadsstatistikk'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.saksstatistikk'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.bisys'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.skatteetaten'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.stonadsstatistikk-ks'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.saksstatistikk-klage'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.stonadsstatistikk-ef'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.saksstatistikk-ef'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.arbeidsoppfolging'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.eksterne.kontrakter.eksterne-kontrakter-bom'
+          package-type: 'container'
+          min-versions-to-keep: 1
