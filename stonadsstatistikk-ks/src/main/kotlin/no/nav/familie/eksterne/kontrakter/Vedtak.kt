@@ -107,6 +107,7 @@ enum class BehandlingÅrsak(val visningsnavn: String) {
     SATSENDRING("Satsendring"),
     BARNEHAGELISTE("Barnehageliste"),
     LOVENDRING_2024("Lovendring 2024"),
+    IVERKSETTE_KA_VEDTAK("Iverksette KA-vedtak"),
 }
 
 enum class Kategori {
