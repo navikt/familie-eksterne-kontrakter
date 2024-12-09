@@ -151,8 +151,8 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
     ENDRE_MIGRERINGSDATO("Endre migreringsdato"),
     HELMANUELL_MIGRERING("Manuell migrering"),
     MÅNEDLIG_VALUTAJUSTERING("Månedlig valutajustering"),
-    NY_UTVIDET_KLASSEKODE("Ny utvidet klassekode"),
     IVERKSETTE_KA_VEDTAK("Iverksette KA-vedtak"),
+    OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode")
 }
 
 enum class KategoriV2 {
