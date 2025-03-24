@@ -120,7 +120,8 @@ enum class BehandlingÅrsak {
     IVERKSETTE_KA_VEDTAK,
     PAPIRSØKNAD,
     SATSENDRING,
-    MANUELT_OPPRETTET
+    MANUELT_OPPRETTET,
+    AUTOMATISK_INNTEKTSENDRING
 }
 
 enum class Vedtak {
