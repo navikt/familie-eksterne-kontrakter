@@ -12,6 +12,7 @@ data class BehandlingDVH(
     val funksjonellId: String,
     val behandlingId: String,
     val relatertBehandlingId: String? = null,
+    val relatertBehandlingFagsystem: String? = null,
     val sakId: String,
     val vedtakId: String? = null,
     val behandlingType: String,
