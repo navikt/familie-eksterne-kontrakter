@@ -169,7 +169,8 @@ enum class UnderkategoriV2 {
 enum class FagsakType {
     NORMAL,
     BARN_ENSLIG_MINDREÅRIG,
-    INSTITUSJON
+    INSTITUSJON,
+    SKJERMET_BARN,
 }
 
 enum class YtelseType {
