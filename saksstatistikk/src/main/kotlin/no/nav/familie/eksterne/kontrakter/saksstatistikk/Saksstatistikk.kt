@@ -48,7 +48,7 @@ data class ResultatBegrunnelseDVH(
     val fom: LocalDate? = null,
     val tom: LocalDate? = null,
     val type: String,
-    val vedtakBegrunnelse: String
+    val vedtakBegrunnelse: String,
 )
 
 data class SakDVH(
@@ -63,13 +63,13 @@ data class SakDVH(
     val sakStatus: String,
     val avsender: String,
     val versjon: String,
-    val ytelseType: String = "BARNETRYGD"
+    val ytelseType: String = "BARNETRYGD",
 )
 
 data class AktørDVH(
     val aktorId: Long,
     val rolle: String,
-    val rolleBeskrivelse: String? = null
+    val rolleBeskrivelse: String? = null,
 )
 
 data class SettPåVent(

@@ -8,10 +8,8 @@ import javax.validation.constraints.NotNull
  * @param identer Liste over fødselsnumre det ønskes opplysninger om.
  */
 data class SkatteetatenPerioderRequest(
-
     @get:NotNull
     @field:JsonProperty("aar") val aar: String,
-
     @get:NotNull
-    @field:JsonProperty("identer") val identer: List<String>
+    @field:JsonProperty("identer") val identer: List<String>,
 )

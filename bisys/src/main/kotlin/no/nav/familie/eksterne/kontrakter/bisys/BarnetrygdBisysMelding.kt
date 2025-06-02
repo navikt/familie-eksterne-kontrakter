@@ -15,5 +15,5 @@ data class BarnEndretOpplysning(
 
 data class BarnetrygdBisysMelding(
     val søker: String,
-    val barn: List<BarnEndretOpplysning>
+    val barn: List<BarnEndretOpplysning>,
 )

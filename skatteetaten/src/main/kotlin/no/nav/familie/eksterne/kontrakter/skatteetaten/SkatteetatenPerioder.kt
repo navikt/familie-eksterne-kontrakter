@@ -12,14 +12,11 @@ import javax.validation.constraints.NotNull
  * @param perioder
  */
 data class SkatteetatenPerioder(
-
     @get:NotNull
     @field:JsonProperty("ident") val ident: String,
-
     @get:NotNull
     @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: LocalDateTime,
-
     @get:NotNull
     @field:Valid
-    @field:JsonProperty("perioder") val perioder: List<SkatteetatenPeriode>
+    @field:JsonProperty("perioder") val perioder: List<SkatteetatenPeriode>,
 )

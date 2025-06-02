@@ -10,10 +10,8 @@ import java.time.LocalDate
 import java.time.ZonedDateTime
 
 internal class BehandlingDVHTest {
-
     @Test
     fun `serialiser og deserialiser, forvent ingen unntak`() {
-
         val mapper = ObjectMapper().registerModule(KotlinModule())
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
@@ -21,8 +19,8 @@ internal class BehandlingDVHTest {
         mapper.readValue<BehandlingDVH>(json)
     }
 
-    private fun opprettBehandlingstatistikk(): BehandlingDVH {
-        return BehandlingDVH(
+    private fun opprettBehandlingstatistikk(): BehandlingDVH =
+        BehandlingDVH(
             behandlingId = 123L,
             personIdent = "persinIdent",
             saksbehandler = "gjeldendeSaksbehandlerId",
@@ -43,7 +41,6 @@ internal class BehandlingDVHTest {
             sakId = 321L,
             kravMottatt = LocalDate.now(),
             revurderingÅrsak = "ENDRING_I_INNTEKT",
-            revurderingOpplysningskilde = "MODIA"
+            revurderingOpplysningskilde = "MODIA",
         )
-    }
 }
