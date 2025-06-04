@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.ZonedDateTime
 import java.util.UUID
 
+@Suppress("ktlint:standard:max-line-length")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class BehandlingsstatistikkKlage(
     val behandlingId: UUID, // Fagsystemets eksterne behandlings-ID

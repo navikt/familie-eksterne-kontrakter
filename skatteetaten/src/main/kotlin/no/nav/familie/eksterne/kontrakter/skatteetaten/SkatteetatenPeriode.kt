@@ -10,24 +10,25 @@ import javax.validation.constraints.NotNull
  * @param tomMaaned Den siste måneden i perioden
  */
 data class SkatteetatenPeriode(
-
     @get:NotNull @field:JsonProperty("fraMaaned") val fraMaaned: String,
-
     @get:NotNull @field:JsonProperty("delingsprosent") val delingsprosent: Delingsprosent,
-
-    @field:JsonProperty("tomMaaned") val tomMaaned: String? = null
+    @field:JsonProperty("tomMaaned") val tomMaaned: String? = null,
 ) {
-
     /**
      * For perioder som løper i nytt fagsystem, vil \"delingsprosent\" alltid være \"0\" eller \"50\". \"usikker\" tilsvarer kode \"3\" i gammelt fagsystem
      * Values: _0,_50,usikker
      */
-    enum class Delingsprosent(val value: String) {
+    @Suppress("ktlint:standard:enum-entry-name-case") // Ønsker ikke endre på kontrakten for å gjøre uppercase
+    enum class Delingsprosent(
+        val value: String,
+    ) {
+        @JsonProperty("0")
+        _0("0"),
 
-        @JsonProperty("0") _0("0"),
+        @JsonProperty("50")
+        _50("50"),
 
-        @JsonProperty("50") _50("50"),
-
-        @JsonProperty("usikker") usikker("usikker");
+        @JsonProperty("usikker")
+        usikker("usikker"),
     }
 }

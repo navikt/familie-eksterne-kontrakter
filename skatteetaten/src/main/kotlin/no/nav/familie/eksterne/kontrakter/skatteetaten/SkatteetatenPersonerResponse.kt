@@ -8,7 +8,6 @@ import javax.validation.Valid
  * @param brukere
  */
 data class SkatteetatenPersonerResponse(
-
     @field:Valid
-    @field:JsonProperty("brukere") val brukere: List<SkatteetatenPerson> = emptyList()
+    @field:JsonProperty("brukere") val brukere: List<SkatteetatenPerson> = emptyList(),
 )

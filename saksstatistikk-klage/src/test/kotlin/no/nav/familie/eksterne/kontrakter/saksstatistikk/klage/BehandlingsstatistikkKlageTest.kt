@@ -10,10 +10,8 @@ import java.time.ZonedDateTime
 import java.util.UUID
 
 internal class BehandlingsstatistikkKlageTest {
-
     @Test
     fun `serialiser og deserialiser, forvent ingen unntak`() {
-
         val mapper = ObjectMapper().registerModule(KotlinModule())
         mapper.registerModule(JavaTimeModule())
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
@@ -21,8 +19,8 @@ internal class BehandlingsstatistikkKlageTest {
         mapper.readValue<BehandlingsstatistikkKlage>(json)
     }
 
-    private fun opprettBehandlingstatistikk(): BehandlingsstatistikkKlage {
-        return BehandlingsstatistikkKlage(
+    private fun opprettBehandlingstatistikk(): BehandlingsstatistikkKlage =
+        BehandlingsstatistikkKlage(
             behandlingId = UUID.randomUUID(),
             behandlingType = "Klage",
             fagsystem = "EF",
@@ -40,7 +38,6 @@ internal class BehandlingsstatistikkKlageTest {
             mottattTid = ZonedDateTime.now(),
             behandlingMetode = "MANUELL",
             avsender = "NAV Enslig forelder",
-            relatertEksternBehandlingId = "1"
+            relatertEksternBehandlingId = "1",
         )
-    }
 }

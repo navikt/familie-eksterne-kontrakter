@@ -10,10 +10,8 @@ import javax.validation.constraints.NotNull
  * @param sisteVedtakPaaIdent Tidspunkt for siste vedtak (systemtidspunkt)
  */
 data class SkatteetatenPerson(
-
     @get:NotNull
     @field:JsonProperty("ident") val ident: String,
-
     @get:NotNull
-    @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: LocalDateTime
+    @field:JsonProperty("sisteVedtakPaaIdent") val sisteVedtakPaaIdent: LocalDateTime,
 )

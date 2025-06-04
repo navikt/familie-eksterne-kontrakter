@@ -17,7 +17,7 @@ data class VedtakDVHV2(
     val kompetanseperioder: List<Kompetanse>? = null,
     val funksjonellId: String,
     val behandlingÅrsakV2: BehandlingÅrsakV2,
-    val fagsakType: FagsakType? = null
+    val fagsakType: FagsakType? = null,
 )
 
 data class UtbetalingsperiodeDVHV2(
@@ -25,7 +25,7 @@ data class UtbetalingsperiodeDVHV2(
     val utbetaltPerMnd: Int,
     val stønadFom: LocalDate,
     val stønadTom: LocalDate,
-    val utbetalingsDetaljer: List<UtbetalingsDetaljDVHV2>
+    val utbetalingsDetaljer: List<UtbetalingsDetaljDVHV2>,
 )
 
 data class UtbetalingsDetaljDVHV2(
@@ -33,7 +33,7 @@ data class UtbetalingsDetaljDVHV2(
     val klassekode: String,
     val utbetaltPrMnd: Int,
     val delytelseId: String,
-    val ytelseType: YtelseType?
+    val ytelseType: YtelseType?,
 )
 
 data class PersonDVHV2(
@@ -41,7 +41,7 @@ data class PersonDVHV2(
     val rolle: String,
     val statsborgerskap: List<String>,
     val bostedsland: String,
-    val delingsprosentYtelse: Int
+    val delingsprosentYtelse: Int,
 )
 
 data class Kompetanse(
@@ -82,7 +82,7 @@ enum class SøkersAktivitet {
     MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
     MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    INAKTIV
+    INAKTIV,
 }
 
 @Deprecated("Skal bruke KompetanseAktivitet")
@@ -93,7 +93,7 @@ enum class AnnenForeldersAktivitet {
     MOTTAR_PENSJON,
     INAKTIV,
     IKKE_AKTUELT,
-    UTSENDT_ARBEIDSTAKER
+    UTSENDT_ARBEIDSTAKER,
 }
 
 enum class KompetanseAktivitet {
@@ -120,19 +120,22 @@ enum class KompetanseAktivitet {
 enum class KompetanseResultat {
     NORGE_ER_PRIMÆRLAND,
     NORGE_ER_SEKUNDÆRLAND,
-    TO_PRIMÆRLAND
+    TO_PRIMÆRLAND,
 }
 
-enum class BehandlingTypeV2(val visningsnavn: String) {
+enum class BehandlingTypeV2(
+    val visningsnavn: String,
+) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
     MIGRERING_FRA_INFOTRYGD("Migrering fra infotrygd"),
     MIGRERING_FRA_INFOTRYGD_OPPHØRT("Opphør migrering fra infotrygd"),
-    TEKNISK_ENDRING("Teknisk endring")
+    TEKNISK_ENDRING("Teknisk endring"),
 }
 
-enum class BehandlingÅrsakV2(val visningsnavn: String) {
-
+enum class BehandlingÅrsakV2(
+    val visningsnavn: String,
+) {
     SØKNAD("Søknad"),
     FØDSELSHENDELSE("Fødselshendelse"),
     ÅRLIG_KONTROLL("Årsak kontroll"),
@@ -152,18 +155,18 @@ enum class BehandlingÅrsakV2(val visningsnavn: String) {
     HELMANUELL_MIGRERING("Manuell migrering"),
     MÅNEDLIG_VALUTAJUSTERING("Månedlig valutajustering"),
     IVERKSETTE_KA_VEDTAK("Iverksette KA-vedtak"),
-    OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode")
+    OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode"),
 }
 
 enum class KategoriV2 {
     EØS,
-    NASJONAL
+    NASJONAL,
 }
 
 enum class UnderkategoriV2 {
     UTVIDET,
     ORDINÆR,
-    INSTITUSJON
+    INSTITUSJON,
 }
 
 enum class FagsakType {
@@ -177,5 +180,5 @@ enum class YtelseType {
     ORDINÆR_BARNETRYGD,
     UTVIDET_BARNETRYGD,
     SMÅBARNSTILLEGG,
-    MANUELL_VURDERING
+    MANUELL_VURDERING,
 }

@@ -6,6 +6,7 @@ import java.time.ZonedDateTime
 @Deprecated("Bruk BehandlingOvergangsstønadDVH")
 typealias BehandlingDVH = VedtakOvergangsstønadDVH
 
+@Suppress("ktlint:standard:max-line-length")
 data class VedtakOvergangsstønadDVH(
     val fagsakId: Long, // Ekstern fagsakId
     val behandlingId: Long, // Ekstern behandlingId
@@ -26,7 +27,7 @@ data class VedtakOvergangsstønadDVH(
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
     val avslagÅrsak: String? = null, // F.eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
-    val eøsUnntak: EøsUnntak? = null
+    val eøsUnntak: EøsUnntak? = null,
 )
 
 data class VedtakBarnetilsynDVH(
@@ -51,7 +52,7 @@ data class VedtakBarnetilsynDVH(
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
     val avslagÅrsak: String? = null,
-    val eøsUnntak: EøsUnntak? = null
+    val eøsUnntak: EøsUnntak? = null,
 )
 
 data class VedtakSkolepenger(
@@ -74,26 +75,26 @@ data class VedtakSkolepenger(
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurdering? = null,
     val avslagÅrsak: String? = null,
-    val eøsUnntak: EøsUnntak? = null
+    val eøsUnntak: EøsUnntak? = null,
 )
 
 data class VedtaksperiodeSkolepenger(
     val skoleår: Int, // 2021 = Skoleåret 2021/2022
     val perioder: List<Delårsperiode>, // Det er mulig med flere studieperioder innenfor samme skoleår
     val utgifter: List<UtgiftSkolepenger>,
-    val maksSatsForSkoleår: Int
+    val maksSatsForSkoleår: Int,
 )
 
 data class UtgiftSkolepenger(
     val utgiftsdato: LocalDate,
-    val utbetaltBeløp: Int
+    val utbetaltBeløp: Int,
 )
 
 data class Delårsperiode(
     val studietype: Studietype,
     val datoFra: LocalDate,
     val datoTil: LocalDate,
-    val studiebelastning: Int
+    val studiebelastning: Int,
 )
 
 enum class Studietype {
@@ -106,7 +107,7 @@ enum class BehandlingType {
     REVURDERING, // Inkluderer opphør
     KLAGE,
     MIGRERING_FRA_INFOTRYGD,
-    TILBAKEFØRING_TIL_INFOTRYGD
+    TILBAKEFØRING_TIL_INFOTRYGD,
 }
 
 enum class BehandlingÅrsak {
@@ -121,25 +122,30 @@ enum class BehandlingÅrsak {
     PAPIRSØKNAD,
     SATSENDRING,
     MANUELT_OPPRETTET,
-    AUTOMATISK_INNTEKTSENDRING
+    AUTOMATISK_INNTEKTSENDRING,
 }
 
 enum class Vedtak {
     INNVILGET,
     OPPHØRT,
-    AVSLÅTT
+    AVSLÅTT,
 }
 
 enum class Adressebeskyttelse {
     STRENGT_FORTROLIG,
     STRENGT_FORTROLIG_UTLAND,
     FORTROLIG,
-    UGRADERT
+    UGRADERT,
 }
 
-data class Person(val personIdent: String? = null)
+data class Person(
+    val personIdent: String? = null,
+)
 
-data class Barn(val personIdent: String? = null, val termindato: LocalDate? = null)
+data class Barn(
+    val personIdent: String? = null,
+    val termindato: LocalDate? = null,
+)
 
 data class Utbetaling(
     val beløp: Int,
@@ -148,18 +154,18 @@ data class Utbetaling(
     val inntektsreduksjon: Int,
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
-    val utbetalingsdetalj: Utbetalingsdetalj
+    val utbetalingsdetalj: Utbetalingsdetalj,
 )
 
 data class Utbetalingsdetalj(
     val gjelderPerson: Person,
     val klassekode: String, // Identifiserer detaljert stønadstype i oppdragsystemet: "EFOG", "EFBT" og "EFSP"
-    val delytelseId: String
+    val delytelseId: String,
 ) // Identifiderer utbetalingen i oppdragssystemet
 
 data class VilkårsvurderingDto(
     val vilkår: Vilkår,
-    val resultat: Vilkårsresultat
+    val resultat: Vilkårsresultat,
 )
 
 enum class Vilkårsresultat {
@@ -168,7 +174,7 @@ enum class Vilkårsresultat {
     IKKE_OPPFYLT,
     IKKE_AKTUELL,
     IKKE_TATT_STILLING_TIL,
-    SKAL_IKKE_VURDERES;
+    SKAL_IKKE_VURDERES,
 }
 
 enum class Vilkår {
@@ -188,17 +194,20 @@ enum class Vilkår {
     DOKUMENTASJON_TILSYNSUTGIFTER,
     RETT_TIL_OVERGANGSSTØNAD,
     DOKUMENTASJON_AV_UTDANNING,
-    ER_UTDANNING_HENSIKTSMESSIG;
+    ER_UTDANNING_HENSIKTSMESSIG,
 }
 
 enum class AktivitetsvilkårBarnetilsyn {
     ER_I_ARBEID,
     ETABLERER_EGEN_VIRKSOMHET,
     HAR_FORBIGÅENDE_SYKDOM,
-    NEI
+    NEI,
 }
 
-data class Aktivitetskrav(val aktivitetspliktInntrefferDato: LocalDate?, val harSagtOppArbeidsforhold: Boolean?)
+data class Aktivitetskrav(
+    val aktivitetspliktInntrefferDato: LocalDate?,
+    val harSagtOppArbeidsforhold: Boolean?,
+)
 
 @Deprecated("Bruk VedtaksperiodeOvergangsstønadDto")
 typealias VedtaksperiodeDto = VedtaksperiodeOvergangsstønadDto
@@ -207,20 +216,20 @@ data class VedtaksperiodeOvergangsstønadDto(
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
     val aktivitet: AktivitetType,
-    val periodeType: VedtaksperiodeType
+    val periodeType: VedtaksperiodeType,
 )
 
 data class VedtaksperiodeBarnetilsynDto(
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
     val utgifter: Int,
-    val antallBarn: Int
+    val antallBarn: Int,
 )
 
 data class PeriodeMedBeløp(
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
-    val beløp: Int
+    val beløp: Int,
 )
 
 enum class VedtaksperiodeType {
@@ -230,7 +239,7 @@ enum class VedtaksperiodeType {
     SANKSJON,
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
-    NY_PERIODE_FOR_NYTT_BARN
+    NY_PERIODE_FOR_NYTT_BARN,
 }
 
 enum class AktivitetType {
@@ -259,16 +268,16 @@ enum class AktivitetType {
 enum class StønadType {
     OVERGANGSSTØNAD,
     BARNETILSYN,
-    SKOLEPENGER
+    SKOLEPENGER,
 }
 
 data class ÅrsakRevurdering(
     val opplysningskilde: String,
-    val årsak: String
+    val årsak: String,
 )
 
 data class EøsUnntak(
     val medlemMerEnn5ÅrEøs: Boolean,
     val medlemMerEnn5ÅrEøsAnnenForelderTrygdedekketINorge: Boolean,
-    val oppholderSegIAnnetEøsLand: Boolean
+    val oppholderSegIAnnetEøsLand: Boolean,
 )

@@ -88,15 +88,20 @@ enum class KompetanseAktivitet {
 enum class KompetanseResultat {
     NORGE_ER_PRIMÆRLAND,
     NORGE_ER_SEKUNDÆRLAND,
-    TO_PRIMÆRLAND
+    TO_PRIMÆRLAND,
 }
-enum class BehandlingType(val visningsnavn: String) {
+
+enum class BehandlingType(
+    val visningsnavn: String,
+) {
     FØRSTEGANGSBEHANDLING("Førstegangsbehandling"),
     REVURDERING("Revurdering"),
     TEKNISK_ENDRING("Teknisk endring"),
 }
 
-enum class BehandlingÅrsak(val visningsnavn: String) {
+enum class BehandlingÅrsak(
+    val visningsnavn: String,
+) {
     SØKNAD("Søknad"),
     ÅRLIG_KONTROLL("Årsak kontroll"),
     DØDSFALL("Dødsfall bruker"),
@@ -130,7 +135,6 @@ enum class Vilkår(
     val harRegelverk: Boolean,
     val eøsSpesifikt: Boolean,
 ) {
-
     BOSATT_I_RIKET(
         parterDetteGjelderFor = listOf(PersonType.SØKER, PersonType.BARN),
         ytelseType = YtelseType.ORDINÆR_KONTANTSTØTTE,
@@ -187,7 +191,9 @@ enum class Vilkår(
         BARN,
     }
 
-    enum class YtelseType(val klassifisering: String) {
+    enum class YtelseType(
+        val klassifisering: String,
+    ) {
         ORDINÆR_KONTANTSTØTTE("KS"), // TODO verdien må avklares med økonomi
     }
 }
