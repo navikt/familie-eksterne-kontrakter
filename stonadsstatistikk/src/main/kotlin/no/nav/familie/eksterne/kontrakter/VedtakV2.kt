@@ -156,6 +156,7 @@ enum class BehandlingÅrsakV2(
     MÅNEDLIG_VALUTAJUSTERING("Månedlig valutajustering"),
     IVERKSETTE_KA_VEDTAK("Iverksette KA-vedtak"),
     OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode"),
+    FINNMARKSTILLEGG("Finnmarkstillegg"),
 }
 
 enum class KategoriV2 {
