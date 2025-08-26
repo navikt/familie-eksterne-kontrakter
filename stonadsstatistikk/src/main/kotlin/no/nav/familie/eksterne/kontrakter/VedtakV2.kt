@@ -7,6 +7,7 @@ import java.time.ZonedDateTime
 data class VedtakDVHV2(
     val fagsakId: String,
     val behandlingsId: String,
+    val sisteIverksatteBehandlingId: String? = null,
     val tidspunktVedtak: ZonedDateTime,
     val personV2: PersonDVHV2,
     val ensligForsørger: Boolean,
@@ -56,45 +57,6 @@ data class Kompetanse(
     val resultat: KompetanseResultat? = null,
     val annenForelderOmfattetAvNorskLovgivning: Boolean? = false,
 )
-
-@Deprecated("Skal bruke KompetanseAktivitet")
-enum class SøkersAktivitet {
-    @Deprecated("Skal bruke ARBEIDER. Siste melding sendt 2022-09-05 med offset 27648")
-    ARBEIDER_I_NORGE,
-    ARBEIDER,
-
-    SELVSTENDIG_NÆRINGSDRIVENDE,
-
-    @Deprecated("Skal bruke MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN, Sist sendt 2022-08-04 med offset 18122")
-    MOTTAR_UTBETALING_FRA_NAV_SOM_ERSTATTER_LØNN,
-    MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
-
-    UTSENDT_ARBEIDSTAKER_FRA_NORGE,
-
-    MOTTAR_UFØRETRYGD,
-
-    MOTTAR_PENSJON,
-
-    ARBEIDER_PÅ_NORSKREGISTRERT_SKIP,
-    ARBEIDER_PÅ_NORSK_SOKKEL,
-    ARBEIDER_FOR_ET_NORSK_FLYSELSKAP,
-    ARBEIDER_VED_UTENLANDSK_UTENRIKSSTASJON,
-    MOTTAR_UTBETALING_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    MOTTAR_UFØRETRYGD_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    MOTTAR_PENSJON_FRA_NAV_UNDER_OPPHOLD_I_UTLANDET,
-    INAKTIV,
-}
-
-@Deprecated("Skal bruke KompetanseAktivitet")
-enum class AnnenForeldersAktivitet {
-    I_ARBEID,
-    MOTTAR_UTBETALING_SOM_ERSTATTER_LØNN,
-    FORSIKRET_I_BOSTEDSLAND,
-    MOTTAR_PENSJON,
-    INAKTIV,
-    IKKE_AKTUELT,
-    UTSENDT_ARBEIDSTAKER,
-}
 
 enum class KompetanseAktivitet {
     ARBEIDER,
