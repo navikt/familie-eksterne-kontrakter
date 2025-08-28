@@ -33,7 +33,7 @@ data class UtbetalingsDetaljDVHV2(
     val person: PersonDVHV2,
     val klassekode: String,
     val utbetaltPrMnd: Int,
-    val delytelseId: String,
+    val delytelseId: String?,
     val ytelseType: YtelseType?,
 )
 
