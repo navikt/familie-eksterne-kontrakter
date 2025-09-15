@@ -119,6 +119,7 @@ enum class BehandlingÅrsakV2(
     IVERKSETTE_KA_VEDTAK("Iverksette KA-vedtak"),
     OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode"),
     FINNMARKSTILLEGG("Finnmarkstillegg"),
+    SVALBARDTILLEGG("Svalbardtillegg"),
 }
 
 enum class KategoriV2 {
