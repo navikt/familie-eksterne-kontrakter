@@ -83,6 +83,7 @@ enum class KompetanseAktivitet {
     FORSIKRET_I_BOSTEDSLAND,
     IKKE_AKTUELT,
     UTSENDT_ARBEIDSTAKER,
+    NASJONAL_RETT_DIFFERANSEBEREGNING,
 }
 
 enum class KompetanseResultat {
