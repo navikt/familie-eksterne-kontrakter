@@ -34,12 +34,10 @@ jobs:
           echo "saksstatistikk-klage_rev=$(git rev-list -1 HEAD -- "saksstatistikk-klage")" >> $GITHUB_ENV
           echo "stonadsstatistikk_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk")" >> $GITHUB_ENV
           echo "stonadsstatistikk-ks_rev=$(git rev-list -1 HEAD -- "stonadsstatistikk-ks")" >> $GITHUB_ENV
-          echo "skatteetaten_rev=$(git rev-list -1 HEAD -- "skatteetaten")" >> $GITHUB_ENV
           echo "saksstatistikk $(git rev-list -1 HEAD -- "saksstatistikk")"
           echo "stonadsstatistikk $(git rev-list -1 HEAD -- "stonadsstatistikk")"
           echo "stonadsstatistikk-ks $(git rev-list -1 HEAD -- "stonadsstatistikk-ks")"
           echo "saksstatistikk-klage $(git rev-list -1 HEAD -- "saksstatistikk-klage")"
-          echo "skatteetaten $(git rev-list -1 HEAD -- "skatteetaten")"
           echo "bisys $(git rev-list -1 HEAD -- "bisys")"
           echo "bisys_rev=$(git rev-list -1 HEAD -- "bisys")" >> $GITHUB_ENV
           echo "arbeidsoppfolging $(git rev-list -1 HEAD -- "arbeidsoppfolging")"
@@ -104,13 +102,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.stonadsstatistikk_ef_rev == github.sha
         run: mvn --settings .github/maven-settings.xml -pl stonadsstatistikk-ef source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
-
-      - name: Deploy skatteetaten ved endring
-        env:
-          GITHUB_USERNAME: x-access-token
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.skatteetaten_rev == github.sha
-        run: mvn --settings .github/maven-settings.xml -pl skatteetaten source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
 
       - name: Deploy bisys ved endring
         env:
