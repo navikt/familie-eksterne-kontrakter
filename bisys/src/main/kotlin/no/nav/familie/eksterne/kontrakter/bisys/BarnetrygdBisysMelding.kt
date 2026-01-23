@@ -1,5 +1,6 @@
 package no.nav.familie.eksterne.kontrakter.bisys
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
 import java.time.YearMonth
 
 enum class BarnetrygdEndretType {
@@ -7,6 +8,7 @@ enum class BarnetrygdEndretType {
     RR, // Revurdering og Reduksjon
 }
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class BarnEndretOpplysning(
     val ident: String,
     val årsakskode: BarnetrygdEndretType,

@@ -89,7 +89,7 @@ enum class KompetanseResultat {
     NORGE_ER_PRIMÆRLAND,
     NORGE_ER_SEKUNDÆRLAND,
     TO_PRIMÆRLAND,
-    NASJONAL_RETT_DIFFERANSEBEREGNING
+    NASJONAL_RETT_DIFFERANSEBEREGNING,
 }
 
 enum class BehandlingType(
