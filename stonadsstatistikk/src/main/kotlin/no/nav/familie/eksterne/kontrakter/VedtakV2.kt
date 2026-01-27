@@ -121,6 +121,7 @@ enum class BehandlingÅrsakV2(
     OPPDATER_UTVIDET_KLASSEKODE("Oppdater utvidet klassekode"),
     FINNMARKSTILLEGG("Finnmarkstillegg"),
     SVALBARDTILLEGG("Svalbardtillegg"),
+    FALSK_IDENTITET("Falsk identitet"),
 }
 
 enum class KategoriV2 {
