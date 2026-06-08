@@ -43,6 +43,9 @@ enum class Periodetype {
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
     NY_PERIODE_FOR_NYTT_BARN,
+    BARN_UNDER_14_MÅNEDER,
+    SÆRLIG_TILSYNSKREVENDE_BARN,
+    FORBIGÅENDE_SYKDOM_HOS_BARNET,
 }
 
 enum class Aktivitetstype {
