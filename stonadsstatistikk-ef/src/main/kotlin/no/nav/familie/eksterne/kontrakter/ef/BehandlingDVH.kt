@@ -28,6 +28,7 @@ data class VedtakOvergangsstønadDVH(
     val årsakRevurdering: ÅrsakRevurdering? = null,
     val avslagÅrsak: String? = null, // F.eks: VILKÅR_IKKE_OPPFYLT, BARN_OVER_ÅTTE_ÅR, STØNADSTID_OPPBRUKT, MANGLENDE_OPPLYSNINGER, MINDRE_INNTEKTSENDRINGER
     val eøsUnntak: EøsUnntak? = null,
+    val erRegelEndring2026: Boolean = false,
 )
 
 data class VedtakBarnetilsynDVH(
