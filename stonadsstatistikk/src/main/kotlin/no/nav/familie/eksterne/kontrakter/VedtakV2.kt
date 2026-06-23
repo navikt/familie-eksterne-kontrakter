@@ -122,6 +122,7 @@ enum class BehandlingÅrsakV2(
     FINNMARKSTILLEGG("Finnmarkstillegg"),
     SVALBARDTILLEGG("Svalbardtillegg"),
     FALSK_IDENTITET("Falsk identitet"),
+    SATSENDRING_EØS("Satsendring EØS"),
 }
 
 enum class KategoriV2 {
