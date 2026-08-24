@@ -19,7 +19,7 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>2.4.10</kotlin.version>
-        <jackson.version>2.22.1</jackson.version>
+        <jackson.version>2.22.2</jackson.version>
         <jackson.annotation.version>2.22</jackson.annotation.version>
         <junit.version>4.13.2</junit.version>
     </properties>
