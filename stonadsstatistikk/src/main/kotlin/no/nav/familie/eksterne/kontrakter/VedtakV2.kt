@@ -123,6 +123,7 @@ enum class BehandlingÅrsakV2(
     SVALBARDTILLEGG("Svalbardtillegg"),
     FALSK_IDENTITET("Falsk identitet"),
     SATSENDRING_EØS("Satsendring EØS"),
+    AUTOMATISK_BEHANDLING_AV_SØKNAD("Automatisk behandling av søknad")
 }
 
 enum class KategoriV2 {
