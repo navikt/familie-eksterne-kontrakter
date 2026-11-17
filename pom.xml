@@ -19,8 +19,8 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>2.4.21</kotlin.version>
-        <jackson.version>2.22.4</jackson.version>
-        <jackson.annotation.version>2.22</jackson.annotation.version>
+        <jackson.version>2.23.0</jackson.version>
+        <jackson.annotation.version>2.23</jackson.annotation.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -159,7 +159,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>flatten-maven-plugin</artifactId>
-                    <version>1.8.0</version>
+                    <version>1.9.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
